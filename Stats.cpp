@@ -2,7 +2,7 @@
 
 
 
-Stats::Stats(Enemy *e, int hp, double att, double def, double wis, double intel)
+Stats::Stats(Enemy *e, int hp, int att, int def, int wis, int intel)
 {
 	this->eEnemy = e;
 	this->HP = hp;
@@ -20,7 +20,7 @@ double *Stats::getStats()
 
 
 
-void Stats::change(std::vector<Buffs> b, std::vector<double> changes)
+void Stats::change(std::vector<Buffs> b, std::vector<int> changes)
 {
 	try {
 
