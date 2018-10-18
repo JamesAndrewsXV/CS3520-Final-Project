@@ -3,10 +3,9 @@
 #define _ROOM_H
 #endif
 
-//#include "Map.h"
+
 #include <vector>
 #include <iostream>
-#include <random>
 #include <time.h>
 using namespace std;
 
@@ -29,19 +28,20 @@ public:
 	Room& operator=(Room&& other);
 
 	// adds up to four rooms to this room
-	void connectRooms();
+	void connectRoom(Room * room);
 
 	// if this room has loot add loot
 	void setLoot();
 
-	// prints "there's loot" if there is loot for now
+	// prints "there's loot" if there is loot for now -> testing
 	void printLoot();
 
-	// sets the map that this room exist in
-	//void setMap(Map * map);
+	// count adjacentRooms -> for testing!
+	void countAdjacentRooms();
+
 private:
 	// the (at most four) rooms bordering this room
-	vector<Room> adjacent_rooms;
+	vector<Room*> adjacentRooms;
 
 	// is there a random encounter in this room
 	bool encounter;
@@ -49,11 +49,8 @@ private:
 	// is there loot in this room
 	bool containLoot;
 
-	// the loot contained in the room
+	// the loot contained in the room -> placeholder
 	string loot;
-
-	// the map this room is a part of
-	//Map this_map;
 
 	// copies member variables of rooms
 	void copyfrom(Room other);

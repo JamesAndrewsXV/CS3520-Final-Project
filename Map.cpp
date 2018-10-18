@@ -1,59 +1,54 @@
 #include "Map.h"
-using namespace std;
 
 Map::Map(int numberOfRooms)
 {
-	for (int i = 0; i < numberOfRooms; i++) {
+	numOfRooms = numberOfRooms;
+	for (int i = 0; i < numOfRooms; i++) {
 		rooms.push_back(new Room());
 	}
 
 	firstRoom = rooms.front();
 	bossRoom = rooms.back();
-	//generateRooms(2); //should this differ based on the level?
 	playerLoc = firstRoom;
+	connectRooms();
 }
-
-// void Map::copyfrom(Map other) {
-// 	rooms = other.getRooms();
-// 	firstRoom = *(other.getRooms().at(0));
-// 	bossRoom = *(other.getRooms().at(other.getRooms().size() - 1));
-// }
-
-// Map::Map (const Map & other) {
-// 	copyfrom(other);
-// }
-
-// Map & Map::operator= (const Map & other) {
-// 	if (this != &other) {
-// 		copyfrom(other);
-// 	}
-// 	return *this;
-// }
 
 Room Map::findPlayer()
 {
 	return *playerLoc;
 }
 
-vector<Room*> Map::getRooms() {
+vector<Room *> Map::getRooms() {
 	return rooms;
 }
 
-// void Map::generateRooms(int numberOfRooms) {
-//   rooms.resize(numberOfRooms + 1);
-//   cout << rooms.size();
+void Map::connectRooms() {
+	for (Room * r : rooms) {
+		Room & room = *r;
+		int numAdjacent = rand() % 3 + 2;
 
-//   for (int i = 0; i < numberOfRooms; i++) {
-//     Room * room = new Room();
-//     rooms.push_back(new Room());
-//     // rooms.at(i) = Room();
-// 	}
+		for (int i = 0; i < numAdjacent; i++)
+		{
+			int randRoom = rand() % numOfRooms;
+			Room * newAdj = rooms.at(randRoom);
+			room.connectRoom(newAdj);
+		}
+	}
+}
 
+void Map::copyfrom(Map other) {
+	rooms = other.getRooms();
+	firstRoom = other.getRooms().front();
+	bossRoom = other.getRooms().back();
+}
 
-//   // // for (Room r : rooms) {
-//   // //   r.setMap(*this);
-//   // // }
+Map::Map(const Map & other) {
+	copyfrom(other);
+}
 
-// 	firstRoom = &rooms.front();
-// 	bossRoom = &rooms.back();
-// }
+Map & Map::operator= (const Map & other) {
+	if (this != &other) {
+		copyfrom(other);
+	}
+	return *this;
+}

@@ -5,6 +5,7 @@
 
 #include "Room.h"
 #include <vector>
+#include <cstdlib>
 #include <iostream>
 using namespace std;
 
@@ -13,11 +14,11 @@ class Map {
 public:
 	Map(int numberOfRooms);
 
-	// // map copy constructor
-	// Map (const Map & other);
+	// map copy constructor
+	Map(const Map & other);
 
-	// // map copy assignment operator
-	// Map & operator= (const Map & other);
+	// map copy assignment operator
+	Map & operator= (const Map & other);
 
 	// returns the room the player is currently located in
 	Room findPlayer();
@@ -26,6 +27,8 @@ public:
 	vector<Room*> getRooms();
 
 private:
+	int numOfRooms;
+
 	// the list of rooms in the map
 	vector<Room*> rooms;
 
@@ -38,9 +41,11 @@ private:
 	// the location of the player
 	Room * playerLoc;
 
+	// randomly connects up to four rooms to each room in the map
+	// and at least two rooms
+	// currently completely random
+	void connectRooms();
+
 	// copies Map member variables from another
 	void copyfrom(Map other);
-
-	//generates a set of rooms given a total number of rooms
-	void generateRooms(int numberOfRooms);
 };
