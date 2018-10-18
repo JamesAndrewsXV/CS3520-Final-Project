@@ -10,8 +10,12 @@ public:
 	Imp();
 	~Imp();
 
+
 protected:
-	Stats stats;
+	
+
+private:
+
 };
 
 

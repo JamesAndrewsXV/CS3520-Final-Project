@@ -7,7 +7,8 @@ enum Element {
 	WAVE,
 	ELECTRICITY,
 	TERRA,
-	LIGHT,
-	DARK
+	HOLY,
+	CURSE,
+	NEUTRAL
 };
 

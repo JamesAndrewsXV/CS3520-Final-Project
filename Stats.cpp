@@ -1,10 +1,7 @@
 #include "Stats.h"
 
-
-
-Stats::Stats(Enemy *e, int hp, int att, int def, int wis, int intel)
+Stats::Stats(int hp, int att, int def, int wis, int intel)
 {
-	this->eEnemy = e;
 	this->HP = hp;
 	this->att = att;
 	this->def = def;
@@ -18,18 +15,17 @@ double *Stats::getStats()
 	return stats;
 }
 
-
-
 void Stats::change(std::vector<Buffs> b, std::vector<int> changes)
 {
-	try {
-
+	try 
+	{
 		if (b.size() != changes.size())
 		{
 			throw 10;
 		}
 	}
-	catch (int x) {
+	catch (int x) 
+	{
 		// Throw error 10, invalid set of buffs and changes.
 		//(std::cout << "Invalid set of stats and buff changes.  Error " << x << endl;)
 		return;

@@ -8,12 +8,12 @@ class Stats
 {
 public:
 
-	Stats(Enemy *e, int hp, int att, int def, int wis, int intel);
+	Stats(int hp, int att, int def, int wis, int intel);
 	double *getStats();
 	void change(std::vector<Buffs> b, std::vector<int> changes);
 
 private:
-	Enemy * eEnemy;
+	//Enemy * eEnemy;
 	//Player* ePlayer;
 	int HP;
 	int att;
