@@ -7,7 +7,7 @@ class Enemy
 {
 public:
 	Enemy();
-
+	~Enemy();
 
 private:
 	Stats stats;

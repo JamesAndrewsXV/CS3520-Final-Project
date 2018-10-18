@@ -4,3 +4,8 @@ Enemy::Enemy()
 {
 
 }
+
+Enemy::~Enemy()
+{
+	//Construct Loot Object
+}
