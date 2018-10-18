@@ -7,6 +7,7 @@
 class Stats
 {
 public:
+
 	Stats(Enemy *e, int hp, double att, double def, double wis, double intel);
 	double *getStats();
 	void change(std::vector<Buffs> b, std::vector<double> changes);
