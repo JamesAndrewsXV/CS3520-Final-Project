@@ -1,5 +1,4 @@
-
-#include <Stats.h>
+#include "Item.h"
 
 using namespace std;
 
@@ -8,8 +7,7 @@ using namespace std;
 #define NUMBER_ABILITIES 5
 #define NUMBER_RANGE 3
 
-
-
+ 
 	//Creates an Item using given parameter
 	Item::Item(int damage, Range range, vector<pair<Element, int> > bonusDamage, vector<pair<Buffs, int> > buffs, vector<Ability> abilities) {
 		damage = damage;
@@ -49,9 +47,8 @@ using namespace std;
 	int Item::dealDamage() {
 		int tempDMG = 0;
 		tempDMG += damage;
-		for (int i = 0; i < bonusDamage.size; i++) {
-			tempDMG += bonusDamage[i]->second;
+		for (int i = 0; i < bonusDamage.size(); i++) {
+			tempDMG += bonusDamage[i].second;
 		}
 		return tempDMG;
 	}
-	

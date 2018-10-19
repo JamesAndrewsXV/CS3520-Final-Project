@@ -1,33 +1,42 @@
-#include "Player.h"
+#ifndef PLAYER_H
+#define PLAYER_H
+
+// #include "Items.h"
 
 #include <vector>
- 
+#include <string>
+
 using namespace std;
 
 class Player {
-  Player() {
-   this._health = 10;
-   this._stat1 = 2;
-   this._stat2 = 3;
-   this._statt3 = 1;
-   this._items = *(new vector<string>);
-   this._equipped = *(new vector<string>);
 
-  }
-  ~Player() {}
+public:
+  Player();
+  ~Player();
 
-  int getHealth() {return this._health; }
-  int getStat1() { return this._stat1; }
-  int getStat2() {return this._stat2;}
-  int getStat3() {return this._stat3;}
-  vector<string> getAllItems() {return this._items;}
-  vector<string> getEquipped() {return this._equipped;}
+  int getHealth();
+  int getStat1();
+  int getStat2();
+  int getStat3();
+  vector<string> getAllItems();
+  vector<string> getEquipped();
   
-  void takeDamage(int a) {this._health -= a; }
+  void takeDamage(int a);
 //stat functions?  
 
-  void addItemToBag(string item) {this._items.push_back(item); }
-  void equipItem(string item) { 
-           //logic for unequipping if it conflicts 
-      }
-}
+  void addItemToBag(string item);
+  void equipItem(string item);
+
+
+private:
+  int _health;
+  int _stat1;
+  int _stat2;
+  int _stat3;
+  vector<string> _items;
+  vector<string> _equipped;
+
+};
+
+
+#endif
