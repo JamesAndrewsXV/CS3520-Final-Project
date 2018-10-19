@@ -7,6 +7,9 @@ using namespace std;
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 600;
+SDL_Window* gWindow = NULL;
+SDL_Surface* gScreenSurface = NULL;
+SDL_Surface* background = NULL;
 
 //Starts up SDL and creates window
 bool init() {
@@ -44,10 +47,10 @@ bool loadMedia() {
 	bool success = true;
 
 	//Load splash image
-	background = SDL_LoadIMG("dungeon_example.png");
+	background = SDL_LoadBMP("CS3520-Final-Project/dungeon_example.bmp");
 	if (background == NULL)
 	{
-		printf("Unable to load image %s! SDL Error: %s\n", "dungeon_example.png", SDL_GetError());
+		printf("Unable to load image %s! SDL Error: %s\n", "CS3520-Final-Project/dungeon_example.bmp", SDL_GetError());
 		success = false;
 	}
 
@@ -58,8 +61,8 @@ bool loadMedia() {
 void close()
 {
 	//Deallocate surface
-	SDL_FreeSurface(gHelloWorld);
-	gHelloWorld = NULL;
+	SDL_FreeSurface(background);
+	background = NULL;
 
 	//Destroy window
 	SDL_DestroyWindow(gWindow);
@@ -73,7 +76,7 @@ void close()
 int main() {
 	srand(time(NULL));
 
-	Map map(5);
+	//Map map(5);
 	// cout << map.getRooms().size() << endl;
 
 	// for (Room * room : map.getRooms()) {
@@ -81,24 +84,34 @@ int main() {
 	// 	(*room).countAdjacentRooms();
 	// }
 
-	SDL_Window* window = NULL;
-	SDL_Surface* screenSurface = NULL;
-
 	if (!init())
 	{
 		printf("Failed to initialize!\n");
 	}
 	else
 	{
-		//Load media
-		if (!loadMedia())
-		{
-			printf("Failed to load media!\n");
+		if ( !loadMedia() ) {
+			printf( "Failed to load media!\n" );
+//Fill the surface white
+			SDL_FillRect( gScreenSurface, 	NULL, SDL_MapRGB( gScreenSurface->format, 0x1F, 0xFF, 0xFF ) );
+
+//Update the surface
+			SDL_UpdateWindowSurface( gWindow );
+
+			//Wait two seconds
+			SDL_Delay( 2000 );
 		}
-		else
-		{
-			//Apply the image
-			SDL_BlitSurface(background, NULL, gScreenSurface, NULL);
+		else {
+			//Get window surface
+			gScreenSurface = SDL_GetWindowSurface( gWindow );
+
+			SDL_BlitSurface( background, NULL, gScreenSurface, NULL );
+			
+			//Update the surface
+			SDL_UpdateWindowSurface( gWindow );
+
+			//Wait two seconds
+			SDL_Delay( 2000 );
 		}
 	}
 }

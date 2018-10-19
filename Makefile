@@ -1,28 +1,19 @@
-# project source and header files
-SOURCES=src/main.cpp
-HEADERS=
+#OBJS specifies which files to compile as part of the project 
+OBJS = main.cpp 
 
-# test header files
-TESTS=tests/exampletest.h
+#CC specifies which compiler we're using 
+CC = g++ 
 
-# C++ compile and linker flags
-CPPFLAGS=-O0 `sdl2-config --cflags`
-LDFLAGS=`sdl2-config --libs` -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lGL
+#COMPILER_FLAGS specifies the additional compilation options we're using 
+# -w suppresses all warnings 
+COMPILER_FLAGS = -w 
 
-# additional lists
-MAIN_OBJECTS=$(SOURCES:.cpp=.o)
+#LINKER_FLAGS specifies the libraries we're linking against 
+LINKER_FLAGS = -lSDL2 
 
+#OBJ_NAME specifies the name of our exectuable 
+OBJ_NAME = main
 
-# rules
-all: main
-
-main: $(MAIN_OBJECTS)
-	g++ -std=c++11 $(LDFLAGS) $^ -o $@
-
-
-$(MAIN_OBJECTS): %.o: %.cpp $(HEADERS) Makefile
-	g++ -std=c++11 $(CPPFLAGS) -c $< -o $@
-
-
-clean:
-	rm -f main $(MAIN_OBJECTS) *~
+#This is the target that compiles our executable 
+all : $(OBJS) 
+		$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
