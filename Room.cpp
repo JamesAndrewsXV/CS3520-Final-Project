@@ -34,7 +34,7 @@ Room & Room::operator= (const Room & other) {
 	return *this;
 }
 
-Room::Room(Room&& other) {
+/*Room::Room(Room&& other) {
 	movefrom(other);
 }
 
@@ -43,7 +43,7 @@ Room& Room::operator=(Room&& other) {
 		movefrom(other);
 	}
 	return *this;
-}
+}*/
 
 void Room::setLoot()
 {

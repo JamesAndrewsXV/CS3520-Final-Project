@@ -20,10 +20,10 @@ public:
 	Room(const Room & other);
 
 	// room move constructor
-	Room(Room&& other);
+	//Room(Room&& other);
 
 	// room move assignment constructor
-	Room& operator=(Room&& other);
+	//Room& operator=(Room&& other);
 
 	// adds up to four rooms to this room
 	void connectRoom(Room * room);
