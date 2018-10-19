@@ -12,3 +12,9 @@ enum Element {
 	NEUTRAL
 };
 
+enum Range {
+	CLOSE,
+	FAR,
+	MAGIC
+};
+
