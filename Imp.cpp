@@ -13,7 +13,3 @@ Imp::~Imp()
 	//"Imp defeated!" (loot dropped by parent class)
 }
 
-int Enemy::enAttack()
-{
-	//Intermediate attack state that communicates between player and enemy classes?
-}

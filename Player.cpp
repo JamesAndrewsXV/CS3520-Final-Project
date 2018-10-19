@@ -1,33 +1,45 @@
 #include "Player.h"
 
-#include <vector>
- 
 using namespace std;
 
-class Player {
-  Player() {
-   this._health = 10;
-   this._stat1 = 2;
-   this._stat2 = 3;
-   this._statt3 = 1;
-   this._items = *(new vector<string>);
-   this._equipped = *(new vector<string>);
+Player::Player()
+{
+	this->stats = new Stats(10, 5, 5, 5, 5);
+	this->currHP = this->stats->getStats()[0];
+	this->_items = *(new vector<string>);
+	this->_equipped = *(new vector<string>);
 
-  }
-  ~Player() {}
+}
+Player::~Player() {}
 
-  int getHealth() {return this._health; }
-  int getStat1() { return this._stat1; }
-  int getStat2() {return this._stat2;}
-  int getStat3() {return this._stat3;}
-  vector<string> getAllItems() {return this._items;}
-  vector<string> getEquipped() {return this._equipped;}
-  
-  void takeDamage(int a) {this._health -= a; }
+int Player::getHealth() { return this->currHP; }
+Stats Player::getStats() { return *(this->stats); }
+vector<string> Player::getAllItems() { return this->_items; }
+vector<string> Player::getEquipped() { return this->_equipped; }
+
+void Player::takeDamage(Attack a)
+{
+	int damage = a.getAttack();
+	for (Element e : this->weaknesses)
+	{
+		if (e == a.getElem()) { damage = (double)damage * 1.5; }
+	}
+	for (Element e : this->strengths)
+	{
+		if (e == a.getElem()) { damage = (double)damage * 0.5; }
+	}
+	if(a.getRange() == Range::MAGIC) { 
+		this->currHP -= ((damage - this->stats->getStats()[4])<1) ? 1 : (damage - this->stats->getStats()[4]);
+	}
+	else {
+		this->currHP -= ((damage - this->stats->getStats()[2])<1) ? 1 : (damage - this->stats->getStats()[2]);
+	}
+}
 //stat functions?  
 
-  void addItemToBag(string item) {this._items.push_back(item); }
-  void equipItem(string item) { 
-           //logic for unequipping if it conflicts 
-      }
+void Player::addItemToBag(string item) { this->_items.push_back(item); }
+void Player::equipItem(string item)
+{
+	//logic for unequipping if it conflicts 
 }
+

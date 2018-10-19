@@ -3,6 +3,7 @@
 
 #include "Stats.h"
 #include "Types.h"
+#include "Attack.h"
 #include <vector>
 //#include loot table
 
@@ -12,15 +13,25 @@ class Enemy
 public:
 	Enemy();
 	~Enemy();
-	void takeDamage(Element elem, int damage);
-	int enAttack(); // all enemies must have at least one basic attack.
+
+	//Calculates recieving damage based on resistance, weakness, and attack
+	void takeDamage(Attack a);
+
+	//Creates an attack against the player
+	Attack enAttack(); // all enemies must have at least one basic attack.
 
 protected:
-	Stats *stats;
+
+	//Keeps track of stats (dynamically allocated)
+	Stats * stats;
+
+	//current HP
 	int currHP;
+
+	//Lists of strengths and weaknesses pertaining to the enemy
 	std::vector<Element> strengths;
 	std::vector<Element> weaknesses;
-	
+
 };
 
 

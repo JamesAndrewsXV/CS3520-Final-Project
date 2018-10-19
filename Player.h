@@ -2,36 +2,38 @@
 #define PLAYER_H
 
 // #include "Items.h"
-
+#include "Stats.h"
+#include "Attack.h"
+#include "Types.h"
 #include <vector>
+#include <string>
+
 
 class Player {
 
 public:
-  Player();
-  ~Player();
+	Player();
+	~Player();
 
-  int getHealth();
-  int getStat1();
-  int getStat2();
-  int getStat3();
-  vector<string> getAllItems();
-  vector<string> getEquipped();
-  
-  void takeDamage(int a);
-//stat functions?  
+	int getHealth();
+	Stats getStats();
+	vector<string> getAllItems();
+	vector<string> getEquipped();
 
-  void addItemToBag(string item);
-  void equipItem(string item);
+	void takeDamage(Attack a);
+	//stat functions?  
+
+	void addItemToBag(string item);
+	void equipItem(string item);
 
 
 private:
-  int _health;
-  int _stat1;
-  int _stat2;
-  int _stat3;
-  vector<string> _items;
-  vector<string> _equipped;
+	Stats * stats;
+	int currHP;
+	vector<string> _items;
+	vector<string> _equipped;
+	vector<Element> strengths;
+	vector<Element> weaknesses;
 
 };
 

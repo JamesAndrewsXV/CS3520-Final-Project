@@ -3,12 +3,13 @@
 
 
 #include "Enemy.h"
-#include "Attack.h"
 class Wraith : Enemy
 {
 public:
 	Wraith();
 	~Wraith();
+
+	//Attack exclusive to wraiths (magic type)
 	Attack wrAttack();
 protected:
 

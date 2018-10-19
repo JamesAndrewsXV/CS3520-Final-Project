@@ -15,6 +15,5 @@ Wraith::~Wraith()
 
 Attack Wraith::wrAttack()
 {
-	Attack s = new Attack(this->strengths, this->stats->getStats[3]);
-		return Attack(this->stats->getStats[3], this->strengths, Range::MAGIC);
+	return Attack(this->stats->getStats[3], Element::CURSE, Range::MAGIC);
 }
