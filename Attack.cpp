@@ -4,7 +4,7 @@ Attack::Attack(int att, Element elem, Range rng)
 {
 	this->attack = att;
 	this->elem = elem;
-	this->range = range;
+	this->range = rng;
 }
 
 int Attack::getAttack()

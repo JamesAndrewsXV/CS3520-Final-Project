@@ -24,8 +24,6 @@ public:
 	void change(std::vector<Buffs> b, std::vector<int> changes);
 
 private:
-	//Enemy * eEnemy;
-	//Player* ePlayer;
 	int HP;
 	int att;
 	int def;
