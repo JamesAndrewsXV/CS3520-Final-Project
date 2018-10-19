@@ -1,7 +1,6 @@
 #pragma once
-#ifndef _MAP_H
-#define _MAP_H
-#endif
+#ifndef MAP_H
+#define MAP_H
 
 #include "Room.h"
 #include <vector>
@@ -48,3 +47,4 @@ private:
 	// copies Map member variables from another
 	void copyfrom(Map other);
 };
+#endif

@@ -1,7 +1,7 @@
 #pragma once
-#ifndef _ROOM_H
-#define _ROOM_H
-#endif
+#ifndef ROOM_H
+#define ROOM_H
+
 
 
 #include <vector>
@@ -57,3 +57,5 @@ private:
 	// moves member variables of rooms from another to this one
 	void movefrom(Room other);
 };
+
+#endif
