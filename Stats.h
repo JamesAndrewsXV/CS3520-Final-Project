@@ -1,7 +1,18 @@
 #ifndef STATS_H
 #define STATS_H
-#include "Enemy.h"
+//#include "Enemy.h"
 #include <vector>
+
+//Applied towards specific stat changes, with details in item category.
+//(moved to top because of use in change method)
+enum Buffs {
+	HEALTH,
+	ATTACK,
+	DEFENSE,
+	WISDOM,
+	INTELLIGENCE
+};
+
 
 //#include player character
 class Stats
@@ -23,14 +34,6 @@ private:
 
 };
 
-//Applied towards specific stat changes, with details in item category.
-enum Buffs {
-	HEALTH,
-	ATTACK,
-	DEFENSE,
-	WISDOM,
-	INTELLIGENCE
-};
 
 
 

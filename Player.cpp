@@ -1,6 +1,5 @@
 #include "Player.h"
 
-using namespace std;
 
 Player::Player()
 {
@@ -42,4 +41,3 @@ void Player::equipItem(string item)
 {
 	//logic for unequipping if it conflicts 
 }
-

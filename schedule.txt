@@ -1,0 +1,17 @@
+CHECKPOINT 1:
+Planned Milestones:
+-Player implementation (complete)
+-Room/Map generation (complete)
+-Basic Monster placement (complete)
+-Loot generation/kinds of loot (complete)
+-Combat (incomplete)
+
+Notes on Combat: While the combat system was not implemented for this checkpoint, we did make significant progress in related areas, such as generating classes for specific monsters (instead of only the bare bones that we had planned). Additionally, implementing the Player and Items included developing the systems for dealing damage that combat will be based on. 
+
+Updates to milestones for Checkpoint 2:
+-Combat (pushed forward from Checkpoint 1)
+-Basic Combat UI (unchanged)
+-Monster mechanics (optional, already started due to greater-than-planned progress on Monsters)
+-Strengths, weaknesses, randomization, implement bosses (partially implemented with randomization for loot)
+-Taversal UI + character UI (unchanged)
+-Room traversal (unchanged)
