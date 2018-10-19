@@ -2,10 +2,9 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-
-
 #include <vector>
 #include <iostream>
+#include <string>
 using namespace std;
 
 // class representing the list of rooms the player traverses through

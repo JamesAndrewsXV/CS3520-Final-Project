@@ -27,11 +27,11 @@ void Player::takeDamage(Attack a)
 	{
 		if (e == a.getElem()) { damage = (double)damage * 0.5; }
 	}
-	if(a.getRange() == Range::MAGIC) { 
-		this->currHP -= ((damage - this->stats->getStats()[4])<1) ? 1 : (damage - this->stats->getStats()[4]);
+	if (a.getRange() == Range::MAGIC) {
+		this->currHP -= ((damage - this->stats->getStats()[4]) < 1) ? 1 : (damage - this->stats->getStats()[4]);
 	}
 	else {
-		this->currHP -= ((damage - this->stats->getStats()[2])<1) ? 1 : (damage - this->stats->getStats()[2]);
+		this->currHP -= ((damage - this->stats->getStats()[2]) < 1) ? 1 : (damage - this->stats->getStats()[2]);
 	}
 }
 //stat functions?  

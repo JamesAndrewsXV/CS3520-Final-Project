@@ -11,8 +11,8 @@
 
 using namespace std;
 
-class Player {
-
+class Player
+{
 public:
 	Player();
 	~Player();

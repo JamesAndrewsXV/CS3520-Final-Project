@@ -9,15 +9,15 @@ Attack::Attack(int att, Element elem, Range rng)
 
 int Attack::getAttack()
 {
-	return 0;
+	return this->attack;
 }
 
 Element Attack::getElem()
 {
-	return Element();
+	return this->elem;
 }
 
 Range Attack::getRange()
 {
-	return Range();
+	return this->range;
 }
