@@ -1,7 +1,3 @@
-/*This source code copyrighted by Lazy Foo' Productions (2004-2015)
-and may not be redistributed without written permission.*/
-
-//Using SDL, SDL_image, SDL_ttf, standard IO, math, and strings
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
@@ -64,7 +60,7 @@ bool loadMedia()
 	background = SDL_LoadBMP( "assets/dungeon_example.bmp" );
 	if( background == NULL )
 	{
-		printf( "Unable to load image %s! SDL Error: %s\n", "02_getting_an_image_on_the_screen/hello_world.bmp", SDL_GetError() );
+		printf( "Unable to load image %s! SDL Error: %s\n", "assets/dungeon_example.bmp", SDL_GetError() );
 		success = false;
 	}
 

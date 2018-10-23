@@ -16,6 +16,7 @@ Item::Item(int damage, Range range, vector<pair<Element, int> > bonusDamage, vec
 	buffs = buffs;
 	abilities = abilities;
 }
+
 //Creates an Item using random parameters
 Item * Item::randomItem() {
 	int tempDamage = (rand() % 10) + 1;

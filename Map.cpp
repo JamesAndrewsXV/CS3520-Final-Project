@@ -1,4 +1,5 @@
 #include "Map.h"
+#include <algorithm>
 
 Map::Map(int numberOfRooms)
 {
@@ -9,6 +10,7 @@ Map::Map(int numberOfRooms)
 
 	firstRoom = rooms.front();
 	bossRoom = rooms.back();
+	setUpBossRoom();
 	playerLoc = firstRoom;
 	connectRooms();
 }
@@ -23,16 +25,32 @@ vector<Room *> Map::getRooms() {
 }
 
 void Map::connectRooms() {
-	for (Room * r : rooms) {
-		Room & room = *r;
-		int numAdjacent = rand() % 3 + 2;
+	vector<Room *> tempList{ firstRoom };
+	vector<Room *> roomsOnLevel;
+	int level = 0;
 
+	for (int i = 0; i < numOfRooms - 2; i++) {
+		Room & room = rooms.at(i);
+		tempList.push_back(room);
+		roomsOnLevel.push_back(room);
+
+		int numAdjacent = rand() % 3 + 1;
 		for (int i = 0; i < numAdjacent; i++)
 		{
 			int randRoom = rand() % numOfRooms;
-			Room * newAdj = rooms.at(randRoom);
-			room.connectRoom(newAdj);
+
+			if (find(roomsOnLevel.begin, roomsOnLevel.end(), randRoom) != roomsOnLevel.end() || 
+				find(tempList.begin, tempList.end(), randRoom) != tempList.end()) { // contains
+				Room * newAdj = rooms.at(randRoom);
+				room.connectRoom(newAdj);
+				tempList.push_back(newAdj);
+				roomsOnLevel.push_back(newAdj);
+			}
+			else {
+				i = i - 1;
+			}
 		}
+		level++;
 	}
 }
 
@@ -51,4 +69,22 @@ Map & Map::operator= (const Map & other) {
 		copyfrom(other);
 	}
 	return *this;
+}
+
+void setUpBossRoom() {
+	bossRoom.encounter = true;
+	bossRoom.containLoot = true;
+
+	queue<Room> Q = firstRoom;
+	vector<Room> distVect;
+
+	while (Q.size() > 0) {
+		Room * u = queue.pop();
+
+		for (Room * r : u.adjacentRooms) {
+			if (!u.contains(r)) {
+
+			}
+		}
+	}
 }

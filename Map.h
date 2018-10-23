@@ -46,5 +46,8 @@ private:
 
 	// copies Map member variables from another
 	void copyfrom(Map other);
+
+	// sets up the boss room
+	void setUpBossRoom();
 };
 #endif

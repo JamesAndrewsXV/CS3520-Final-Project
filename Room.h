@@ -5,6 +5,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include "Imp.h"
+#include "Item.h"
 using namespace std;
 
 // class representing the list of rooms the player traverses through
@@ -28,33 +30,36 @@ public:
 	// adds up to four rooms to this room
 	void connectRoom(Room * room);
 
-	// if this room has loot add loot
-	void setLoot();
-
-	// prints "there's loot" if there is loot for now -> testing
-	void printLoot();
-
 	// count adjacentRooms -> for testing!
 	void countAdjacentRooms();
 
-private:
 	// the (at most four) rooms bordering this room
 	vector<Room*> adjacentRooms;
 
+private:
 	// is there a random encounter in this room
 	bool encounter;
 
 	// is there loot in this room
 	bool containLoot;
 
-	// the loot contained in the room -> placeholder
-	string loot;
+	// the loot contained in the room
+	Item * loot;
+
+	// the monster in the room
+	Imp * monster;
 
 	// copies member variables of rooms
 	void copyfrom(Room other);
 
 	// moves member variables of rooms from another to this one
-	void movefrom(Room other);
+	//void movefrom(Room other);
+
+	// if there is an encounter, generate an enemy in the room
+	void setEncounter();
+
+	// if this room has loot add loot
+	void setLoot();
 };
 
 #endif
