@@ -5,6 +5,7 @@
 #include "Stats.h"
 #include "Attack.h"
 #include "Types.h"
+#include "Item.h"
 #include <vector>
 #include <string>
 
@@ -19,21 +20,22 @@ public:
 
 	int getHealth();
 	Stats getStats();
-	vector<string> getAllItems();
-	vector<string> getEquipped();
+	vector<Item> getAllItems();
+	vector<Item> getEquipped();
 
+	//Damaged by a given attack
 	void takeDamage(Attack a);
 	//stat functions?  
 
-	void addItemToBag(string item);
-	void equipItem(string item);
+	void addItemToBag(Item item);
+	void equipItem(Item item);
 
 
 private:
 	Stats * stats;
 	int currHP;
-	vector<string> _items;
-	vector<string> _equipped;
+	vector<Item> _items;
+	vector<Item> _equipped;
 	vector<Element> strengths;
 	vector<Element> weaknesses;
 

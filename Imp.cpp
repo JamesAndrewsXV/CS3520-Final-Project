@@ -12,4 +12,3 @@ Imp::~Imp()
 {
 	//"Imp defeated!" (loot dropped by parent class)
 }
-

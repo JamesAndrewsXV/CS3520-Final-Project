@@ -5,16 +5,16 @@ Player::Player()
 {
 	this->stats = new Stats(10, 5, 5, 5, 5);
 	this->currHP = this->stats->getStats()[0];
-	this->_items = *(new vector<string>);
-	this->_equipped = *(new vector<string>);
+	this->_items = *(new vector<Item>);
+	this->_equipped = *(new vector<Item>);
 
 }
 Player::~Player() {}
 
 int Player::getHealth() { return this->currHP; }
 Stats Player::getStats() { return *(this->stats); }
-vector<string> Player::getAllItems() { return this->_items; }
-vector<string> Player::getEquipped() { return this->_equipped; }
+vector<Item> Player::getAllItems() { return this->_items; }
+vector<Item> Player::getEquipped() { return this->_equipped; }
 
 void Player::takeDamage(Attack a)
 {
@@ -36,8 +36,23 @@ void Player::takeDamage(Attack a)
 }
 //stat functions?  
 
-void Player::addItemToBag(string item) { this->_items.push_back(item); }
-void Player::equipItem(string item)
+void Player::addItemToBag(Item item) { this->_items.push_back(item); }
+void Player::equipItem(Item item)
 {
-	//logic for unequipping if it conflicts 
+
+	//this is extremely ugly, going to try pointer comparison for efficiency.
+	try 
+	{
+		if (std::find(this->_items.begin(), this->_items.end(), item) != this->_items.end()) {
+			this->_items.erase(std::find(this->_items.begin(), this->_items.end(), item));
+			this->_equipped.push_back(item);
+		}
+		else { throw 11; }
+		
+	}
+	catch (int x) 
+	{
+		cout << "Item not found in bag. \n Error " << x;
+	}
+		
 }

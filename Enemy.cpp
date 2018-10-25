@@ -2,8 +2,7 @@
 
 Enemy::Enemy()
 {
-	this->stats = new Stats(5, 5, 5, 5, 5);
-	this->currHP = this->stats->getStats()[0];
+
 }
 
 Enemy::~Enemy()

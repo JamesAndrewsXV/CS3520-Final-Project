@@ -31,11 +31,11 @@ public:
 	int dealDamage();
 
 
-private:
+protected:
 	int damage;
 	Range range;
-	vector<pair<Element, int> > bonusDamage;
-	vector<pair <Buffs, int> > buffs;
+	vector<pair<Element, int> > bonusDamage; // does the multiplier cover this?
+	vector<pair <Buffs, int> > buffs; 
 	vector<Ability> abilities;
 	//Includes some sort of indication as to which sprite to use
 };

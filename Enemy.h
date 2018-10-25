@@ -18,7 +18,7 @@ public:
 	void takeDamage(Attack a);
 
 	//Creates an attack against the player
-	Attack enAttack(); // all enemies must have at least one basic attack.
+	Attack enAttack(); // all enemies must have at least one basic attack. Implementation specific.
 
 protected:
 
