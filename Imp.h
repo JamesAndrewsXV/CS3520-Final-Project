@@ -4,17 +4,11 @@
 #include "Stats.h"
 #include "Enemy.h"
 
-class Imp : Enemy
+class Imp : public Enemy
 {
 public:
 	Imp();
 	~Imp();
-
-
-protected:
-
-
-private:
 
 };
 

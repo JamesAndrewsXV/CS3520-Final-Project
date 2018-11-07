@@ -5,13 +5,13 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
-#include "Types.h"
 #include <utility>
 
 using namespace std;
 
 //Special abilities that are granted by Items, to be implemented later
-enum Ability {
+enum Ability 
+{
 	WE,
 	WILL,
 	DO,
@@ -19,23 +19,25 @@ enum Ability {
 	LATER
 };
 
-class Item {
+class Item 
+{
 public:
 	//Constructor
-	Item(int damage, Range range, vector<pair<Element, int> > bonusDamage, vector<pair<Buffs, int> > buffs, vector<Ability> abilities);
+	Item();
+
+	//Destructor
+	~Item();
 
 	//Creates random Item 
 	Item * randomItem();
 
-	//Returns the amount of damage that an item does
-	int dealDamage();
-
+	//Returns the stat boost the item gives.
+	Stats getBonus();
 
 protected:
-	int damage;
+	Stats *bonus;
 	Range range;
-	vector<pair<Element, int> > bonusDamage; // does the multiplier cover this?
-	vector<pair <Buffs, int> > buffs; 
+	vector<pair<Element, int>> bonusDamage; // does the multiplier cover this?
 	vector<Ability> abilities;
 	//Includes some sort of indication as to which sprite to use
 };

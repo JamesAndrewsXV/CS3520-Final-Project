@@ -2,7 +2,6 @@
 #define ENEMY_H
 
 #include "Stats.h"
-#include "Types.h"
 #include "Attack.h"
 #include <vector>
 //#include loot table
@@ -18,7 +17,7 @@ public:
 	void takeDamage(Attack a);
 
 	//Creates an attack against the player
-	Attack enAttack(); // all enemies must have at least one basic attack. Implementation specific.
+	Attack enAttack(); // all enemies must have at least one basic attack.
 
 protected:
 

@@ -1,29 +1,19 @@
 #ifndef STATS_H
 #define STATS_H
-//#include "Enemy.h"
 #include <vector>
 
-//Applied towards specific stat changes, with details in item category.
-//(moved to top because of use in change method)
-enum Buffs {
-	HEALTH,
-	ATTACK,
-	DEFENSE,
-	WISDOM,
-	INTELLIGENCE
-};
-
-
 //#include player character
+
+//Acts as a container for stats of players, item bonuses, and enemies
 class Stats
 {
 public:
 
 	Stats(int hp, int att, int def, int wis, int intel);
-	double *getStats();
-	void change(std::vector<Buffs> b, std::vector<int> changes);
+	Stats& Stats::operator+= (const Stats & other);
 
-private:
+	Stats & operator-=(const Stats & other);
+
 	int HP;
 	int att;
 	int def;

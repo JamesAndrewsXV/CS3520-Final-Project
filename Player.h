@@ -4,8 +4,8 @@
 // #include "Items.h"
 #include "Stats.h"
 #include "Attack.h"
-#include "Types.h"
 #include "Item.h"
+#include "Equippable.h"
 #include <vector>
 #include <string>
 
@@ -21,24 +21,29 @@ public:
 	int getHealth();
 	Stats getStats();
 	vector<Item> getAllItems();
-	vector<Item> getEquipped();
+	vector<Equippable> getEquipped();
 
 	//Damaged by a given attack
 	void takeDamage(Attack a);
 	//stat functions?  
 
-	void addItemToBag(Item item);
-	void equipItem(Item item);
+	void addItemToBag(Item *item);
+	void equipItem(Equippable *item);
+	void unequipItem(Equippable *item);
+	void useItem(Item *item);
+	Attack physAttack();
+	Attack magAttack();
 
 
 private:
 	Stats * stats;
 	int currHP;
-	vector<Item> _items;
-	vector<Item> _equipped;
+	Range range;
+	Element elem;
+	vector<Item*> _items;
+	vector<Equippable*> _equipped;
 	vector<Element> strengths;
 	vector<Element> weaknesses;
-
 };
 
 

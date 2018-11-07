@@ -5,6 +5,9 @@
 Wraith::Wraith()
 {
 	this->stats = new Stats(7, 2, 3, 5, 4);
+	this->currHP = this->stats->HP;
+	this->strengths = { Element::NEUTRAL };
+	this->weaknesses = { Element::HOLY, Element::CURSE };
 }
 
 
@@ -15,5 +18,5 @@ Wraith::~Wraith()
 
 Attack Wraith::wrAttack()
 {
-	return Attack(this->stats->getStats[3], Element::CURSE, Range::MAGIC);
+	return Attack{ this->stats->wis, Element::CURSE, Range::MAGIC };
 }

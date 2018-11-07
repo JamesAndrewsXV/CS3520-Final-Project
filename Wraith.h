@@ -3,7 +3,7 @@
 
 
 #include "Enemy.h"
-class Wraith : Enemy
+class Wraith : public Enemy
 {
 public:
 	Wraith();

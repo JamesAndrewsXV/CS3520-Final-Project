@@ -1,24 +1,7 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
-#include "Types.h"
-class Attack
-{
-public:
-	//Constructs an attack, with properties given to either the player or the enemy class.
-	Attack(int att, Element elem, Range rng);
-
-	//Gets the strength of the attack
-	int getAttack();
-
-	//Gets the attack's elemental value
-	Element getElem();
-
-	//Gets the attack's range
-	Range getRange();
-
-private:
-
+struct Attack {
 	//Attack power
 	int attack;
 
@@ -27,6 +10,22 @@ private:
 
 	//Attack Range
 	Range range;
+};
+
+enum Element {
+	FLAME,
+	WAVE,
+	ELECTRICITY,
+	TERRA,
+	HOLY,
+	CURSE,
+	NEUTRAL
+};
+
+enum Range {
+	CLOSE,
+	FAR,
+	MAGIC
 };
 
 

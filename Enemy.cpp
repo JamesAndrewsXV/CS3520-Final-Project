@@ -7,31 +7,31 @@ Enemy::Enemy()
 
 Enemy::~Enemy()
 {
-	//Construct Loot Object
+	//Construct Loot Object from derived class (controls rarity perhaps?)
 	delete this->stats;
 }
 
 void Enemy::takeDamage(Attack a)
 {
-	int damage = a.getAttack();
+	int damage = a.attack;
 	for (Element e : this->weaknesses)
 	{
-		if (e == a.getElem()) { damage = (double)damage * 1.5; }
+		if (e == a.elem) { damage = (double)damage * 1.5; }
 	}
 	for (Element e : this->strengths)
 	{
-		if (e == a.getElem()) { damage = (double)damage * 0.5; }
+		if (e == a.elem) { damage = (double)damage * 0.5; }
 	}
-	if (a.getRange() == Range::MAGIC) {
-		this->currHP -= ((damage - this->stats->getStats()[4]) < 1) ? 1 : (damage - this->stats->getStats()[4]);
+	if (a.range == Range::MAGIC) {
+		this->currHP -= ((damage - this->stats->intel) < 1) ? 1 : (damage - this->stats->intel);
 	}
 	else {
-		this->currHP -= ((damage - this->stats->getStats()[2]) < 1) ? 1 : (damage - this->stats->getStats()[2]);
+		this->currHP -= ((damage - this->stats->def) < 1) ? 1 : (damage - this->stats->def);
 	}
 }
 
 Attack Enemy::enAttack()
 {
-	return Attack(this->stats->getStats()[1], Element::NEUTRAL, Range::CLOSE);
+	return Attack{ this->stats->att, Element::NEUTRAL, Range::CLOSE };
 }
 

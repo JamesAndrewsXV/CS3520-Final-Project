@@ -1,4 +1,7 @@
 #include "Stats.h"
+#include <algorithm>
+
+using namespace std;
 
 Stats::Stats(int hp, int att, int def, int wis, int intel)
 {
@@ -9,43 +12,24 @@ Stats::Stats(int hp, int att, int def, int wis, int intel)
 	this->intel = intel;
 }
 
-double *Stats::getStats()
+Stats & Stats::operator+=(const Stats & other)
 {
-	double stats[] = { this->HP, this->att, this->def, this->wis, this->intel };
-	return stats;
+	this->HP += other.HP;
+	this->att += other.att;
+	this->def += other.def;
+	this->wis += other.wis;
+	this->intel += other.intel;
+
+	return *this;
 }
 
-void Stats::change(std::vector<Buffs> b, std::vector<int> changes)
+Stats & Stats::operator-=(const Stats & other)
 {
-	try 
-	{
-		if (b.size() != changes.size())
-		{
-			throw 10;
-		}
-	}
-	catch (int x) 
-	{
-		// Throw error 10, invalid set of buffs and changes.
-		//(std::cout << "Invalid set of stats and buff changes.  Error " << x << endl;)
-		return;
-	}
-	for (int i = 0; i < b.size(); i++) {
-		Buffs buff = b.at(i);
-		double modifier = changes.at(i);
+	this->HP = std::max(this->HP - other.HP, 0);
+	this->att = std::max(this->att - other.att, 0);
+	this->def = std::max(this->def - other.def, 0);
+	this->wis = std::max(this->def - other.wis, 0);
+	this->intel = std::max(this->def - other.intel, 0);
 
-		switch (buff)
-		{
-		case HEALTH:
-			this->HP = modifier;
-		case ATTACK:
-			this->att = modifier;
-		case DEFENSE:
-			this->def = modifier;
-		case WISDOM:
-			this->wis = modifier;
-		case INTELLIGENCE:
-			this->intel = modifier;
-		}
-	}
+	return *this;
 }
