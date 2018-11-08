@@ -28,6 +28,4 @@ enum Range {
 	MAGIC
 };
 
-
-
 #endif // ATTACK_H
