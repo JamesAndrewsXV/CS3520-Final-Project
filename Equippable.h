@@ -1,4 +1,6 @@
 #include "Item.h"
+#include "Attack.h"
+
 //Kind of equippable
 enum Kind
 {
