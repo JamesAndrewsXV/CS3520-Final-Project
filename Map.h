@@ -5,6 +5,7 @@
 #include "Room.h"
 #include <vector>
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 // class representing the list of rooms the player traverses through

@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
 // class representing the list of rooms the player traverses through

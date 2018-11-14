@@ -1,7 +1,3 @@
-/*This source code copyrighted by Lazy Foo' Productions (2004-2015)
-and may not be redistributed without written permission.*/
-
-//Using SDL, SDL_image, SDL_ttf, standard IO, math, and strings
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
@@ -18,7 +14,7 @@ const int SCREEN_HEIGHT = 600;
 //Start up SDL and create window
 	//The window we'll be rendering to
 	SDL_Window* gWindow = NULL;
-	
+
 	//The surface contained by the window
 	SDL_Surface* gScreenSurface = NULL;
 
@@ -28,11 +24,7 @@ const int SCREEN_HEIGHT = 600;
 	//The image we will load and show on the screen
 	SDL_Surface* current_room_image = NULL;
 
-	//Globally used font
-	TTF_Font *gFont = NULL;
-
-	//Rendered texture
-	LTexture gTextTexture;
+	SDL_Event event;
 
 	//Texture wrapper class
 	class LTexture
@@ -77,6 +69,13 @@ const int SCREEN_HEIGHT = 600;
 		int mWidth;
 		int mHeight;
 	};
+
+	//Globally used font
+	TTF_Font *gFont = NULL;
+
+	//Rendered texture
+	LTexture gTextTexture;
+
 
 	LTexture::LTexture()
 	{
@@ -247,7 +246,7 @@ bool init()
 		{
 			//Get window surface
 			gScreenSurface = SDL_GetWindowSurface( gWindow );
-		
+
 			//Create vsynced renderer for window
 			menu = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 			if (menu == NULL)
@@ -275,6 +274,7 @@ bool init()
 					success = false;
 				}
 			}
+		}
 	}
 
 	return success;
@@ -324,7 +324,7 @@ void close()
 	TTF_CloseFont(gFont);
 	gFont = NULL;
 
-	//Destroy window	
+	//Destroy window
 	SDL_DestroyRenderer(menu);
 	SDL_DestroyWindow(gWindow);
 	gWindow = NULL;
@@ -337,81 +337,78 @@ void close()
 
 }
 
-void display_game(Map & map) {
-	//Make sure the program waits for a quit
-	bool quit = false;
-
-	//Start up SDL and create window
-	if (!init())
-	{
-		printf("Failed to initialize!\n");
-	}
-
-	else
-	{
-		if (!loadMedia())
-		{
-			gScreenSurface = SDL_GetWindowSurface(gWindow);
-			SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, 0xFF, 0xFF, 0xFF));
-			SDL_UpdateWindowSurface(gWindow);
-			SDL_Delay(2000);
-			printf("Failed to load media!\n");
-		}
-
-		else
-		{
-			SDL_BlitSurface(current_room_image, NULL, gScreenSurface, NULL);
-			SDL_UpdateWindowSurface(gWindow);
-			SDL_Delay(2000);
-		}
-	}
-
-	while (quit == false)
-	{
-		while (SDL_PollEvent(&event))
-		{
-			if (event.type == SDL_QUIT)
-			{
-				quit = true;
-			}
-
-			//If a key was pressed
-			if (event.type == SDL_KEYDOWN)
-			{
-				//Set the proper message surface
-				switch (event.key.keysym.sym)
-				{
-				case SDLK_UP: message = upMessage; break;
-				case SDLK_DOWN: message = downMessage; break;
-				case SDLK_LEFT: message = leftMessage; break;
-				case SDLK_RIGHT: message = rightMessage; break;
-				}
-			}
-
-		}
-
-		//Clear screen
-		SDL_SetRenderDrawColor(menu, 0xFF, 0xFF, 0xFF, 0xFF);
-		SDL_RenderClear(menu);
-
-		//Render current frame
-		gTextTexture.render((SCREEN_WIDTH - gTextTexture.getWidth()) / 2, (SCREEN_HEIGHT - gTextTexture.getHeight()) / 2);
-
-		//Update screen
-		SDL_RenderPresent(menu);
-	}
-
-	//Free resources and close SDL
-	close();
-
-	return 0;
-}
-
-
 int main( int argc, char* args[] )
 {
 	srand(time(NULL));
 
 	Map map(5);
-	display_game(map);
+	//Make sure the program waits for a quit
+			bool quit = false;
+
+			//Start up SDL and create window
+			if (!init())
+			{
+				printf("Failed to initialize!\n");
+			}
+
+			else
+			{
+				if (!loadMedia())
+				{
+					gScreenSurface = SDL_GetWindowSurface(gWindow);
+					SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, 0xFF, 0xFF, 0xFF));
+					SDL_UpdateWindowSurface(gWindow);
+					SDL_Delay(2000);
+					printf("Failed to load media!\n");
+				}
+
+				else
+				{
+					SDL_BlitSurface(current_room_image, NULL, gScreenSurface, NULL);
+					SDL_UpdateWindowSurface(gWindow);
+					SDL_Delay(2000);
+				}
+			}
+
+
+
+			while (quit == false)
+			{
+				while (SDL_PollEvent(&event))
+				{
+					if (event.type == SDL_QUIT)
+					{
+						quit = true;
+					}
+
+					//If a key was pressed
+		//			if (event.type == SDL_KEYDOWN)
+		//			{
+		//				//Set the proper message surface
+		//				switch (event.key.keysym.sym)
+		//				{
+		//				case SDLK_UP: message = upMessage; break;
+		//				case SDLK_DOWN: message = downMessage; break;
+		//				case SDLK_LEFT: message = leftMessage; break;
+		//				case SDLK_RIGHT: message = rightMessage; break;
+		//				}
+		//			}
+
+				}
+
+				//Clear screen
+				SDL_SetRenderDrawColor(menu, 0xFF, 0xFF, 0xFF, 0xFF);
+				SDL_RenderClear(menu);
+
+				//Render current frame
+				gTextTexture.render((SCREEN_WIDTH - gTextTexture.getWidth()) / 2, (SCREEN_HEIGHT - gTextTexture.getHeight()) / 2);
+
+				//Update screen
+				SDL_RenderPresent(menu);
+			}
+
+			//Free resources and close SDL
+			close();
+
+			return 0;
 }

@@ -23,8 +23,10 @@ vector<Room *> Map::getRooms() {
 }
 
 void Map::connectRooms() {
-	for (Room * r : rooms) {
-		Room & room = *r;
+	for (int i = 0; i < rooms.size(); i++) {
+
+//	for (Room * r : rooms) {
+		Room & room = *(rooms[i]);
 		int numAdjacent = rand() % 3 + 2;
 
 		for (int i = 0; i < numAdjacent; i++)

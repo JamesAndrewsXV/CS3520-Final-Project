@@ -34,16 +34,16 @@ Room & Room::operator= (const Room & other) {
 	return *this;
 }
 
-/*Room::Room(Room&& other) {
-	movefrom(other);
-}
-
-Room& Room::operator=(Room&& other) {
-	if (this != &other) {
-		movefrom(other);
-	}
-	return *this;
-}*/
+//Room::Room(Room&& other) {
+//	movefrom(other);
+//}
+//
+//Room& Room::operator=(Room&& other) {
+//	if (this != &other) {
+//		movefrom(other);
+//	}
+//	return *this;
+//}
 
 void Room::setLoot()
 {
