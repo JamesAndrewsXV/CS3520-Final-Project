@@ -1,7 +1,7 @@
 #ifndef HALO_H
 #define HALO_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class Halo :public Equippable
 {

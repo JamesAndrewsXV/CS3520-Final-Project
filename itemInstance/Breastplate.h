@@ -1,7 +1,7 @@
 #ifndef BREASTPLATE
 #define BREASTPLATE
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class Breastplate :public Equippable
 {

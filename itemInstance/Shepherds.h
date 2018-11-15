@@ -1,7 +1,7 @@
 #ifndef SHEPHERDS_H
 #define SHEPHERDS_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class Shepherds :public Equippable
 {

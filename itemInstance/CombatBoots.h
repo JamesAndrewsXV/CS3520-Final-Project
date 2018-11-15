@@ -1,7 +1,7 @@
 #ifndef COMBATBOOTS_H
 #define COMBATBOOTS_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class CombatBoots :public Equippable
 {

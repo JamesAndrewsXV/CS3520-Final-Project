@@ -1,7 +1,7 @@
 #ifndef BUSTERSHIELD_H
 #define BUSTERSHIELD_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class Fantasia : public Equippable
 {

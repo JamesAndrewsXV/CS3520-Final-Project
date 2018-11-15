@@ -1,7 +1,7 @@
 #ifndef KNIGHTHELM_H
 #define KNIGHTHELM_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class KnightHelm :public Equippable
 {

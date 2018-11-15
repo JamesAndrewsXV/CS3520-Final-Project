@@ -1,7 +1,7 @@
 #ifndef WOODSWORD_H
 #define WOODSWORD_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class WoodSword : public Equippable
 {

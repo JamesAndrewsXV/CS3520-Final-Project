@@ -1,7 +1,7 @@
 #ifndef SPIRITARROW_H
 #define SPIRITARROW_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class SpiritArrow : public Equippable
 {

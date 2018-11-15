@@ -1,7 +1,7 @@
 #ifndef FOCUSB_H
 #define FOCUSB_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class FocusBand :public Equippable
 {

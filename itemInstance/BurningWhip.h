@@ -1,7 +1,7 @@
 #ifndef BURNWHIP_H
 #define BURNWHIP_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class BurningWhip : public Equippable
 {

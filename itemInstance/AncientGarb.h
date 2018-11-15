@@ -1,7 +1,7 @@
 #ifndef ANCIENTGARB_H
 #define ANCIENTGARB_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class AncientGarb :public Equippable
 {

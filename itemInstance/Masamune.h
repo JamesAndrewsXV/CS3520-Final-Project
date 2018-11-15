@@ -1,7 +1,7 @@
 #ifndef MASAMUNE_H
 #define MASAMUNE_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class Masamune : public Equippable
 {

@@ -1,7 +1,7 @@
 #ifndef SHADKUNAI_H
 #define SHADKUNAI_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class ShadKunai : public Equippable
 {

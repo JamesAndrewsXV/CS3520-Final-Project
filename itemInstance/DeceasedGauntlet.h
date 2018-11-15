@@ -1,7 +1,7 @@
 #ifndef DECEASEDGAUNTLET_H
 #define DECEASEDGAUNTLET_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class DeceasedGauntlet :public Equippable
 {

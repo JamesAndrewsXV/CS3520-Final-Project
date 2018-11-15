@@ -2,7 +2,7 @@
 #define WRAITH_H
 
 
-#include "Enemy.h"
+#include "../Enemy.h"
 class Wraith : public Enemy
 {
 public:

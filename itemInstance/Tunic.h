@@ -1,7 +1,7 @@
 #ifndef TUNIC_H
 #define TUNIC_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class Tunic :public Equippable
 {

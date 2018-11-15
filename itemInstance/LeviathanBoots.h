@@ -1,7 +1,7 @@
 #ifndef LEVIATHANBOOTS_H
 #define LEVIATHANBOOTS_H
 
-#include "Equippable.h"
+#include "../Equippable.h"
 
 class LeviathanBoots :public Equippable
 {
