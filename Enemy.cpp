@@ -30,6 +30,7 @@ void Enemy::takeDamage(Attack a)
 	}
 }
 
+
 Attack Enemy::enAttack()
 {
 	return Attack{ this->stats->att, Element::NEUTRAL, Range::CLOSE };
