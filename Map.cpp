@@ -13,9 +13,9 @@ Map::Map(int numberOfRooms)
 	connectRooms();
 }
 
-Room Map::findPlayer()
+Room* Map::findPlayer()
 {
-	return *playerLoc;
+	return playerLoc;
 }
 
 vector<Room *> Map::getRooms() {
@@ -56,5 +56,5 @@ Map & Map::operator= (const Map & other) {
 }
 
 void Map::movePlayer(int direction) {
-	playerLoc = playerLoc->adjacentRooms[direction];
+	playerLoc = (playerLoc->getAdjacentRooms())[direction];
 }

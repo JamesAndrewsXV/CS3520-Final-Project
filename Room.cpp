@@ -89,6 +89,6 @@ const bool Room::getLoot() {
 	return containLoot;
 }
 
-Room* Room::getAdjacentRooms() {
-	return adjacentRooms[0];
+Room** Room::getAdjacentRooms() {
+	return adjacentRooms;
 }

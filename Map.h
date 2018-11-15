@@ -20,7 +20,7 @@ public:
 	Map & operator= (const Map & other);
 
 	// returns the room the player is currently located in
-	Room findPlayer();
+	Room* findPlayer();
 
 	// returns all of the rooms on the map
 	vector<Room*> getRooms();

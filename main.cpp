@@ -6,6 +6,7 @@
 #include <string>
 #include <cmath>
 #include <deque>
+#include <sstream>
 #include "Map.h"
 
 //Screen dimension constants
@@ -85,7 +86,7 @@ LTexture displayed_text;
 LTexture inventory;
 
 //The text to be displayed
-string message;
+stringstream message;
 
 //alt representation of text
 deque<std::string> messages00 = { "You wake up in a dark room.",
@@ -340,7 +341,7 @@ bool loadMedia()
 	else
 	{
 		SDL_Color textColor = { 0, 0, 0 };
-		if (!displayed_text.loadFromRenderedText(message, textColor ) )
+		if (!displayed_text.loadFromRenderedText(message.str(), textColor ) )
 		{
 			printf("Failed to render text texture \n");
 			success = false;
@@ -403,10 +404,14 @@ SDL_Texture* loadTexture( std::string path )
 
 void changeRoom(int direction) {
 	map->movePlayer(direction);
-	message = "You've entered a new room.";
-	background_location = "assets\room2.png";
+	message.str("You've entered a new room.");
+	background_location = "assets/room2.png";
 	loadMedia();
-	message = "What would you like to do?";
+	//int adjRooms = map->findPlayer()->countAdjacentRooms();
+	//message.str("");
+	//message << "This room is connected to " << adjRooms << "rooms";
+	//loadMedia();
+	messages00.push_back("What would you like to do?");
 }
 
 void changeText() {
@@ -415,17 +420,10 @@ void changeText() {
 //		messages00.push_front("YOU'RE BEING ATTACKED!!");
 //	}
 //
+	std::cout << message.str() << std::endl;
 
-//	if (messages00.empty()) {
-//		message = "What would you like to do?";
-//		loadMedia();
-//		return;
-//	}
-
-	std::cout << message << std::endl;
-
-	if (message == "What would you like to do?") {
-		message = "";
+	if (message.str() == "What would you like to do?") {
+		message.str("");
 		//if (map->findPlayer().countAdjacentRooms() >= 1) {
 			messages00.push_back("Check out the room to the right (RIGHT KEY)\n");
 		//}
@@ -435,36 +433,38 @@ void changeText() {
 //		if (map->findPlayer().countAdjacentRooms() == 3) {
 			messages00.push_back("Check out the room to the left (LEFT KEY)\n");
 //		}
-		messages00.push_back("Look for loot (L)\n");
-	}
-
-	if (message == "You search for loot.") {
-		message = "";
-
-		if (!(map->findPlayer().getLoot())) {
-			messages00.push_back("You search for loot, but didn't find any.");
-		}
-		else {
-			messages00.push_back("You found: Need to finish");
-		}
+		messages00.push_back("Look for loot (DOWN KEY)\n");
 	}
 
 	if (messages00.empty()) {
-		message = "What would you like to do?";
+		message.str("");
+		messages00.push_back("What would you like to do?");
 	}
 
 	while (!messages00.empty()) {
-		message += messages00[0];
+		message << messages00[0];
 		messages00.pop_front();
+	}
+
+	if (message.str() == "You search for loot.") {
+		message.str("");
+//		if (!(map->findPlayer().getLoot())) {
+		message.str("You searched for loot, but didn't find any.");
+		loadMedia();
+//		}
+//		else {
+//			messages00.push_back("You found: Need to finish");
+//		}
 	}
 
 	loadMedia();
 }
 
-int main( int argc, char* args[] )
+int main()
 {
 	srand(time(NULL));
 	map = new Map(5);
+	map->findPlayer();
 	changeText();
 
 	//Start up SDL and create window
@@ -500,46 +500,36 @@ int main( int argc, char* args[] )
 					//If a key was pressed
 					if (event.type == SDL_KEYDOWN)
 					{
-						std::cout << message << std::endl;
 						switch (event.key.keysym.sym)
 						{
-//							if (message == "What would you like to do?") {
 						case SDLK_RETURN:
-								changeText();
-								break;
+							changeText();
+							break;
 
-								case SDLK_UP:
-									messages00.push_front("You walk into the room ahead.");
-									changeText();
-									changeRoom(1);
-									break;
-								case SDLK_LEFT:
-									messages00.push_front("You walk into the room to the left.");
-									changeText();
-									changeRoom(0);
-									break;
-								case SDLK_RIGHT: messages00.push_front("You walk into the room to the right.");
-								messages00.push_front("You walk into the room ahead.");
-								changeText();
-								changeRoom(2);
-								break;
-								case SDLK_l: message = "You search for loot.";
-								changeText();
-								break;
+						case SDLK_UP:
+							messages00.push_front("You walk into the room ahead.");
+							changeText();
+							changeRoom(1);
+							break;
+
+						case SDLK_LEFT:
+							messages00.push_front("You walk into the room to the left.");
+							changeText();
+							changeRoom(0);
+							break;
+
+						case SDLK_RIGHT: messages00.push_front("You walk into the room to the right.");
+							messages00.push_front("You walk into the room ahead.");
+							changeText();
+							changeRoom(2);
+							break;
+
+						case SDLK_DOWN: messages00.push_front("You search for loot.");
+							message.str("");
+							changeText();
+							break;
 						}
-
-
-
-						}
-						//Set the proper message surface
-//						switch (event.key.keysym.sym)
-//						{
-//						case SDLK_SPACE: message = upMessage; break;
-		//				case SDLK_DOWN: message = downMessage; break;
-		//				case SDLK_LEFT: message = leftMessage; break;
-		//				case SDLK_RIGHT: message = rightMessage; break;
-		//				}
-		//			}
+					}
 
 				//Clear screen
 				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );

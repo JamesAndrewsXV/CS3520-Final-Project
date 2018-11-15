@@ -45,7 +45,7 @@ public:
 	const bool getLoot();
 
 	//return the adjacent rooms
-	Room* getAdjacentRooms();
+	Room** getAdjacentRooms();
 
 private:
 	// the (at most four) rooms bordering this room
