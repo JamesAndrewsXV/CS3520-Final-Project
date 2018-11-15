@@ -54,3 +54,7 @@ Map & Map::operator= (const Map & other) {
 	}
 	return *this;
 }
+
+void Map::movePlayer(int direction) {
+	playerLoc = playerLoc->adjacentRooms[direction];
+}

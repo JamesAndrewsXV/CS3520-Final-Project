@@ -2,14 +2,13 @@
 
 Room::Room()
 {
-	adjacentRooms = vector<Room*>();
 	encounter = rand() % 2;
 	containLoot = rand() % 2;
 	setLoot();
 }
 
 void Room::copyfrom(Room other) {
-	adjacentRooms = other.adjacentRooms;
+	adjacentRooms[0] = other.adjacentRooms[0];
 	encounter = other.encounter;
 	containLoot = other.containLoot;
 	loot = other.loot;
@@ -17,7 +16,7 @@ void Room::copyfrom(Room other) {
 
 void Room::movefrom(Room other) {
 	copyfrom(other);
-	other.adjacentRooms.clear();
+	other.adjacentRooms[0] = nullptr;
 	other.encounter = false;
 	other.containLoot = false;
 	other.loot = nullptr;
@@ -61,11 +60,25 @@ void Room::printLoot() {
 }
 
 void Room::connectRoom(Room * room) {
-	adjacentRooms.push_back(room);
+	for (Room* r : adjacentRooms) {
+		if (r == nullptr) {
+			r = room;
+		}
+	}
+	//adjacentRooms.push_back(room);
 }
 
 int Room::countAdjacentRooms() {
-	return adjacentRooms.size();
+	int count = 0;
+
+	for (Room* room : adjacentRooms) {
+		if (room != nullptr) {
+			count++;
+		}
+	}
+
+	return count;
+	//return adjacentRooms.size();
 }
 
 const bool Room::getEncounter() {
@@ -74,4 +87,8 @@ const bool Room::getEncounter() {
 
 const bool Room::getLoot() {
 	return containLoot;
+}
+
+Room* Room::getAdjacentRooms() {
+	return adjacentRooms[0];
 }

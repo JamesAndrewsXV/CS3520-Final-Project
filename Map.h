@@ -25,6 +25,8 @@ public:
 	// returns all of the rooms on the map
 	vector<Room*> getRooms();
 
+	// change the player's location
+	void movePlayer(int direction);
 private:
 	int numOfRooms;
 

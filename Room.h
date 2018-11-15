@@ -44,11 +44,12 @@ public:
 	//return true if there is loot
 	const bool getLoot();
 
-
+	//return the adjacent rooms
+	Room* getAdjacentRooms();
 
 private:
 	// the (at most four) rooms bordering this room
-	vector<Room*> adjacentRooms;
+	Room* adjacentRooms[4];
 
 	// is there a random encounter in this room
 	bool encounter;

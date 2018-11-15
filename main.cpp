@@ -401,6 +401,14 @@ SDL_Texture* loadTexture( std::string path )
 	return newTexture;
 }
 
+void changeRoom(int direction) {
+	map->movePlayer(direction);
+	message = "You've entered a new room.";
+	background_location = "assets\room2.png";
+	loadMedia();
+	message = "What would you like to do?";
+}
+
 void changeText() {
 //	if (map->findPlayer().getEncounter()) {
 //		messages00.push_front("What would you like to do?");
@@ -430,16 +438,27 @@ void changeText() {
 		messages00.push_back("Look for loot (L)\n");
 	}
 
-	if (messages00.empty()) {
-		message = "What do you want to do?";
+	if (message == "You search for loot.") {
+		message = "";
+
+		if (!(map->findPlayer().getLoot())) {
+			messages00.push_back("You search for loot, but didn't find any.");
+		}
+		else {
+			messages00.push_back("You found: Need to finish");
+		}
 	}
 
-	//message is at most four lines of messages
-	//messages ends with a "What would you like to do?"
+	if (messages00.empty()) {
+		message = "What would you like to do?";
+	}
+
 	while (!messages00.empty()) {
 		message += messages00[0];
 		messages00.pop_front();
 	}
+
+	loadMedia();
 }
 
 int main( int argc, char* args[] )
@@ -487,20 +506,27 @@ int main( int argc, char* args[] )
 //							if (message == "What would you like to do?") {
 						case SDLK_RETURN:
 								changeText();
-								loadMedia();
 								break;
 
 								case SDLK_UP:
 									messages00.push_front("You walk into the room ahead.");
 									changeText();
-									loadMedia();
+									changeRoom(1);
 									break;
 								case SDLK_LEFT:
 									messages00.push_front("You walk into the room to the left.");
+									changeText();
+									changeRoom(0);
 									break;
-								case SDLK_RIGHT: messages00.push_front("You walk into the room to the right."); break;
-								case SDLK_l: messages00.push_front("You search for loot."); break;
-							}
+								case SDLK_RIGHT: messages00.push_front("You walk into the room to the right.");
+								messages00.push_front("You walk into the room ahead.");
+								changeText();
+								changeRoom(2);
+								break;
+								case SDLK_l: message = "You search for loot.";
+								changeText();
+								break;
+						}
 
 
 
