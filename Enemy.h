@@ -4,6 +4,7 @@
 #include "Stats.h"
 #include "Attack.h"
 #include <vector>
+#include <memory>
 //#include loot table
 
 //Enemy class
@@ -18,6 +19,17 @@ public:
 
 	//Creates an attack against the player
 	Attack enAttack(); // all enemies must have at least one basic attack.
+
+	static std::unique_ptr<Enemy> build_enemy() {
+		// get random number in choice
+		Enemy * enemy;
+		int choice = 0;
+		switch (choice) {
+		case 0: enemy = new Wraith(); break;
+		default: enemy = new Imp(); break;
+		}
+		return std::unique_ptr(enemy);
+	}
 
 protected:
 

@@ -16,3 +16,18 @@ Bahamut::~Bahamut()
 {
 
 }
+
+Attack Bahamut::baAttack()
+{
+	return Attack{ this->stats->wis * 1.3, Element::FLAME, Range::MAGIC };
+}
+
+Attack Bahamut::baAttack2()
+{
+	return Attack{ this->stats->att * 1.1, Element::ELECTRICITY, Range::CLOSE };
+}
+
+Attack Bahamut::baAttack3()
+{
+	return Attack{ this->stats->wis, Element::ELECTRICITY, Range::MAGIC };
+}

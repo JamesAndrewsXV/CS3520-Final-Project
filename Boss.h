@@ -10,13 +10,14 @@ public:
 	~Boss();
 	void exploitWeakness();
 	void recoverWeakness();
+	Attack enAttack();
 
 protected:
 	Element weakenElement;
 	Range weakenRange;
 	BossState state = BossState::NORMAL;
 	std::vector<Element> staticWeaknesses;
-	int recoveryTurns;
+	int recoveryTurns = 0;
 };
 
 enum BossState
