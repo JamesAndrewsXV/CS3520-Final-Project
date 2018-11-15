@@ -64,6 +64,14 @@ void Room::connectRoom(Room * room) {
 	adjacentRooms.push_back(room);
 }
 
-void Room::countAdjacentRooms() {
-	cout << adjacentRooms.size() << endl;
+int Room::countAdjacentRooms() {
+	return adjacentRooms.size();
+}
+
+const bool Room::getEncounter() {
+	return encounter;
+}
+
+const bool Room::getLoot() {
+	return containLoot;
 }

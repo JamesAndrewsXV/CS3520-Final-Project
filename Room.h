@@ -36,7 +36,15 @@ public:
 	void printLoot();
 
 	// count adjacentRooms -> for testing!
-	void countAdjacentRooms();
+	int countAdjacentRooms();
+
+	//return true if there is an encounter
+	const bool getEncounter();
+
+	//return true if there is loot
+	const bool getLoot();
+
+
 
 private:
 	// the (at most four) rooms bordering this room

@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string>
 #include <cmath>
+#include <deque>
 #include "Map.h"
 
 //Screen dimension constants
@@ -80,11 +81,33 @@ SDL_Renderer* gRenderer = NULL;
 //The text in the message bar
 LTexture displayed_text;
 
+//The inventory display
+LTexture inventory;
+
+//The text to be displayed
+string message;
+
+//alt representation of text
+deque<std::string> messages00 = { "You wake up in a dark room.",
+		"You don't remember how you arrived here, but based on your rucksack and flashlight you gather that this is just another one of your nightly dungeon crawls in search of the rare mythril sword rumored to be the strongest and most precious weapon to be lost to the crepuscular catacombs below the city. ",
+		"You fear not the beasts that await you in the caves. ",
+		"Only the thought of never claiming this sword scares you... ",
+		"Before you lies two paths, a staircase and a treasure chest. " };
+
+//The background being displayed
+string background_location = "assets/dungeon_example.png";
+
 //Current displayed texture
 SDL_Texture* gTexture = NULL;
 
 //Font in use
 TTF_Font *gFont = NULL;
+
+// The map of the dungeon
+Map * map;
+
+//Event handler
+SDL_Event event;
 
 SDL_Texture * LTexture::getTexture() {
 	return mTexture;
@@ -151,7 +174,7 @@ bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColo
 	free();
 
 	//Render text surface
-	SDL_Surface* textSurface = TTF_RenderText_Solid( gFont, textureText.c_str(), textColor );
+	SDL_Surface* textSurface = TTF_RenderText_Blended_Wrapped( gFont, textureText.c_str(), textColor, 2400);
 	if( textSurface == NULL )
 	{
 		printf( "Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError() );
@@ -255,7 +278,7 @@ bool init()
 		}
 
 		//Create window
-		gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+		gWindow = SDL_CreateWindow( "Four Right Turns", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( gWindow == NULL )
 		{
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -301,14 +324,14 @@ bool loadMedia()
 	bool success = true;
 
 	//Load texture
-	gTexture = loadTexture( "assets/dungeon_example.png" );
+	gTexture = loadTexture( background_location );
 	if( gTexture == NULL )
 	{
 		printf( "Failed to load texture image!\n" );
 		success = false;
 	}
 
-	gFont = TTF_OpenFont("assets/OpenSans.ttf", 28);
+	gFont = TTF_OpenFont("assets/OpenSans.ttf", 48);
 	if (gFont == NULL)
 	{
 		printf("Failed to load font. SDL_ttf Error: %s\n", TTF_GetError() );
@@ -317,7 +340,7 @@ bool loadMedia()
 	else
 	{
 		SDL_Color textColor = { 0, 0, 0 };
-		if (!displayed_text.loadFromRenderedText("Go Right", textColor ) )
+		if (!displayed_text.loadFromRenderedText(message, textColor ) )
 		{
 			printf("Failed to render text texture \n");
 			success = false;
@@ -347,6 +370,8 @@ void close()
 	IMG_Quit();
 	SDL_Quit();
 	TTF_Quit();
+
+	delete map;
 }
 
 SDL_Texture* loadTexture( std::string path )
@@ -376,11 +401,52 @@ SDL_Texture* loadTexture( std::string path )
 	return newTexture;
 }
 
+void changeText() {
+//	if (map->findPlayer().getEncounter()) {
+//		messages00.push_front("What would you like to do?");
+//		messages00.push_front("YOU'RE BEING ATTACKED!!");
+//	}
+//
+
+//	if (messages00.empty()) {
+//		message = "What would you like to do?";
+//		loadMedia();
+//		return;
+//	}
+
+	std::cout << message << std::endl;
+
+	if (message == "What would you like to do?") {
+		message = "";
+		//if (map->findPlayer().countAdjacentRooms() >= 1) {
+			messages00.push_back("Check out the room to the right (RIGHT KEY)\n");
+		//}
+//		if (map->findPlayer().countAdjacentRooms() >= 2) {
+			messages00.push_back("Check out the room ahead (UP KEY)\n");
+//		}
+//		if (map->findPlayer().countAdjacentRooms() == 3) {
+			messages00.push_back("Check out the room to the left (LEFT KEY)\n");
+//		}
+		messages00.push_back("Look for loot (L)\n");
+	}
+
+	if (messages00.empty()) {
+		message = "What do you want to do?";
+	}
+
+	//message is at most four lines of messages
+	//messages ends with a "What would you like to do?"
+	while (!messages00.empty()) {
+		message += messages00[0];
+		messages00.pop_front();
+	}
+}
+
 int main( int argc, char* args[] )
 {
-
 	srand(time(NULL));
-	Map map(5);
+	map = new Map(5);
+	changeText();
 
 	//Start up SDL and create window
 	if( !init() )
@@ -399,29 +465,50 @@ int main( int argc, char* args[] )
 			//Main loop flag
 			bool quit = false;
 
-			//Event handler
-			SDL_Event e;
-
 			//While application is running
 			while( !quit )
 			{
 				//Handle events on queue
-				while( SDL_PollEvent( &e ) != 0 )
+				while( SDL_PollEvent( &event ) != 0 )
 				{
 					//User requests quit
-					if( e.type == SDL_QUIT )
+					if( event.type == SDL_QUIT )
 					{
 						quit = true;
 					}
 				}
 
-									//If a key was pressed
-		//			if (event.type == SDL_KEYDOWN)
-		//			{
-		//				//Set the proper message surface
-		//				switch (event.key.keysym.sym)
-		//				{
-		//				case SDLK_UP: message = upMessage; break;
+					//If a key was pressed
+					if (event.type == SDL_KEYDOWN)
+					{
+						std::cout << message << std::endl;
+						switch (event.key.keysym.sym)
+						{
+//							if (message == "What would you like to do?") {
+						case SDLK_RETURN:
+								changeText();
+								loadMedia();
+								break;
+
+								case SDLK_UP:
+									messages00.push_front("You walk into the room ahead.");
+									changeText();
+									loadMedia();
+									break;
+								case SDLK_LEFT:
+									messages00.push_front("You walk into the room to the left.");
+									break;
+								case SDLK_RIGHT: messages00.push_front("You walk into the room to the right."); break;
+								case SDLK_l: messages00.push_front("You search for loot."); break;
+							}
+
+
+
+						}
+						//Set the proper message surface
+//						switch (event.key.keysym.sym)
+//						{
+//						case SDLK_SPACE: message = upMessage; break;
 		//				case SDLK_DOWN: message = downMessage; break;
 		//				case SDLK_LEFT: message = leftMessage; break;
 		//				case SDLK_RIGHT: message = rightMessage; break;
