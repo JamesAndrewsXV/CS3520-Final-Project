@@ -7,7 +7,7 @@ class Boss : public Enemy
 {
 public:
 	Boss();
-	~Boss();
+	virtual ~Boss();
 	void exploitWeakness();
 	Attack enAttack();
 

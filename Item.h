@@ -35,12 +35,15 @@ public:
 	//Returns the stat boost the item gives.
 	Stats getBonus();
 
+	std::string getName();
+
 protected:
 	Stats *bonus;
 	Range range;
 	vector<pair<Element, int>> bonusDamage; // does the multiplier cover this?
 	vector<Ability> abilities;
 	//Includes some sort of indication as to which sprite to use
+	std::string name;
 };
 
 #endif

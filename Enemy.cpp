@@ -30,6 +30,19 @@ void Enemy::takeDamage(Attack a)
 	}
 }
 
+Attack Enemy::attackDecision()
+{
+	switch (rand() % this->attackAmount)
+	{
+	case 0:
+		return this->enAttack();
+	}
+}
+
+std::string Enemy::getName()
+{
+	return this->name;
+}
 
 Attack Enemy::enAttack()
 {

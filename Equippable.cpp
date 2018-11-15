@@ -20,6 +20,11 @@ Stats Item::getBonus()
 	return *(this->bonus);
 }
 
+std::string Item::getName()
+{
+	return this->name;
+}
+
 
 Element Equippable::getStrength() {return this->strength;}
 
