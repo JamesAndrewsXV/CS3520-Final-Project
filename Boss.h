@@ -9,7 +9,6 @@ public:
 	Boss();
 	~Boss();
 	void exploitWeakness();
-	void recoverWeakness();
 	Attack enAttack();
 
 protected:

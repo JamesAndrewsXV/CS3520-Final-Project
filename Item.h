@@ -6,6 +6,7 @@
 #include <vector>
 #include <cstdlib>
 #include <utility>
+#include "Attack.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ public:
 	Item();
 
 	//Destructor
-	~Item();
+	virtual ~Item();
 
 	//Creates random Item 
 	Item * randomItem();

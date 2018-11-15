@@ -16,7 +16,7 @@ public:
 	Equippable();
 
 	//Destructor
-	~Equippable();
+	virtual ~Equippable();
 
 	//Returns the kind of item this is.
 	Kind getKind();

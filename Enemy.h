@@ -17,8 +17,7 @@ public:
 	//Calculates recieving damage based on resistance, weakness, and attack
 	void takeDamage(Attack a);
 
-	//Creates an attack against the player
-	Attack enAttack(); // all enemies must have at least one basic attack.
+	
 
 	static std::unique_ptr<Enemy> build_enemy() {
 		// get random number in choice
@@ -32,6 +31,8 @@ public:
 	}
 
 protected:
+	//Creates an attack against the player
+	Attack enAttack(); // all enemies must have at least one basic attack.
 
 	//Keeps track of stats (dynamically allocated)
 	Stats * stats;
