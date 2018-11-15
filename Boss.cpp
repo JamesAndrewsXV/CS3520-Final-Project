@@ -17,14 +17,15 @@ void Boss::exploitWeakness()
 	this->recoveryTurns = 3;
 }
 
-void Boss::recoverWeakness()
+Attack Boss::enAttack()
 {
-	if (this->recoveryTurns == 0)
+	if (this->recoveryTurns == 0 && this->weaknesses.size() > 0)
 	{
 		this->weaknesses.clear();
 	}
-	else {
+	else if(this->recoveryTurns > 0) 
+	{
 		--this->recoveryTurns;
 	}
+	return Attack{ this->stats->att, Element::NEUTRAL, Range::CLOSE };
 }
-
