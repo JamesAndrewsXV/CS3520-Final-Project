@@ -55,7 +55,7 @@ Map & Map::operator= (const Map & other) {
 
 string Map::movePlayer(int dir) {
 	try {
-//		playerLoc = playerLoc->getAdjacentRooms()->at(dir);
+		playerLoc = playerLoc->getAdjacentRooms()->at(dir);
 		return "You've entered a new room.";
 	} catch (...) {
 		return "You can't go that way.";
