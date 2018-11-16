@@ -23,13 +23,13 @@ void Room::copyfrom(Room other) {
 	loot = other.loot;
 }
 
-void Room::movefrom(Room other) {
-	copyfrom(other);
-	other.adjacentRooms = NULL;
-	other.encounter = false;
-	other.containLoot = false;
-	other.loot = nullptr;
-}
+//void Room::movefrom(Room other) {
+//	copyfrom(other);
+//	other.adjacentRooms = NULL;
+//	other.encounter = false;
+//	other.containLoot = false;
+//	other.loot = nullptr;
+//}
 
 Room::Room(const Room & other) {
 	copyfrom(other);
@@ -42,16 +42,16 @@ Room & Room::operator= (const Room & other) {
 	return *this;
 }
 
-Room::Room(Room&& other) {
-	movefrom(other);
-}
-
-Room& Room::operator=(Room&& other) {
-	if (this != &other) {
-		movefrom(other);
-	}
-	return *this;
-}
+//Room::Room(Room&& other) {
+//	movefrom(other);
+//}
+//
+//Room& Room::operator=(Room&& other) {
+//	if (this != &other) {
+//		movefrom(other);
+//	}
+//	return *this;
+//}
 
 void Room::setLoot()
 {
