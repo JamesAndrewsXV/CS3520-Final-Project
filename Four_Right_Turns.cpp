@@ -75,21 +75,23 @@ void FourRightTurns::changeText()
 
 	if (gameState == Explore)
 	{
-		// the numbers are no longer right
 		if (message.str() == "What would you like to do? ")
 		{
-			queuedMessages.push_back("Return the previous room (S KEY)\n");
-			if (canMove(1))
-			{
-				queuedMessages.push_back("Check out the room to the left (D KEY)\n");
+			message << "\n";
+			if (!(game_map->isFirstRoom(game_map->findPlayer()))) {
+				queuedMessages.push_back("Return the previous room (S KEY)\n");
 			}
-			if (canMove(2))
+			if (game_map->canMove(1))
+			{
+				queuedMessages.push_back("Check out the room to the left (A KEY)\n");
+			}
+			if (game_map->canMove(2))
 			{
 				queuedMessages.push_back("Check out the room ahead (W KEY)\n");
 			}
-			if (canMove(3))
+			if (game_map->canMove(3))
 			{
-				queuedMessages.push_back("Check out the room to the right (A KEY)\n");
+				queuedMessages.push_back("Check out the room to the right (D KEY)\n");
 			}
 			queuedMessages.push_back("Look for loot (SPACE KEY)\n");
 		}
@@ -99,7 +101,7 @@ void FourRightTurns::changeText()
 	{
 		message.str("Player Stats and stuff here!");
 		int randDrop = rand() % 2;
-		game_map->findPlayer()->setLoot(true);
+		game_map->findPlayer()->setLoot(randDrop);
 		gameState = Explore;
 	}
 
@@ -111,7 +113,7 @@ void FourRightTurns::changeText()
 		}
 		else
 		{
-			queuedMessages.push_back("You found: ...");
+			message.str("You found: ...");
 			game_map->findPlayer()->setLoot(false);
 		}
 		gameState = Explore;
@@ -150,14 +152,14 @@ int FourRightTurns::play()
 			while (!quit)
 			{
 				//Handle events on queue
-				while (SDL_PollEvent(&event) != 0)
+				while (SDL_PollEvent(&event))
 				{
 					//User requests quit
 					if (event.type == SDL_QUIT)
 					{
 						quit = true;
 					}
-				}
+
 
 				//If a key was pressed
 				if (event.type == SDL_KEYDOWN)
@@ -171,25 +173,25 @@ int FourRightTurns::play()
 							changeText();
 							break;
 
-						case SDL_DOWN:
+						case SDLK_s:
 							queuedMessages.push_front("You go back.");
 							changeText();
-							changeRoom(1);
+							changeRoom(0);
 							break;
 
-						case SDLK_LEFT:
+						case SDLK_a:
 							queuedMessages.push_front("You walk into the room to the left.");
 							changeText();
 							changeRoom(1);
 							break;
 
-						case SDLK_UP:
+						case SDLK_w:
 							queuedMessages.push_front("You walk into the room ahead.");
 							changeText();
 							changeRoom(2);
 							break;
 
-						case SDLK_RIGHT:
+						case SDLK_d:
 							queuedMessages.push_front("You walk into the room to the right.");
 							queuedMessages.push_front("You walk into the room ahead.");
 							changeText();
@@ -203,6 +205,7 @@ int FourRightTurns::play()
 							changeText();
 							break;
 						}
+					}
 					}
 				}
 

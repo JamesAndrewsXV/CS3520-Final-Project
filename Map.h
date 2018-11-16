@@ -6,6 +6,8 @@
 #include <vector>
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
+#include <sstream>
 using namespace std;
 
 // class representing the list of rooms the player traverses through
@@ -31,6 +33,12 @@ class Map
 
 	// tests if the player can move in a certain direction
 	bool canMove(int dir);
+
+	//for testing, returns the edges between a graph of the map
+	string printConnections();
+
+	// is this the first room?
+	bool isFirstRoom(Room * room);
   private:
 	int numOfRooms;
 

@@ -7,7 +7,7 @@ Room::Room()
 	encounter = rand() % 2;
 	containLoot = rand() % 2;
 	setLoot(containLoot);
-	adjRoomList = getAdjacentRooms();
+	adjRoomList = new vector<Room*>();
 	firstRoom = false;
 }
 
@@ -47,7 +47,7 @@ void Room::printLoot() {
 bool Room::connectRoom(Room * room) {
 	int roomKey = -1;
 	int maxAdjacentRooms = 3;
-	int randRoomPosn = rand() % 4 + 1;
+	int randRoomPosn = rand() % 3 + 1;
 	map<int, Room*>::iterator it = adjacentRooms->find(randRoomPosn);
 
 	if (adjacentRooms->size() == 0 && !firstRoom) {
@@ -55,7 +55,7 @@ bool Room::connectRoom(Room * room) {
 	} else {
 		for (int i = 1; i < maxAdjacentRooms; i++) {
 			while (it != adjacentRooms->end()) {
-				randRoomPosn = rand() % 4 + 1;
+				randRoomPosn = rand() % 3 + 1;
 				it = adjacentRooms->find(randRoomPosn);
 			}
 			roomKey = randRoomPosn;
@@ -68,6 +68,7 @@ bool Room::connectRoom(Room * room) {
 	}
 	else {
 		adjacentRooms->insert(make_pair(roomKey, room));
+		adjRoomList->push_back(room);
 		return true;
 	}
 }
@@ -88,11 +89,18 @@ const bool Room::getLoot() {
 	return containLoot;
 }
 
+//void Room::setAdjacentRooms() {
+//	for (map<int, Room*>::iterator it = adjacentRooms->begin(); it != adjacentRooms->end(); it++) {
+//		adjRoomList->push_back(it->second);
+//	}
+//}
+
 vector<Room*> * Room::getAdjacentRooms() {
-	for (map<int, Room*>::iterator it = adjacentRooms->begin(); it != adjacentRooms->end(); it++) {
-		adjRoomList->push_back(it->second);
-	}
 	return adjRoomList;
+}
+
+map<int, Room*> * Room::getAdjacentRoomsMap() {
+	return adjacentRooms;
 }
 
 void Room::setFirstRoom() {

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <algorithm>
 using namespace std;
 
 // class representing the list of rooms the player traverses through
@@ -47,6 +48,12 @@ public:
 
 	//return the adjacent rooms
 	vector<Room*> * getAdjacentRooms();
+
+	//sets the adjacent rooms
+	void setAdjacentRooms();
+
+	//return the map of adjacent rooms
+	map<int, Room*> * getAdjacentRoomsMap();
 
 	// set this room as the first room
 	void setFirstRoom();
