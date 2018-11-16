@@ -20,6 +20,8 @@ public:
 	// initializes a game
 	FourRightTurns();
 
+	~FourRightTurns();
+
 	void changeBackground();
 
 	void changeRoom(int dir);
@@ -27,6 +29,13 @@ public:
 	void changeText();
 
 	int play();
+
+	enum GameMode {
+		Battle,
+		Explore,
+		Loot,
+		Inventory
+	};
 
 private:
 		//The text to be displayed
@@ -48,6 +57,8 @@ private:
 		bool firstImage;
 
 		Loader loader;
+
+		GameMode gameState;
 };
 
 #endif

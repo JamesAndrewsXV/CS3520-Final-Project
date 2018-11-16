@@ -34,7 +34,7 @@ public:
 	bool connectRoom(Room * room);
 
 	// if this room has loot add loot
-	void setLoot();
+	void setLoot(bool l);
 
 	// prints "there's loot" if there is loot for now -> testing
 	void printLoot();
@@ -44,6 +44,9 @@ public:
 
 	//return true if there is an encounter
 	const bool getEncounter();
+
+	//sets the encounter to false
+	void setEncounter(bool enc);
 
 	//return true if there is loot
 	const bool getLoot();

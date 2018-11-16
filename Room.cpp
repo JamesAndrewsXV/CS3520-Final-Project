@@ -6,14 +6,14 @@ Room::Room()
 	adjRoomList = new vector<Room*>();
 	encounter = rand() % 2;
 	containLoot = rand() % 2;
-	setLoot();
+	setLoot(containLoot);
 	adjRoomList = getAdjacentRooms();
 }
 
 Room::~Room()
 {
-	adjRoomList = NULL;
 	delete adjacentRooms;
+	delete adjRoomList;
 }
 
 void Room::copyfrom(Room other) {
@@ -53,15 +53,9 @@ Room & Room::operator= (const Room & other) {
 //	return *this;
 //}
 
-void Room::setLoot()
+void Room::setLoot(bool l)
 {
-	if (containLoot)
-	{
-		loot = "there's loot!";
-	}
-	else {
-		loot = "no loot.";
-	}
+	containLoot = l;
 }
 
 void Room::printLoot() {
@@ -93,6 +87,10 @@ int Room::countAdjacentRooms() {
 
 const bool Room::getEncounter() {
 	return encounter;
+}
+
+void Room::setEncounter(bool enc) {
+	encounter = enc;
 }
 
 const bool Room::getLoot() {

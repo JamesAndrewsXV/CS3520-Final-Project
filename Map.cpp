@@ -8,7 +8,9 @@ Map::Map(int numberOfRooms)
 	}
 
 	firstRoom = rooms.front();
+	firstRoom->setEncounter(false);
 	bossRoom = rooms.back();
+	bossRoom->setEncounter(true);
 	playerLoc = firstRoom;
 	connectRooms();
 }

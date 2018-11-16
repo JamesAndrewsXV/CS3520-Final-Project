@@ -1,5 +1,13 @@
 #include "Loader.h"
 
+Loader::~Loader() {
+	SDL_DestroyWindow(gWindow);
+	SDL_DestroyRenderer(gRenderer);
+	displayed_text.free();
+	SDL_DestroyTexture(gTexture);
+	gFont = NULL;
+}
+
 bool Loader::init()
 {
 	//Initialization flag

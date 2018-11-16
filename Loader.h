@@ -16,6 +16,11 @@ using namespace std;
 // class representing graphical display and front end logic of game
 class Loader {
 public:
+
+	Loader() = default;
+
+	~Loader();
+
 	//Starts up SDL and creates window
 		 bool init();
 

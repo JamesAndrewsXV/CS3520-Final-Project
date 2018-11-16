@@ -1,7 +1,6 @@
 #include "Four_Right_Turns.h"
 
 FourRightTurns::FourRightTurns() {
-	srand(time(NULL));
 	message.str("Four Right Turns");
 	game_map = new Map(10); //delete!
 	queuedMessages = deque<string>();
@@ -14,6 +13,11 @@ FourRightTurns::FourRightTurns() {
 
 	background_image = "assets/dungeon_example.png";
 	firstImage = true;
+	gameState = Explore;
+}
+
+FourRightTurns::~FourRightTurns() {
+	delete game_map;
 }
 
 void FourRightTurns::changeBackground() {
@@ -40,52 +44,62 @@ void FourRightTurns::changeRoom(int dir) {
 	} else {
 		loader.loadMedia(background_image, message.str());
 	}
-	queuedMessages.push_back("What would you like to do?");
 }
 
 void FourRightTurns::changeText() {
-//	if (map->findPlayer().getEncounter()) {
-//		messages00.push_front("What would you like to do?");
-//		messages00.push_front("YOU'RE BEING ATTACKED!!");
-//	}
-//
 	std::cout << message.str() << std::endl;
-
-	if (message.str() == "What would you like to do?") {
-		message.str("");
-		// the key events don't yet catch if the player tries to enter a room that doesn't exist
-		if (game_map->findPlayer()->countAdjacentRooms() >= 1) {
-			queuedMessages.push_back("Check out the room to the right (RIGHT KEY)\n");
-		}
-		if (game_map->findPlayer()->countAdjacentRooms() >= 2) {
-			queuedMessages.push_back("Check out the room ahead (UP KEY)\n");
-		}
-		if (game_map->findPlayer()->countAdjacentRooms() == 3) {
-			queuedMessages.push_back("Check out the room to the left (LEFT KEY)\n");
-		}
-		queuedMessages.push_back("Look for loot (DOWN KEY)\n");
-	}
+	std::cout << gameState << std::endl;
 
 	if (queuedMessages.empty()) {
 		message.str("");
-		queuedMessages.push_back("What would you like to do?");
+		queuedMessages.push_back("What would you like to do? ");
 	}
 
 	while (!queuedMessages.empty()) {
-		message << queuedMessages[0];
-		queuedMessages.pop_front();
+			message << queuedMessages[0];
+			queuedMessages.pop_front();
 	}
 
-	if (message.str() == "You search for loot.") {
-		message.str("");
-//		if (!(map->findPlayer().getLoot())) {
-		message.str("You searched for loot, but didn't find any.");
-		loader.loadMedia(background_image, message.str());
-//		}
-//		else {
-//			messages00.push_back("You found: Need to finish");
-//		}
+	if (gameState == Explore) {
+		if (message.str() == "What would you like to do? ") {
+//				message.str("");
+				// the key events don't yet catch if the player tries to enter a room that doesn't exist
+				if (game_map->findPlayer()->countAdjacentRooms() >= 1) {
+					queuedMessages.push_back("Check out the room to the right (RIGHT KEY)\n");
+				}
+				if (game_map->findPlayer()->countAdjacentRooms() >= 2) {
+					queuedMessages.push_back("Check out the room ahead (UP KEY)\n");
+				}
+				if (game_map->findPlayer()->countAdjacentRooms() == 3) {
+					queuedMessages.push_back("Check out the room to the left (LEFT KEY)\n");
+				}
+				queuedMessages.push_back("Look for loot (DOWN KEY)\n");
+		}
 	}
+
+	if (gameState == Battle) {
+		message.str("Player Stats and stuff here!");
+		int randDrop = rand() % 2;
+		game_map->findPlayer()->setLoot(true);
+		gameState = Explore;
+	}
+
+		if (gameState == Loot) {
+			if (!(game_map->findPlayer()->getLoot())) {
+			message.str("You searched for loot, but didn't find any.");
+			}
+			else {
+				queuedMessages.push_back("You found: ...");
+				game_map->findPlayer()->setLoot(false);
+			}
+			gameState = Explore;
+		}
+
+		if (game_map->findPlayer()->getEncounter()) {
+			gameState = Battle;
+			message.str("YOU'RE BEING ATTACKED!!");
+			game_map->findPlayer()->setEncounter(false);
+		}
 
 	loader.loadMedia(background_image, message.str());
 }
@@ -151,6 +165,7 @@ int FourRightTurns::play()
 
 						case SDLK_DOWN: queuedMessages.push_front("You search for loot.");
 							message.str("");
+							gameState = Loot;
 							changeText();
 							break;
 						}

@@ -19,6 +19,7 @@ int main( int argc, char *argv[] ) {
     CxxTest::RealWorldDescription::_worldName = "cxxtest";
     status = CxxTest::Main< CxxTest::ErrorPrinter >( tmp, argc, argv );
 
+	srand(time(NULL));
     FourRightTurns game;
     game.play();
 
