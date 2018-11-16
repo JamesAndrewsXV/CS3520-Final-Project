@@ -17,7 +17,8 @@ public:
 	  }
 
 	  //tests the swap function
-	  void test_() {
+	  void test_CONNECT_ROOM() {
+		  setUp();
 		  TS_ASSERT(r1->connectRoom(r2));
 	  }
 };
