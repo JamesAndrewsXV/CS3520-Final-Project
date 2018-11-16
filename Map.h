@@ -26,7 +26,7 @@ public:
 	vector<Room*> getRooms();
 
 	// change the player's location
-	void movePlayer(int direction);
+	string movePlayer(int dir);
 private:
 	int numOfRooms;
 

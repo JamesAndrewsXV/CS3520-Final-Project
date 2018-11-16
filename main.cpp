@@ -8,6 +8,7 @@
 #include <deque>
 #include <sstream>
 #include "Map.h"
+#include "Room.h"
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 1024;
@@ -89,7 +90,7 @@ LTexture inventory;
 stringstream message;
 
 //alt representation of text
-deque<std::string> messages00 = { "You wake up in a dark room.",
+deque<std::string> queuedMessages = { "You wake up in a dark room.",
 		"You don't remember how you arrived here, but based on your rucksack and flashlight you gather that this is just another one of your nightly dungeon crawls in search of the rare mythril sword rumored to be the strongest and most precious weapon to be lost to the crepuscular catacombs below the city. ",
 		"You fear not the beasts that await you in the caves. ",
 		"Only the thought of never claiming this sword scares you... ",
@@ -105,10 +106,13 @@ SDL_Texture* gTexture = NULL;
 TTF_Font *gFont = NULL;
 
 // The map of the dungeon
-Map * map;
+Map * game_map;
 
 //Event handler
 SDL_Event event;
+
+// which room is on screen
+bool firstImage = true;
 
 SDL_Texture * LTexture::getTexture() {
 	return mTexture;
@@ -341,6 +345,7 @@ bool loadMedia()
 	else
 	{
 		SDL_Color textColor = { 0, 0, 0 };
+
 		if (!displayed_text.loadFromRenderedText(message.str(), textColor ) )
 		{
 			printf("Failed to render text texture \n");
@@ -372,7 +377,7 @@ void close()
 	SDL_Quit();
 	TTF_Quit();
 
-	delete map;
+	delete game_map;
 }
 
 SDL_Texture* loadTexture( std::string path )
@@ -402,16 +407,31 @@ SDL_Texture* loadTexture( std::string path )
 	return newTexture;
 }
 
-void changeRoom(int direction) {
-	map->movePlayer(direction);
-	message.str("You've entered a new room.");
-	background_location = "assets/room2.png";
-	loadMedia();
-	//int adjRooms = map->findPlayer()->countAdjacentRooms();
-	//message.str("");
-	//message << "This room is connected to " << adjRooms << "rooms";
-	//loadMedia();
-	messages00.push_back("What would you like to do?");
+void changeBackground() {
+	if (firstImage) {
+		background_location = "assets/dungeon_example.png";
+	} else {
+		background_location = "assets/room2.png";
+	}
+}
+
+void changeRoom(int dir) {
+	message.str(game_map->movePlayer(dir));
+
+	if (message.str() != "You can't go that way.") {
+		firstImage = !firstImage;
+		changeBackground();
+		loadMedia();
+
+		int adjRooms = game_map->findPlayer()->countAdjacentRooms();
+		message.str("");
+		message << "This room is connected to " << adjRooms << " rooms";
+		loadMedia();
+		message.str("");
+	} else {
+		loadMedia();
+	}
+	queuedMessages.push_back("What would you like to do?");
 }
 
 void changeText() {
@@ -424,26 +444,27 @@ void changeText() {
 
 	if (message.str() == "What would you like to do?") {
 		message.str("");
-		//if (map->findPlayer().countAdjacentRooms() >= 1) {
-			messages00.push_back("Check out the room to the right (RIGHT KEY)\n");
-		//}
-//		if (map->findPlayer().countAdjacentRooms() >= 2) {
-			messages00.push_back("Check out the room ahead (UP KEY)\n");
-//		}
-//		if (map->findPlayer().countAdjacentRooms() == 3) {
-			messages00.push_back("Check out the room to the left (LEFT KEY)\n");
-//		}
-		messages00.push_back("Look for loot (DOWN KEY)\n");
+		// the key events don't yet catch if the player tries to enter a room that doesn't exist
+		if (game_map->findPlayer()->countAdjacentRooms() >= 1) {
+			queuedMessages.push_back("Check out the room to the right (RIGHT KEY)\n");
+		}
+		if (game_map->findPlayer()->countAdjacentRooms() >= 2) {
+			queuedMessages.push_back("Check out the room ahead (UP KEY)\n");
+		}
+		if (game_map->findPlayer()->countAdjacentRooms() == 3) {
+			queuedMessages.push_back("Check out the room to the left (LEFT KEY)\n");
+		}
+		queuedMessages.push_back("Look for loot (DOWN KEY)\n");
 	}
 
-	if (messages00.empty()) {
+	if (queuedMessages.empty()) {
 		message.str("");
-		messages00.push_back("What would you like to do?");
+		queuedMessages.push_back("What would you like to do?");
 	}
 
-	while (!messages00.empty()) {
-		message << messages00[0];
-		messages00.pop_front();
+	while (!queuedMessages.empty()) {
+		message << queuedMessages[0];
+		queuedMessages.pop_front();
 	}
 
 	if (message.str() == "You search for loot.") {
@@ -463,9 +484,8 @@ void changeText() {
 int main()
 {
 	srand(time(NULL));
-	map = new Map(5);
-	map->findPlayer();
-	changeText();
+	message.str("Four Right Turns");
+	game_map = new Map(10);
 
 	//Start up SDL and create window
 	if( !init() )
@@ -507,24 +527,24 @@ int main()
 							break;
 
 						case SDLK_UP:
-							messages00.push_front("You walk into the room ahead.");
+							queuedMessages.push_front("You walk into the room ahead.");
 							changeText();
 							changeRoom(1);
 							break;
 
 						case SDLK_LEFT:
-							messages00.push_front("You walk into the room to the left.");
+							queuedMessages.push_front("You walk into the room to the left.");
 							changeText();
 							changeRoom(0);
 							break;
 
-						case SDLK_RIGHT: messages00.push_front("You walk into the room to the right.");
-							messages00.push_front("You walk into the room ahead.");
+						case SDLK_RIGHT: queuedMessages.push_front("You walk into the room to the right.");
+							queuedMessages.push_front("You walk into the room ahead.");
 							changeText();
 							changeRoom(2);
 							break;
 
-						case SDLK_DOWN: messages00.push_front("You search for loot.");
+						case SDLK_DOWN: queuedMessages.push_front("You search for loot.");
 							message.str("");
 							changeText();
 							break;

@@ -11,8 +11,8 @@ main.o: main.cpp Room.h Map.h
 Room.o: Room.cpp Room.h
 	g++ $(CPPFLAGS) -std=c++11 -c Room.cpp
 
-Map.o:
+Map.o: Map.cpp Room.h
 	g++ $(CPPFLAGS) -std=c++11 -c Map.cpp
 
 clean:
-	rm -f main main.o Room.o Map.o
+	rm -f Four_Right_Turns main.o Room.o Map.o

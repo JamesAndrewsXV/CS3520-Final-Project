@@ -2,13 +2,22 @@
 
 Room::Room()
 {
+	adjacentRooms = new map<int, Room*>();
+	adjRoomList = new vector<Room*>();
 	encounter = rand() % 2;
 	containLoot = rand() % 2;
 	setLoot();
+	adjRoomList = getAdjacentRooms();
+}
+
+Room::~Room()
+{
+	adjRoomList = NULL;
+	delete adjacentRooms;
 }
 
 void Room::copyfrom(Room other) {
-	adjacentRooms[0] = other.adjacentRooms[0];
+	adjacentRooms = other.adjacentRooms;
 	encounter = other.encounter;
 	containLoot = other.containLoot;
 	loot = other.loot;
@@ -16,7 +25,7 @@ void Room::copyfrom(Room other) {
 
 void Room::movefrom(Room other) {
 	copyfrom(other);
-	other.adjacentRooms[0] = nullptr;
+	other.adjacentRooms = NULL;
 	other.encounter = false;
 	other.containLoot = false;
 	other.loot = nullptr;
@@ -33,16 +42,16 @@ Room & Room::operator= (const Room & other) {
 	return *this;
 }
 
-//Room::Room(Room&& other) {
-//	movefrom(other);
-//}
-//
-//Room& Room::operator=(Room&& other) {
-//	if (this != &other) {
-//		movefrom(other);
-//	}
-//	return *this;
-//}
+Room::Room(Room&& other) {
+	movefrom(other);
+}
+
+Room& Room::operator=(Room&& other) {
+	if (this != &other) {
+		movefrom(other);
+	}
+	return *this;
+}
 
 void Room::setLoot()
 {
@@ -59,26 +68,27 @@ void Room::printLoot() {
 	cout << loot << endl;
 }
 
-void Room::connectRoom(Room * room) {
-	for (Room* r : adjacentRooms) {
-		if (r == nullptr) {
-			r = room;
+bool Room::connectRoom(Room * room) {
+	int roomKey = -1;
+
+	for (int i = 0; i < 3; i++) {
+		if (adjacentRooms->count(i) == 0) {
+			roomKey = i;
+			break;
 		}
 	}
-	//adjacentRooms.push_back(room);
+
+	if (roomKey == -1) {
+		return false;
+	}
+	else {
+		adjacentRooms->insert(make_pair(roomKey, room));
+		return true;
+	}
 }
 
 int Room::countAdjacentRooms() {
-	int count = 0;
-
-	for (Room* room : adjacentRooms) {
-		if (room != nullptr) {
-			count++;
-		}
-	}
-
-	return count;
-	//return adjacentRooms.size();
+	return adjacentRooms->size();
 }
 
 const bool Room::getEncounter() {
@@ -89,6 +99,9 @@ const bool Room::getLoot() {
 	return containLoot;
 }
 
-Room** Room::getAdjacentRooms() {
-	return adjacentRooms;
+vector<Room*> * Room::getAdjacentRooms() {
+	for (map<int, Room*>::iterator it = adjacentRooms->begin(); it != adjacentRooms->end(); it++) {
+		adjRoomList->push_back(it->second);
+	}
+	return adjRoomList;
 }

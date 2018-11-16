@@ -24,8 +24,6 @@ vector<Room *> Map::getRooms() {
 
 void Map::connectRooms() {
 	for (int i = 0; i < rooms.size(); i++) {
-
-//	for (Room * r : rooms) {
 		Room & room = *(rooms[i]);
 		int numAdjacent = rand() % 3 + 2;
 
@@ -55,6 +53,12 @@ Map & Map::operator= (const Map & other) {
 	return *this;
 }
 
-void Map::movePlayer(int direction) {
-	playerLoc = (playerLoc->getAdjacentRooms())[direction];
+string Map::movePlayer(int dir) {
+	try {
+//		playerLoc = playerLoc->getAdjacentRooms()->at(dir);
+		return "You've entered a new room.";
+	} catch (...) {
+		return "You can't go that way.";
+	}
+//	playerLoc = (*(playerLoc->getAdjacentRooms()))[dir];
 }
