@@ -8,6 +8,7 @@ Room::Room()
 	containLoot = rand() % 2;
 	setLoot(containLoot);
 	adjRoomList = getAdjacentRooms();
+	firstRoom = false;
 }
 
 Room::~Room()
@@ -23,14 +24,6 @@ void Room::copyfrom(Room other) {
 	loot = other.loot;
 }
 
-//void Room::movefrom(Room other) {
-//	copyfrom(other);
-//	other.adjacentRooms = NULL;
-//	other.encounter = false;
-//	other.containLoot = false;
-//	other.loot = nullptr;
-//}
-
 Room::Room(const Room & other) {
 	copyfrom(other);
 }
@@ -41,17 +34,6 @@ Room & Room::operator= (const Room & other) {
 	}
 	return *this;
 }
-
-//Room::Room(Room&& other) {
-//	movefrom(other);
-//}
-//
-//Room& Room::operator=(Room&& other) {
-//	if (this != &other) {
-//		movefrom(other);
-//	}
-//	return *this;
-//}
 
 void Room::setLoot(bool l)
 {
@@ -64,10 +46,19 @@ void Room::printLoot() {
 
 bool Room::connectRoom(Room * room) {
 	int roomKey = -1;
+	int maxAdjacentRooms = 3;
+	int randRoomPosn = rand() % 4 + 1;
+	map<int, Room*>::iterator it = adjacentRooms->find(randRoomPosn);
 
-	for (int i = 0; i < 3; i++) {
-		if (adjacentRooms->count(i) == 0) {
-			roomKey = i;
+	if (adjacentRooms->size() == 0 && !firstRoom) {
+		roomKey = 0;
+	} else {
+		for (int i = 1; i < maxAdjacentRooms; i++) {
+			while (it != adjacentRooms->end()) {
+				randRoomPosn = rand() % 4 + 1;
+				it = adjacentRooms->find(randRoomPosn);
+			}
+			roomKey = randRoomPosn;
 			break;
 		}
 	}
@@ -102,4 +93,12 @@ vector<Room*> * Room::getAdjacentRooms() {
 		adjRoomList->push_back(it->second);
 	}
 	return adjRoomList;
+}
+
+void Room::setFirstRoom() {
+	firstRoom = true;
+}
+
+void Room::setBossRoom() {
+	bossRoom = true;
 }

@@ -24,12 +24,6 @@ public:
 	// room copy constructor
 	Room(const Room & other);
 
-////	 room move constructor
-//	Room(Room&& other);
-////
-////	 room move assignment constructor
-//	Room& operator=(Room&& other);
-
 	// adds up to four rooms to this room. returns false if this room has no space
 	bool connectRoom(Room * room);
 
@@ -54,6 +48,11 @@ public:
 	//return the adjacent rooms
 	vector<Room*> * getAdjacentRooms();
 
+	// set this room as the first room
+	void setFirstRoom();
+
+	// set this room as the last room
+	void setBossRoom();
 private:
 	// the (at most four) rooms bordering this room
 	map<int, Room*> * adjacentRooms;
@@ -73,8 +72,11 @@ private:
 	// copies member variables of rooms
 	void copyfrom(Room other);
 
-//	// moves member variables of rooms from another to this one
-//	void movefrom(Room other);
+	// is this the first room in a map?
+	bool firstRoom;
+
+	// is this the last room in a map?
+	bool bossRoom;
 };
 
 #endif

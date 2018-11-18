@@ -13,17 +13,18 @@
 #include <cxxtest/ErrorPrinter.h>
 #include "Four_Right_Turns.h"
 
-int main( int argc, char *argv[] ) {
- int status;
+int main(int argc, char *argv[])
+{
+    int status;
     CxxTest::ErrorPrinter tmp;
     CxxTest::RealWorldDescription::_worldName = "cxxtest";
-    status = CxxTest::Main< CxxTest::ErrorPrinter >( tmp, argc, argv );
+    status = CxxTest::Main<CxxTest::ErrorPrinter>(tmp, argc, argv);
 
-	srand(time(NULL));
+    srand(time(NULL));
     FourRightTurns game;
     game.play();
 
     return status;
 }
 #include <cxxtest/Root.cpp>
-const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";
+const char *CxxTest::RealWorldDescription::_worldName = "cxxtest";
