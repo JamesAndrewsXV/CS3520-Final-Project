@@ -16,32 +16,26 @@ Player::Player()
 }
 Player::~Player()
 {
-	for (Item *i : this->_items)
-	{
-		delete i;
-	}
-	for (Equippable *e : this->_equipped)
-	{
-		delete e;
-	}
+	for (Item *i : this->_items) { delete i; }
+	for(Equippable *e: this->_equipped){delete e;}
 	delete this->stats; // clear stats object from memory
 }
 
 int Player::getHealth() { return this->currHP; }
 Stats Player::getStats() { return *(this->stats); }
-vector<Item> Player::getAllItems()
+vector<Item> Player::getAllItems() 
 {
 	vector<Item> items = {};
-	for (Item *i : this->_items)
+	for (Item* i : this->_items) 
 	{
 		items.push_back(*i);
 	}
-	return items;
+	return items; 
 }
-vector<Equippable> Player::getEquipped()
+vector<Equippable> Player::getEquipped() 
 {
 	vector<Equippable> equipped = {};
-	for (Equippable *e : this->_equipped)
+	for (Equippable* e : this->_equipped)
 	{
 		equipped.push_back(*e);
 	}
@@ -53,28 +47,20 @@ void Player::takeDamage(Attack a)
 	int damage = a.attack;
 	for (Element e : this->weaknesses)
 	{
-		if (e == a.elem)
-		{
-			damage = (double)damage * 1.5;
-		}
+		if (e == a.elem) { damage = (double)damage * 1.5; }
 	}
 	for (Element e : this->strengths)
 	{
-		if (e == a.elem)
-		{
-			damage = (double)damage * 0.5;
-		}
+		if (e == a.elem) { damage = (double)damage * 0.5; }
 	}
-	if (a.range == Range::MAGIC)
-	{
+	if (a.range == Range::MAGIC) {
 		this->currHP -= ((damage - this->stats->intel) < 0) ? 0 : (damage - this->stats->intel); // 0 HP, otherwise whatever damage is done.
 	}
-	else
-	{
+	else {
 		this->currHP -= ((damage - this->stats->def) < 0) ? 0 : (damage - this->stats->def); // 0 HP, otherwise whatever damage is done.
 	}
 }
-//stat functions?
+//stat functions?  
 
 void Player::addItemToBag(Item *item) { this->_items.push_back(item); }
 void Player::equipItem(Equippable *item)
@@ -88,11 +74,9 @@ void Player::equipItem(Equippable *item)
 			this->_items.erase(std::find(this->_items.begin(), this->_items.end(), item));
 			this->_equipped.push_back(item);
 			*(this->stats) += (*item).getBonus();
+
 		}
-		else
-		{
-			throw 11;
-		}
+		else { throw 11; }
 
 		//Apply buffs
 		if (item->getStrength() != NULL && item->getKind != Kind::WEAPON) //It must be in the list of strengths if non null, only on armor
@@ -121,7 +105,7 @@ void Player::unequipItem(Equippable *item)
 	//this is extremely ugly, going to try pointer comparison for efficiency.
 	try
 	{
-		//Check if the item is equipped
+		//Check if the item is equipped 
 		if (std::find(this->_equipped.begin(), this->_equipped.end(), item) != this->_equipped.end())
 		{
 			this->_equipped.erase(std::find(this->_equipped.begin(), this->_equipped.end(), item));
@@ -130,12 +114,12 @@ void Player::unequipItem(Equippable *item)
 
 			//Remove buffs
 			if (item->getStrength() != NULL && item->getKind != Kind::WEAPON) //It must be in the list of strengths if non null, only on armor
-			{
+			{ 
 				this->strengths.erase(std::find(this->strengths.begin(), this->strengths.end(), item->getStrength)); //erase an instance of the strength
 			}
 
 			if (item->getWeakness() != NULL && item->getKind != Kind::WEAPON) //It must be in the list of weaknesses if non null, only on armor
-			{
+			{ 
 				this->weaknesses.erase(std::find(this->weaknesses.begin(), this->weaknesses.end(), item->getWeakness)); //erase an instance of the weakness
 			}
 
@@ -145,10 +129,7 @@ void Player::unequipItem(Equippable *item)
 				this->range = Range::CLOSE;
 			}
 		}
-		else
-		{
-			throw 12;
-		}
+		else { throw 12; }
 	}
 	catch (int x)
 	{
@@ -156,12 +137,15 @@ void Player::unequipItem(Equippable *item)
 	}
 }
 
+
 Attack Player::physAttack()
 {
-	return Attack{this->stats->att, this->elem, this->range};
+	return Attack{ this->stats->att, this->elem, this->range };
 }
 
 Attack Player::magAttack()
 {
-	return Attack{this->stats->wis, this->elem, Range::MAGIC};
+	return Attack{ this->stats->wis, this->elem, Range::MAGIC };
 }
+
+
