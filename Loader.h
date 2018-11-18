@@ -14,45 +14,46 @@
 using namespace std;
 
 // class representing graphical display and front end logic of game
-class Loader {
-public:
+class Loader
+{
+  public:
 	//Starts up SDL and creates window
-		 bool init();
+	bool init();
 
-		//Loads media
-		 bool loadMedia(string background, string message);
+	//Loads media
+	bool loadMedia(string background, string message);
 
-		//Frees media and shuts down SDL
-		 void close();
+	//Frees media and shuts down SDL
+	void close();
 
-		 SDL_Texture* loadTexture( std::string path );
+	SDL_Texture *loadTexture(std::string path);
 
-		 void renderScreen();
+	void renderScreen();
 
-private:
-		friend class FourRightTurns;
+  private:
+	friend class FourRightTurns;
 
-		//Screen dimension constants
-		const int SCREEN_WIDTH = 1024;
-		const int SCREEN_HEIGHT = 600;
+	//Screen dimension constants
+	const int SCREEN_WIDTH = 1024;
+	const int SCREEN_HEIGHT = 600;
 
-		//The window we'll be rendering to
-		SDL_Window* gWindow = NULL;
+	//The window we'll be rendering to
+	SDL_Window *gWindow = NULL;
 
-		//The window renderer
-		SDL_Renderer* gRenderer = NULL;
+	//The window renderer
+	SDL_Renderer *gRenderer = NULL;
 
-		//The text in the message bar
-		LTexture displayed_text;
+	//The text in the message bar
+	LTexture displayed_text;
 
-		//The inventory display
-//		LTexture inventory;
+	//The inventory display
+	//		LTexture inventory;
 
-		//Current displayed texture
-		SDL_Texture* gTexture = NULL;
+	//Current displayed texture
+	SDL_Texture *gTexture = NULL;
 
-		//Font in use
-		TTF_Font *gFont = NULL;
+	//Font in use
+	TTF_Font *gFont = NULL;
 };
 
 #endif

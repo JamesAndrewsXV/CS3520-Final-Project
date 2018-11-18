@@ -9,12 +9,11 @@
 #include <vector>
 #include <string>
 
-
 using namespace std;
 
 class Player
 {
-public:
+  public:
 	Player();
 	~Player();
 
@@ -25,7 +24,7 @@ public:
 
 	//Damaged by a given attack
 	void takeDamage(Attack a);
-	//stat functions?  
+	//stat functions?
 
 	void addItemToBag(Item *item);
 	void equipItem(Equippable *item);
@@ -34,17 +33,15 @@ public:
 	Attack physAttack();
 	Attack magAttack();
 
-
-private:
-	Stats * stats;
+  private:
+	Stats *stats;
 	int currHP;
 	Range range;
 	Element elem;
-	vector<Item*> _items;
-	vector<Equippable*> _equipped;
+	vector<Item *> _items;
+	vector<Equippable *> _equipped;
 	vector<Element> strengths;
 	vector<Element> weaknesses;
 };
-
 
 #endif

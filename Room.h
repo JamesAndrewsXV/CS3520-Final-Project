@@ -10,8 +10,9 @@
 using namespace std;
 
 // class representing the list of rooms the player traverses through
-class Room {
-public:
+class Room
+{
+  public:
 	// constructor for a room
 	Room();
 
@@ -19,19 +20,13 @@ public:
 	~Room();
 
 	// room copy assignment operator
-	Room & operator= (const Room & other);
+	Room &operator=(const Room &other);
 
 	// room copy constructor
-	Room(const Room & other);
-
-////	 room move constructor
-//	Room(Room&& other);
-////
-////	 room move assignment constructor
-//	Room& operator=(Room&& other);
+	Room(const Room &other);
 
 	// adds up to four rooms to this room. returns false if this room has no space
-	bool connectRoom(Room * room);
+	bool connectRoom(Room *room);
 
 	// if this room has loot add loot
 	void setLoot();
@@ -49,14 +44,14 @@ public:
 	const bool getLoot();
 
 	//return the adjacent rooms
-	vector<Room*> * getAdjacentRooms();
+	vector<Room *> *getAdjacentRooms();
 
-private:
+  private:
 	// the (at most four) rooms bordering this room
-	map<int, Room*> * adjacentRooms;
+	map<int, Room *> *adjacentRooms;
 
 	// the list of rooms without the directions
-	vector<Room*> * adjRoomList;
+	vector<Room *> *adjRoomList;
 
 	// is there a random encounter in this room
 	bool encounter;
@@ -70,8 +65,8 @@ private:
 	// copies member variables of rooms
 	void copyfrom(Room other);
 
-//	// moves member variables of rooms from another to this one
-//	void movefrom(Room other);
+	//	// moves member variables of rooms from another to this one
+	//	void movefrom(Room other);
 };
 
 #endif

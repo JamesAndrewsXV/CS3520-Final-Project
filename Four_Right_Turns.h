@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include<SDL2/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 #include <stdio.h>
 #include <string>
 #include <cmath>
@@ -15,8 +15,9 @@
 #include "Loader.h"
 
 // class representing graphical display and front end logic of game
-class FourRightTurns {
-public:
+class FourRightTurns
+{
+  public:
 	// initializes a game
 	FourRightTurns();
 
@@ -28,26 +29,26 @@ public:
 
 	int play();
 
-private:
-		//The text to be displayed
-		stringstream message;
+  private:
+	//The text to be displayed
+	stringstream message;
 
-		//alt representation of text
-		deque<string> queuedMessages;
+	//alt representation of text
+	deque<string> queuedMessages;
 
-		//The background being displayed
-		string background_image;
+	//The background being displayed
+	string background_image;
 
-		// The map of the dungeon
-		Map * game_map;
+	// The map of the dungeon
+	Map *game_map;
 
-		//Event handler
-		SDL_Event event;
+	//Event handler
+	SDL_Event event;
 
-		// which room is on screen
-		bool firstImage;
+	// which room is on screen
+	bool firstImage;
 
-		Loader loader;
+	Loader loader;
 };
 
 #endif
