@@ -9,7 +9,7 @@ public:
 
 	BurningWhip()
 	{
-		
+
 		this->bonus = new Stats(0, 30, 0, 2, 0);
 		this->range = Range::CLOSE;
 		this->kind = Kind::WEAPON;

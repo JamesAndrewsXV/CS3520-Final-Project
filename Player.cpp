@@ -3,8 +3,7 @@
 
 Player::Player()
 {
-	this->stats = new Stats(10, 5, 5, 5, 5);
-	this->currHP = this->currHP;
+	this->currHP = this->stats->HP;
 	this->_items = {};
 	this->_equipped = {};
 	this->strengths = {};
@@ -46,20 +45,28 @@ void Player::takeDamage(Attack a)
 	int damage = a.attack;
 	for (Element e : this->weaknesses)
 	{
+		this->log = "";
 		if (e == a.elem) { 
+			this->log += "Ouch, that did a lot! ";
 			damage = damage * 3 / 2; 
 		}
 	}
 	for (Element e : this->strengths)
 	{
+		this->log += "Blocked the attack! ";
 		if (e == a.elem) { damage /= 2; }
 	}
+
 	if (a.range == Range::MAGIC) {
-		this->currHP -= ((damage - this->stats->intel) < 0) ? 0 : (damage - this->stats->intel); // 0 HP, otherwise whatever damage is done.
+		this->currHP -= ((damage - this->stats->intel) < 1) ? 1 : (damage - this->stats->intel); // 0 HP, otherwise whatever damage is done.
 	}
 	else {
-		this->currHP -= ((damage - this->stats->def) < 0) ? 0 : (damage - this->stats->def); // 0 HP, otherwise whatever damage is done.
+		this->currHP -= ((damage - this->stats->def) < 1) ? 1 : (damage - this->stats->def); // 0 HP, otherwise whatever damage is done.
 	}
+
+	if (this->currHP < 0) { this->currHP = 0; }
+	this->log = this->log + "Took " + std::to_string(damage) + " damage! ";
+	this->log = "Current HP: " + std::to_string(this->currHP) + "/" + std::to_string(this->stats->HP) + "\n";
 }
 //stat functions?  
 void Player::addItemToBag(Item *item) { this->_items.push_back(item); }

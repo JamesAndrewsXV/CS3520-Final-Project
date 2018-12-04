@@ -24,13 +24,14 @@ BattleScene::~BattleScene() {
 		if (itemDrop > 2) {
 			player->addItemToBag(buildItem().get());
 		}
-	} else {
+	}
+	else {
 		battleLog = "Game Over.\n";
 	}
 }
 
 string BattleScene::promptAttack() {
-	return "Physical Attack(z)\nMagic Attack(x)\nOpen Inventory(sorry no)\n";
+	return "\nPhysical Attack(z)\nMagic Attack(x)\nOpen Inventory(sorry no)\n";
 }
 
 string BattleScene::attack(string attackType) {
@@ -44,7 +45,17 @@ string BattleScene::attack(string attackType) {
 			enemy->takeDamage(playerAttack);
 		}
 
+
 		battleLog = player->getLog() + enemy->getLog();
+
+		if (enemy->getHealth() == 0) {
+			battleLog = battleLog  + enemy->getName() + " has perished!";
+			this->room->over = true;
+			updateStats();
+			return battleLog;
+		}
+
+
 		updateStats();
 		isPlayerTurn = false;
 		attack("");
@@ -53,12 +64,13 @@ string BattleScene::attack(string attackType) {
 	else {
 		Attack enemyAttack = enemy->attackDecision();
 		player->takeDamage(enemyAttack);
-		battleLog = enemy->getLog() + player->getLog();
+		battleLog += enemy->getLog() + player->getLog();
 		isPlayerTurn = true;
-
-		if (enemy->getHealth() <= 0) {
-			
+		if (player->getHealth() == 0) {
+			battleLog += "\n You died!";
+			this->room->over = true;
 		}
+
 		updateStats();
 	}
 

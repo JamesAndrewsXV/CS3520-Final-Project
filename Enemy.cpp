@@ -19,22 +19,27 @@ void Enemy::takeDamage(Attack a)
 	{
 		if (e == a.elem) { 
 			damage = damage * 3 / 2; 
-			log += "That's gotta hurt. \n";
+			log += "That's gotta hurt. ";
 		}
 	}
 	for (Element e : this->strengths)
 	{
 		if (e == a.elem) { 
 			damage /= 2; 
-			log += "But it didn't hurt too much... \n";
+			log += "But it didn't hurt too much... ";
 		}
 	}
+
+	
 	if (a.range == MAGIC) {
 		this->currHP -= ((damage - this->stats->intel) < 1) ? 1 : (damage - this->stats->intel);
 	}
 	else {
 		this->currHP -= ((damage - this->stats->def) < 1) ? 1 : (damage - this->stats->def);
 	}
+	if (this->currHP < 0) { this->currHP = 0; }
+	this->log = this->log + "Dealt " + std::to_string(damage) + " damage! ";
+	this->log = this->log + this->name + "'s HP: " + std::to_string(this->currHP) + "/" + std::to_string(this->stats->HP) + "\n";
 }
 
 Attack Enemy::attackDecision()

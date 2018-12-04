@@ -64,6 +64,9 @@ public:
 
 	// is this the last room in a map?
 	bool bossRoom;
+
+	//over 
+	bool over = false;
 private:
 	// the (at most four) rooms bordering this room
 	map<int, Room*> * adjacentRooms;
@@ -78,13 +81,15 @@ private:
 	bool containLoot;
 
 	// the loot contained in the room
-	Item * loot;
+	string loot;
 
 	// copies member variables of rooms
 	void copyfrom(Room other);
 
 	// is this the first room in a map?
 	bool firstRoom;
+
+	
 
 
 };

@@ -35,7 +35,7 @@ public:
 
 
 private:
-	Stats * stats;
+	Stats * stats = new Stats(100, 15, 25, 15, 25);;
 	int currHP;
 	Range range;
 	Element elem;

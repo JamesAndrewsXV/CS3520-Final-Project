@@ -9,7 +9,7 @@ Room::Room()
 	this->setLoot(containLoot);
 	this->adjRoomList = new vector<Room*>();
 	this->firstRoom = false;
-	this->loot = buildItem().get();
+	this->loot = buildItem().get()->getName();
 }
 
 Room::~Room()
@@ -107,5 +107,5 @@ void Room::setBossRoom() {
 }
 
 const string Room::getLootName() {
-	return loot->getName();
+	return loot;
 }

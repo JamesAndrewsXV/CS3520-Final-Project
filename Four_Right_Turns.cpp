@@ -3,7 +3,7 @@
 FourRightTurns::FourRightTurns()
 {
 	message.str("Four Right Turns");
-	game_map = new Map(4); //delete!
+	game_map = new Map(20); //delete!
 	queuedMessages = deque<string>();
 
 	queuedMessages.push_back("You wake up in a dark room. ");
@@ -98,8 +98,17 @@ void FourRightTurns::changeText()
 	}
 	else if (gameState == GameMode::Battle)
 	{
-		queuedMessages.push_front(currentBattle->promptAttack());
-
+		queuedMessages.clear();
+		
+		if (this->game_map->findPlayer()->over)
+		{
+			gameState = GameMode::Explore;
+			delete this->currentBattle;
+			message.str("The enemy has perished. Press enter to continue.");
+		}
+		else {
+			queuedMessages.push_front(currentBattle->promptAttack());
+		}
 		//int randDrop = rand() % 2;
 		//game_map->findPlayer()->setLoot(randDrop);
 		//gameState = Explore;
@@ -166,62 +175,77 @@ int FourRightTurns::play()
 					//If a key was pressed
 					if (event.type == SDL_KEYDOWN)
 					{
-						switch (event.key.keysym.sym)
+						if (this->gameState == GameMode::Explore)
 						{
-
-						case SDLK_RETURN:
+							switch (event.key.keysym.sym)
+							{
+							case SDLK_RETURN:
 								changeText();
 								break;
 
-						case SDLK_s:
-							queuedMessages.push_front("You go back.");
-							changeText();
-							changeRoom(0);
-							break;
+							case SDLK_s:
+								queuedMessages.push_front("You go back.");
+								changeText();
+								changeRoom(0);
+								break;
 
-						case SDLK_a:
-							queuedMessages.push_front("You walk into the room to the left.");
-							changeText();
-							changeRoom(1);
-							break;
+							case SDLK_a:
+								queuedMessages.push_front("You walk into the room to the left.");
+								changeText();
+								changeRoom(1);
+								break;
 
-						case SDLK_w:
-							queuedMessages.push_front("You walk into the room ahead.");
-							changeText();
-							changeRoom(2);
-							break;
+							case SDLK_w:
+								queuedMessages.push_front("You walk into the room ahead.");
+								changeText();
+								changeRoom(2);
+								break;
 
-						case SDLK_d:
-							queuedMessages.push_front("You walk into the room to the right.");
-							queuedMessages.push_front("You walk into the room ahead.");
-							changeText();
-							changeRoom(3);
-							break;
+							case SDLK_d:
+								queuedMessages.push_front("You walk into the room to the right.");
+								queuedMessages.push_front("You walk into the room ahead.");
+								changeText();
+								changeRoom(3);
+								break;
 
-						case SDLK_SPACE:
-							queuedMessages.push_front("You search for loot.");
-							message.str("");
-							gameState = Loot;
-							changeText();
-							break;
+							case SDLK_SPACE:
+								queuedMessages.push_front("You search for loot.");
+								message.str("");
+								gameState = Loot;
+								changeText();
+								break;
 
-						case SDLK_z:
-							queuedMessages.push_front(currentBattle->attack("phys"));
-							message.str("");
-							changeText();
-							break;
+							}
+						}
 
-						case SDLK_x:
-							queuedMessages.push_front(currentBattle->attack("mag"));
-							message.str("");
-							changeText();
-							break;
+						else if (this->gameState == GameMode::Battle)
+						{
+							switch (event.key.keysym.sym)
+							{
+							case SDLK_z:
+								queuedMessages.push_front(currentBattle->attack("phys"));
+								message.str("");
+								changeText();
+								break;
+
+							case SDLK_x:
+								queuedMessages.push_front(currentBattle->attack("mag"));
+								message.str("");
+								changeText();
+								break;
+
+							case SDLK_RETURN:
+								changeText();
+								break;
+
+							}
 						}
 					}
 				}
 
+
 				//if (gameState = GameMode::Explore) {
-					loader.renderExploreScreen();
+				loader.renderExploreScreen();
 				//}
 				//if (gameState = GameMode::Battle) {
 				//	loader.renderBattleScreen();
