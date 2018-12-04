@@ -5,6 +5,8 @@
 
 #include "Item.h"
 #include "Attack.h"
+#include <string>
+#include <cstdlib>
 
 //Kind of equippable
 enum Kind

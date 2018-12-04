@@ -6,7 +6,7 @@ CC = g++ -std=c++11
 CFLAGS= -c -ansi -Wall
 #CPPFLAGS= -ggdb -O0 -fno-inline
 LDFLAGS= -lSDL2 -lSDL2_image -lSDL2_ttf
-SRC= main.cpp Room.cpp Loader.cpp Four_Right_Turns.cpp Map.cpp LTexture.cpp #add new files here!
+SRC= main.cpp Room.cpp Loader.cpp Four_Right_Turns.cpp Map.cpp LTexture.cpp Enemy.cpp Item.cpp Equippable.cpp Player.cpp Boss.cpp Stats.cpp
 OBJ= $(SRC:.cpp=.o)
 EXECUTABLE= Four_Right_Turns
 
