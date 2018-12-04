@@ -47,7 +47,7 @@ void Room::printLoot() {
 bool Room::connectRoom(Room * room) {
 	int roomKey = -1;
 	int maxAdjacentRooms = 3;
-	int randRoomPosn = std::rand() % 3 + 1;
+	int randRoomPosn = rand() % 3 + 1;
 	map<int, Room*>::iterator it = adjacentRooms->find(randRoomPosn);
 
 	if (adjacentRooms->size() == 0 && !firstRoom) {
@@ -55,7 +55,7 @@ bool Room::connectRoom(Room * room) {
 	} else {
 		for (int i = 1; i < maxAdjacentRooms; i++) {
 			while (it != adjacentRooms->end()) {
-				randRoomPosn = std::rand() % 3 + 1;
+				randRoomPosn = rand() % 3 + 1;
 				it = adjacentRooms->find(randRoomPosn);
 			}
 			roomKey = randRoomPosn;

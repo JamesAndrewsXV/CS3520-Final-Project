@@ -8,8 +8,8 @@
 #include "itemInstance/AllWeapons.h"
 
 int bossAmount = 2;
-int enemyAmount = 0;
-int itemAmount = 0;
+int enemyAmount = 6;
+int itemAmount = 21;
 
 static std::unique_ptr<Enemy> buildEnemy() {
 	// get random number in choice

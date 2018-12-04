@@ -9,7 +9,9 @@ public:
 
 	BurningWhip()
 	{
-		Equippable(new Stats(0, 30, 0, 2, 0), "Burning Whip", Kind::WEAPON, Range::CLOSE, Element::FLAME, Element::NONE);
+		Equippable(new Stats(0, 30, 0, 2, 0), 
+			"Burning Whip", 
+			Kind::WEAPON, Range::CLOSE, Element::FLAME, Element::NONE);
 	}
 protected:
 private:

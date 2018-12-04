@@ -7,6 +7,11 @@ Boss::Boss()
 	this->staticWeaknesses = { };
 }
 
+Boss::Boss(Stats * stats, std::vector<Element> strengths, std::vector<Element> weaknesses, string name, Element weakenElement, Range weakenRange, std::vector<Element> staticWeaknesses)
+{
+	
+}
+
 
 Boss::~Boss()
 {

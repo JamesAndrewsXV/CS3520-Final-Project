@@ -9,11 +9,10 @@ public:
 
 	ShadKunai()
 	{
-		this->bonus = new Stats(0, 35, 0, 20, 0);
-		this->range = Range::FAR;
-		this->kind = Kind::WEAPON;
-		this->strength = Element::CURSE;
-		this->name = "Shadow Kunai";
+		Equippable(
+			new Stats(0, 35, 0, 20, 0),
+			"Shadow Kunai",
+			Kind::WEAPON, Range::FAR, Element::CURSE, Element::NONE);
 	}
 protected:
 private:

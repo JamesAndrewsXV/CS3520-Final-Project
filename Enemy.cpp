@@ -2,11 +2,16 @@
 
 Enemy::Enemy()
 {
-	this->stats = new Stats(0,0,0,0,0);
+	
+}
+
+Enemy::Enemy(Stats *stats, std::vector<Element> strengths, std::vector<Element> weaknesses, string name)
+{
+	this->stats = stats;
 	this->currHP = this->stats->HP;
-	this->strengths = {  };
-	this->weaknesses = {  };
-	this->name = "";
+	this->strengths = strengths;
+	this->weaknesses = weaknesses;
+	this->name = name;
 }
 
 Enemy::~Enemy()

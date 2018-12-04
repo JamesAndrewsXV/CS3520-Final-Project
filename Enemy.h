@@ -5,12 +5,15 @@
 #include "Attack.h"
 #include <vector>
 #include <memory>
+#include <cstdlib>
 #include "enemyInstance/AllCommon.h"
 
 //Enemy class
 class Enemy
 {
 public:
+	Enemy();
+	Enemy::Enemy(Stats *stats, std::vector<Element> strengths, std::vector<Element> weaknesses, string name);
 	Enemy();
 	virtual ~Enemy();
 
@@ -48,7 +51,6 @@ protected:
 	std::string log = "";
 
 	//Amount of instantiated enemies
-	static int enemyAmount = 6;
 };
 
 

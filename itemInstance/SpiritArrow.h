@@ -9,11 +9,9 @@ public:
 
 	SpiritArrow()
 	{
-		this->bonus = new Stats(0, 35, 0, 40, 0);
-		this->range = Range::FAR;
-		this->kind = Kind::WEAPON;
-		this->strength = Element::TERRA;
-		this->name = "Arrow of the Tree Spirit";
+		Equippable(new Stats(0, 35, 0, 40, 0),
+			"Arrow of the Tree Spirit",
+			Kind::WEAPON, Range::FAR, Element::TERRA, Element::NONE);
 	}
 protected:
 private:

@@ -84,12 +84,12 @@ void Player::equipItem(Equippable *item)
 			this->strengths.push_back(item->getStrength()); //add an instance of the strength
 		}
 
-		if (item->getWeakness() != NULL && item->getKind != Kind::WEAPON) //It must be in the list of weaknesses if non null, only on armor
+		if (item->getWeakness() != NULL && item->getKind() != Kind::WEAPON) //It must be in the list of weaknesses if non null, only on armor
 		{
 			this->weaknesses.push_back(item->getWeakness()); //add an instance of the weakness
 		}
 
-		if (item->getKind == Kind::WEAPON)
+		if (item->getKind() == Kind::WEAPON)
 		{
 			this->elem = item->getStrength();
 			this->range = item->getRange();
@@ -113,17 +113,17 @@ void Player::unequipItem(Equippable *item)
 			*(this->stats) -= (*item).getBonus();
 
 			//Remove buffs
-			if (item->getStrength() != NULL && item->getKind != Kind::WEAPON) //It must be in the list of strengths if non null, only on armor
+			if (item->getStrength() != NULL && item->getKind() != Kind::WEAPON) //It must be in the list of strengths if non null, only on armor
 			{ 
-				this->strengths.erase(std::find(this->strengths.begin(), this->strengths.end(), item->getStrength)); //erase an instance of the strength
+				this->strengths.erase(std::find(this->strengths.begin(), this->strengths.end(), item->getStrength())); //erase an instance of the strength
 			}
 
-			if (item->getWeakness() != NULL && item->getKind != Kind::WEAPON) //It must be in the list of weaknesses if non null, only on armor
+			if (item->getWeakness() != NULL && item->getKind() != Kind::WEAPON) //It must be in the list of weaknesses if non null, only on armor
 			{ 
-				this->weaknesses.erase(std::find(this->weaknesses.begin(), this->weaknesses.end(), item->getWeakness)); //erase an instance of the weakness
+				this->weaknesses.erase(std::find(this->weaknesses.begin(), this->weaknesses.end(), item->getWeakness())); //erase an instance of the weakness
 			}
 
-			if (item->getKind == Kind::WEAPON)
+			if (item->getKind() == Kind::WEAPON)
 			{
 				this->elem = Element::NEUTRAL;
 				this->range = Range::CLOSE;

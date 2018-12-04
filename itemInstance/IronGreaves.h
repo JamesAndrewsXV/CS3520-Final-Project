@@ -8,7 +8,9 @@ class IronGreaves :public Equippable
 public:
 	IronGreaves()
 	{
-		Equippable(new Stats(0, 9, 20, 0, 8), "Iron Greaves", Kind::SHOES, Range::NONE, Element::NEUTRAL, Element::FLAME);
+		Equippable(new Stats(0, 9, 20, 0, 8), 
+			"Iron Greaves", 
+			Kind::SHOES, Range::NO, Element::NEUTRAL, Element::FLAME);
 	}
 };
 

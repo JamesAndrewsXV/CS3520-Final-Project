@@ -9,7 +9,9 @@ public:
 
 	Masamune()
 	{
-		Equippable(new Stats(0, 60, 0, 45, 0), "Masamune", Kind::WEAPON, Range::CLOSE, Element::CURSE, Element::NONE);
+		Equippable(new Stats(0, 60, 0, 45, 0),
+			"Masamune", 
+			Kind::WEAPON, Range::CLOSE, Element::CURSE, Element::NONE);
 	}
 protected:
 private:

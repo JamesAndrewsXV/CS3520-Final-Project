@@ -9,11 +9,9 @@ public:
 
 	StarSeeker()
 	{
-		this->bonus = new Stats(0, 13, 0, 19, 0);
-		this->range = Range::CLOSE;
-		this->kind = Kind::WEAPON;
-		this->strength = Element::HOLY;
-		this->name = "StarSeeker";
+		Equippable(new Stats(0, 13, 0, 19, 0),
+			"StarSeeker", 
+			Kind::WEAPON, Range::CLOSE, Element::HOLY, Element::NONE);
 	}
 protected:
 private:

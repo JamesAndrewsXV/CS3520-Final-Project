@@ -8,9 +8,10 @@ class Shepherds :public Equippable
 public:
 	Shepherds()
 	{
-		this->bonus = new Stats(15, 0, 3, 0, 5);
-		this->kind = Kind::CHEST;
-		this->name = "Sheperd's Garb";
+		Equippable(
+			new Stats(15, 0, 3, 0, 5), 
+			"Sheperd's Garb", 
+			Kind::CHEST, Range::NO, Element::NONE, Element::FLAME);
 	}
 };
 

@@ -8,6 +8,11 @@ class Boss : public Enemy
 {
 public:
 	Boss();
+	Boss(
+		Stats *stats, std::vector<Element> strengths,
+		std::vector<Element> weaknesses, string name,
+		Element weakenElement, Range weakenRange,
+		std::vector<Element> staticWeaknesses) : Enemy(stats, strengths, weaknesses, name);
 	virtual ~Boss();
 	void exploitWeakness();
 	void recoverWeakness();
@@ -19,7 +24,6 @@ protected:
 	BossState state = BossState::NORMAL;
 	std::vector<Element> staticWeaknesses;
 	int recoveryTurns = 0;
-	static int bossAmount = 2;
 };
 
 enum BossState

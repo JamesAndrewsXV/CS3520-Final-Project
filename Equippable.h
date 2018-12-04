@@ -1,3 +1,8 @@
+#ifndef EQUIPPABLE_H
+#define EQUIPPABLE_H
+
+
+
 #include "Item.h"
 #include "Attack.h"
 
@@ -38,3 +43,4 @@ protected:
 	Element weakness; // does the multiplier cover this?
 	//Includes some sort of indication as to which sprite to use
 };
+#endif // !EQUIPPABLE_H

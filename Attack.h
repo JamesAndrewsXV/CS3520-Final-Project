@@ -18,7 +18,7 @@ enum Range {
 	CLOSE,
 	FAR,
 	MAGIC,
-	NONE
+	NO
 };
 struct Attack {
 	//Attack power

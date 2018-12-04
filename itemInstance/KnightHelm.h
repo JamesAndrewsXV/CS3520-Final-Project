@@ -8,7 +8,9 @@ class KnightHelm :public Equippable
 public:
 	KnightHelm()
 	{
-		Equippable(new Stats(25, 0, 6, 0, 1), "Knight's Helm", Kind::HELM, Range::NONE, Element::NONE, Element::NONE);
+		Equippable(new Stats(25, 0, 6, 0, 1), 
+			"Knight's Helm", 
+			Kind::HELM, Range::NO, Element::NONE, Element::NONE);
 	}
 };
 

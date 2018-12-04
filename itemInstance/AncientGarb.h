@@ -8,7 +8,9 @@ class AncientGarb :public Equippable
 public:
 	AncientGarb()
 	{
-		Equippable(new Stats(30, 0, 26, 0, 35), "Garb of the Ancient", Kind::CHEST, Range::NONE, Element::HOLY, Element::CURSE);
+		Equippable(new Stats(30, 0, 26, 0, 35), 
+			"Garb of the Ancient", 
+			Kind::CHEST, Range::NO, Element::HOLY, Element::CURSE);
 	}
 };
 
