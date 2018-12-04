@@ -1,7 +1,6 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
-
 enum Element {
 	FLAME,
 	WAVE,

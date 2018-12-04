@@ -30,7 +30,7 @@ void Enemy::takeDamage(Attack a)
 			log += "But it didn't hurt too much... \n";
 		}
 	}
-	if (a.range == Range::MAGIC) {
+	if (a.range == MAGIC) {
 		this->currHP -= ((damage - this->stats->intel) < 1) ? 1 : (damage - this->stats->intel);
 	}
 	else {
