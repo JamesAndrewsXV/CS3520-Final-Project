@@ -13,6 +13,7 @@ public:
 		this->strengths = { Element::HOLY, Element::CURSE };
 		this->weaknesses = {  };
 		this->name = "Anubis";
+		this->attackAmount = 3;
 	}
 
 	Attack Enemy::attackDecision()
@@ -21,7 +22,17 @@ public:
 		{
 		case 0:
 			return this->enAttack();
+		case 1:
+			return this->anAttack();
+		case 2:
+			return this->anAttack2();
 		}
+		
+	}
+
+	Attack anAttack()
+	{
+
 	}
 };
 

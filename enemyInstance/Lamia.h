@@ -13,6 +13,7 @@ public:
 		this->strengths = { Element::FLAME };
 		this->weaknesses = { Element::WAVE };
 		this->name = "Lamia";
+		this->attackAmount = 2;
 	}
 
 	Attack Enemy::attackDecision()
@@ -21,7 +22,20 @@ public:
 		{
 		case 0:
 			return this->enAttack();
+		case 1:
+			return this->laAttack();
 		}
+	}
+
+	Attack laAttack()
+	{
+		this->log = "Lamia blows a fiery kiss!\n";
+		Attack a;
+		a.attack = this->stats->att;
+		a.elem = Element::FLAME;
+		a.range = Range::MAGIC;
+
+		return a;
 	}
 };
 

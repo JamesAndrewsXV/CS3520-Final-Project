@@ -29,10 +29,13 @@ public:
 
 	Attack reAttack()
 	{
+		this->log = "Reaper strikes with a cursed scythe!\n";
 		Attack a;
 		a.attack = this->stats->att;
 		a.elem = Element::CURSE;
 		a.range = Range::CLOSE;
+
+		return a;
 	}
 };
 
