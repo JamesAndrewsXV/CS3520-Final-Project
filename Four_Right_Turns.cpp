@@ -99,7 +99,7 @@ void FourRightTurns::changeText()
 
 	if (gameState == Battle)
 	{
-		BattleScene battle = BattleScene(game_map->findPlayer(), player);
+		BattleScene battle(game_map->findPlayer(), player);
 		queuedMessages.push_back(battle.displayBattleLog());
 
 		//int randDrop = rand() % 2;

@@ -18,7 +18,7 @@ Room::~Room()
 	delete adjRoomList;
 }
 
-/*void Room::copyfrom(Room other) {
+void Room::copyfrom(Room other) {
 	adjacentRooms = other.adjacentRooms;
 	encounter = other.encounter;
 	containLoot = other.containLoot;
@@ -27,7 +27,7 @@ Room::~Room()
 
 Room::Room(const Room & other) {
 	copyfrom(other);
-}*/
+}
 
 Room & Room::operator= (const Room & other) {
 	if (this != &other) {

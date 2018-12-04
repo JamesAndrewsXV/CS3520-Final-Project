@@ -24,7 +24,7 @@ public:
 	Room & operator= (const Room & other);
 
 	// room copy constructor
-	//Room(const Room & other);
+	Room(const Room & other);
 
 	// adds up to four rooms to this room. returns false if this room has no space
 	bool connectRoom(Room * room);
@@ -61,6 +61,9 @@ public:
 
 	// set this room as the last room
 	void setBossRoom();
+
+	// is this the last room in a map?
+	bool bossRoom;
 private:
 	// the (at most four) rooms bordering this room
 	map<int, Room*> * adjacentRooms;
@@ -78,13 +81,12 @@ private:
 	Item * loot;
 
 	// copies member variables of rooms
-	//void copyfrom(Room other);
+	void copyfrom(Room other);
 
 	// is this the first room in a map?
 	bool firstRoom;
 
-	// is this the last room in a map?
-	bool bossRoom;
+
 };
 
 #endif

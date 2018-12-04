@@ -17,7 +17,7 @@ Item::Item()
 
 Item::~Item()
 {
-	delete this->bonus;
+
 }
 
 

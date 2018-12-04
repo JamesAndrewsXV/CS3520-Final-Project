@@ -4,7 +4,7 @@
 Player::Player()
 {
 	this->stats = new Stats(10, 5, 5, 5, 5);
-	this->currHP = this->stats->HP;
+	this->currHP = this->currHP;
 	this->_items = {};
 	this->_equipped = {};
 	this->strengths = {};

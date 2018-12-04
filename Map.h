@@ -17,7 +17,7 @@ class Map
 	Map(int numberOfRooms);
 
 	// map copy constructor
-	//Map(const Map &other);
+	Map(const Map &other);
 
 	// map copy assignment operator
 	Map &operator=(const Map &other);

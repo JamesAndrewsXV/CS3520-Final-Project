@@ -15,7 +15,6 @@
 #include "Loader.h"
 #include "BattleScene.h"
 #include "Player.h"
-#include "Builder.h"
 
 // class representing graphical display and front end logic of game
 class FourRightTurns
@@ -66,7 +65,7 @@ class FourRightTurns
 
 	GameMode gameState;
 
-	Player * player;
+	Player * player = new Player();
 };
 
 #endif

@@ -2,7 +2,13 @@
 
 BattleScene::BattleScene(Room * room, Player * player) {
 	this->room = room;
-	this->enemy = buildEnemy().get();
+	if (room->bossRoom) {
+		this->enemy = buildBoss();
+	}
+	else {
+		this->enemy = buildEnemy();
+	}
+
 	this->player = player;
 	this->isPlayerTurn = true;
 	battleLog = "A wild " + enemy->getName() + " has appeared!\n";
@@ -12,7 +18,6 @@ BattleScene::BattleScene(Room * room, Player * player) {
 BattleScene::~BattleScene() {
 	if (player->getHealth() > 0) {
 		battleLog = "You won.\n";
-		delete enemy;
 
 		int itemDrop = rand() % 5;
 

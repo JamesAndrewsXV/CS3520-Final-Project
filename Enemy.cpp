@@ -7,13 +7,7 @@ Enemy::Enemy()
 
 Enemy::~Enemy()
 {
-	//Construct Loot Object from derived class (controls rarity perhaps?)
-	int itemDrop = rand() % 5;
-	if (itemDrop > 2) {
-		buildItem();
-	}
-
-	delete this->stats;
+	
 }
 
 void Enemy::takeDamage(Attack a)

@@ -29,7 +29,7 @@ private:
 	void updateStats();
 
 	Room * room;
-	Enemy * enemy;
+	std::unique_ptr<Enemy> enemy;
 	Player * player;
 	string battleLog;
 	string statsLog;
