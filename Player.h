@@ -29,7 +29,6 @@ public:
 	void addItemToBag(Item *item);
 	void equipItem(Equippable *item);
 	void unequipItem(Equippable *item);
-	void useItem(Item *item);
 	string getLog();
 	Attack physAttack();
 	Attack magAttack();

@@ -1,9 +1,7 @@
 #ifndef BUILDER_H
 #define BUILDER_H
-#include "Enemy.h"
 #include "enemyInstance/AllCommon.h"
 #include "enemyInstance/AllBoss.h"
-#include "Item.h"
 #include "itemInstance/AllArmor.h"
 #include "itemInstance/AllWeapons.h"
 

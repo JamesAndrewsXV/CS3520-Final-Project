@@ -1,7 +1,6 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
-using namespace std;
 
 enum Element {
 	FLAME,
@@ -11,14 +10,13 @@ enum Element {
 	HOLY,
 	CURSE,
 	NEUTRAL, 
-	NONE
 };
 
 enum Range {
 	CLOSE,
 	FAR,
 	MAGIC,
-	NO
+	
 };
 struct Attack {
 	//Attack power

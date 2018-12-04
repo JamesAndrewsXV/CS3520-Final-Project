@@ -46,13 +46,13 @@ void Player::takeDamage(Attack a)
 	int damage = a.attack;
 	for (Element e : this->weaknesses)
 	{
-		if (e == a.elem && e != Element::NONE) { 
+		if (e == a.elem) { 
 			damage = damage * 3 / 2; 
 		}
 	}
 	for (Element e : this->strengths)
 	{
-		if (e == a.elem && e != Element::NONE) { damage /= 2; }
+		if (e == a.elem) { damage /= 2; }
 	}
 	if (a.range == Range::MAGIC) {
 		this->currHP -= ((damage - this->stats->intel) < 0) ? 0 : (damage - this->stats->intel); // 0 HP, otherwise whatever damage is done.

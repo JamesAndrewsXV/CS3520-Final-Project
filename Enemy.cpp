@@ -18,14 +18,14 @@ void Enemy::takeDamage(Attack a)
 	this->log = "";
 	for (Element e : this->weaknesses)
 	{
-		if (e == a.elem && e != Element::NONE) { 
+		if (e == a.elem) { 
 			damage = damage * 3 / 2; 
 			log += "That's gotta hurt. \n";
 		}
 	}
 	for (Element e : this->strengths)
 	{
-		if (e == a.elem && e != Element::NONE) { 
+		if (e == a.elem) { 
 			damage /= 2; 
 			log += "But it didn't hurt too much... \n";
 		}
