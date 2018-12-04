@@ -3,7 +3,7 @@
 FourRightTurns::FourRightTurns()
 {
 	message.str("Four Right Turns");
-	game_map = new Map(10); //delete!
+	game_map = new Map(4); //delete!
 	queuedMessages = deque<string>();
 
 	queuedMessages.push_back("You wake up in a dark room. ");
@@ -96,18 +96,16 @@ void FourRightTurns::changeText()
 			queuedMessages.push_back("Look for loot (SPACE KEY)\n");
 		}
 	}
-
-	if (gameState == Battle)
+	else if (gameState == GameMode::Battle)
 	{
-		BattleScene battle(game_map->findPlayer(), player);
-		queuedMessages.push_back(battle.displayBattleLog());
+		queuedMessages.push_front(currentBattle->promptAttack());
 
 		//int randDrop = rand() % 2;
 		//game_map->findPlayer()->setLoot(randDrop);
-		gameState = Explore;
+		//gameState = Explore;
 	}
 
-	if (gameState == Loot)
+	else if (gameState == Loot)
 	{
 		if (!(game_map->findPlayer()->thereIsLoot()))
 		{
@@ -124,8 +122,10 @@ void FourRightTurns::changeText()
 	if (game_map->findPlayer()->getEncounter())
 	{
 		gameState = Battle;
-		message.str("YOU'RE BEING ATTACKED!!"); // delete
+		currentBattle = new BattleScene(game_map->findPlayer(), player);
+		message.str(currentBattle->displayBattleLog());
 		game_map->findPlayer()->setEncounter(false);
+		queuedMessages.clear();
 	}
 
 	loader.loadMedia(background_image, message.str());
@@ -163,17 +163,15 @@ int FourRightTurns::play()
 					}
 
 
-				//If a key was pressed
-				if (event.type == SDL_KEYDOWN)
-				{
-					switch (event.key.keysym.sym)
+					//If a key was pressed
+					if (event.type == SDL_KEYDOWN)
 					{
-
-						if (gameState == Explore)
+						switch (event.key.keysym.sym)
 						{
+
 						case SDLK_RETURN:
-							changeText();
-							break;
+								changeText();
+								break;
 
 						case SDLK_s:
 							queuedMessages.push_front("You go back.");
@@ -206,17 +204,28 @@ int FourRightTurns::play()
 							gameState = Loot;
 							changeText();
 							break;
+
+						case SDLK_z:
+							queuedMessages.push_front(currentBattle->attack("phys"));
+							message.str("");
+							changeText();
+							break;
+
+						case SDLK_x:
+							queuedMessages.push_front(currentBattle->attack("mag"));
+							message.str("");
+							changeText();
+							break;
 						}
-					}
 					}
 				}
 
-				if (gameState = GameMode::Explore) {
+				//if (gameState = GameMode::Explore) {
 					loader.renderExploreScreen();
-				}
-				if (gameState = GameMode::Battle) {
-					loader.renderBattleScreen();
-				}
+				//}
+				//if (gameState = GameMode::Battle) {
+				//	loader.renderBattleScreen();
+				//}
 			}
 		}
 	}

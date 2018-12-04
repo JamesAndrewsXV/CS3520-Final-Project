@@ -66,6 +66,8 @@ class FourRightTurns
 	GameMode gameState;
 
 	Player * player = new Player();
+
+	BattleScene * currentBattle;
 };
 
 #endif

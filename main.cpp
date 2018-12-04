@@ -13,7 +13,9 @@
 #include <cxxtest/TestMain.h>
 #include <cxxtest/ErrorPrinter.h>
 #include "Four_Right_Turns.h"
+#include <cstdlib>
 #include <cxxtest/Root.cpp>
+#include <time.h>
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -23,7 +25,7 @@ int main(int argc, char *argv[])
     CxxTest::RealWorldDescription::_worldName = "cxxtest";
     status = CxxTest::Main<CxxTest::ErrorPrinter>(tmp, argc, argv);
 
-    //srand(time(NULL));
+    srand(time(NULL));
     FourRightTurns game;
     game.play();
 

@@ -30,33 +30,34 @@ BattleScene::~BattleScene() {
 }
 
 string BattleScene::promptAttack() {
-	return "Physical Attack\nMagic Attack\nOpen Inventory";
+	return "Physical Attack(z)\nMagic Attack(x)\nOpen Inventory(sorry no)\n";
 }
 
 string BattleScene::attack(string attackType) {
-	if (isPlayerTurn) {
+	if (this->isPlayerTurn) {
 		if (attackType == "phys") {
-			player->physAttack();
-			enemy->takeDamage(player->physAttack());
+			Attack playerAttack = player->physAttack();
+			enemy->takeDamage(playerAttack);
 		}
 		else if (attackType == "mag") {
-			player->magAttack();
-			enemy->takeDamage(player->magAttack());
+			Attack playerAttack = player->magAttack();
+			enemy->takeDamage(playerAttack);
 		}
 
 		battleLog = player->getLog() + enemy->getLog();
 		updateStats();
 		isPlayerTurn = false;
+		attack("");
 	}
 
 	else {
-		enemy->attackDecision();
-		player->takeDamage(enemy->attackDecision());
-		battleLog = player->getLog() + enemy->getLog();
+		Attack enemyAttack = enemy->attackDecision();
+		player->takeDamage(enemyAttack);
+		battleLog = enemy->getLog() + player->getLog();
 		isPlayerTurn = true;
 
-		if (enemy->getHealth() > 0) {
-			battleLog += promptAttack();
+		if (enemy->getHealth() <= 0) {
+			
 		}
 		updateStats();
 	}
