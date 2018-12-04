@@ -9,9 +9,11 @@ public:
 
 	ThorHammer()
 	{
-		Equippable(new Stats(0, 13, 0, 19, 0),
-			"Thor's Hammer",
-			Kind::WEAPON, Range::CLOSE, Element::ELECTRICITY, Element::NONE);
+		this->bonus = new Stats(0, 13, 0, 19, 0);
+		this->range = Range::CLOSE;
+		this->kind = Kind::WEAPON;
+		this->strength = Element::HOLY;
+		this->name = "Thor's Hammer";
 	}
 protected:
 private:

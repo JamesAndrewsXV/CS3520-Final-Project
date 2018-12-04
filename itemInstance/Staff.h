@@ -9,9 +9,11 @@ public:
 
 	Staff()
 	{
-		Equippable(new Stats(0, 3, 0, 8, 0), 
-			"Wizard's Staff", 
-			Kind::WEAPON, Range::CLOSE, Element::NEUTRAL, Element::NONE);
+		this->bonus = new Stats(0, 3, 0, 8, 0);
+		this->range = Range::MAGIC;
+		this->kind = Kind::WEAPON;
+		this->strength = Element::NEUTRAL;
+		this->name = "Wizard's Staff";
 	}
 protected:
 private:

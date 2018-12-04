@@ -13,8 +13,8 @@ public:
 		this->strengths = { Element::CURSE };
 		this->weaknesses = { Element::FLAME };
 		this->name = "Reaper";
+		this->attackAmount = 2;
 	}
-	~Reaper() {}
 
 	Attack Enemy::attackDecision()
 	{
@@ -22,7 +22,17 @@ public:
 		{
 		case 0:
 			return this->enAttack();
+		case 1:
+			return this->reAttack();
 		}
+	}
+
+	Attack reAttack()
+	{
+		Attack a;
+		a.attack = this->stats->att;
+		a.elem = Element::CURSE;
+		a.range = Range::CLOSE;
 	}
 };
 

@@ -8,9 +8,11 @@ class LeviathanBoots :public Equippable
 public:
 	LeviathanBoots()
 	{
-		Equippable(new Stats(4, 0, 2, 0, 10), 
-			"Boots of Leviathan", 
-			Kind::HELM, Range::NO, Element::WAVE, Element::ELECTRICITY);
+		this->bonus = new Stats(4, 0, 2, 0, 10);
+		this->kind = Kind::HELM;
+		this->name = "Boots of Leviathan";
+		this->strength = Element::WAVE;
+		this->weakness = Element::ELECTRICITY;
 	}
 };
 

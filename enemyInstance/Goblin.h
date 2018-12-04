@@ -14,7 +14,6 @@ public:
 		this->weaknesses = {  };
 		this->name = "Goblin";
 	}
-	~Goblin() {}
 
 	Attack Enemy::attackDecision()
 	{

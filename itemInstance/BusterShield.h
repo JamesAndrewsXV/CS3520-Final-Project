@@ -9,9 +9,11 @@ public:
 
 	BusterShield()
 	{
-		Equippable(new Stats(0, 15, 27, 30, 0), 
-			"Buster Shield", 
-			Kind::WEAPON, Range::CLOSE, Element::NEUTRAL, Element::NONE);
+		this->bonus = new Stats(0, 15, 27, 30, 0);
+		this->range = Range::CLOSE;
+		this->kind = Kind::WEAPON;
+		this->strength = Element::NEUTRAL;
+		this->name = "Buster Shield";
 	}
 protected:
 private:

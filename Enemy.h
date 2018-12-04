@@ -6,8 +6,6 @@
 #include <vector>
 #include <memory>
 #include <cstdlib>
-#include "enemyInstance/AllCommon.h"
-#include <cstdlib>
 
 using namespace std;
 
@@ -15,8 +13,6 @@ using namespace std;
 class Enemy
 {
 public:
-	Enemy();
-	Enemy::Enemy(Stats *stats, std::vector<Element> strengths, std::vector<Element> weaknesses, string name);
 	Enemy();
 	virtual ~Enemy();
 

@@ -8,9 +8,10 @@ class Tunic :public Equippable
 public:
 	Tunic()
 	{
-		Equippable(new Stats(20, 0, 4, 0, 5), 
-			"Tunic", 
-			Kind::CHEST, Range::NO, Element::NONE, Element::FLAME);
+		this->bonus = new Stats(20, 0, 4, 0, 5);
+		this->kind = Kind::CHEST;
+		this->weakness = Element::FLAME;
+		this->name = "Tunic";
 	}
 };
 

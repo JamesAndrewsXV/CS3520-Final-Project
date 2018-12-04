@@ -8,9 +8,11 @@ class DeceasedGauntlet :public Equippable
 public:
 	DeceasedGauntlet()
 	{
-		Equippable(new Stats(4, 0, 2, 0, 10), 
-			"Gauntlets of the Desecrated", 
-			Kind::GLOVES, Range::NO, Element::CURSE, Element::HOLY);
+		this->bonus = new Stats(4, 0, 2, 0, 10);
+		this->kind = Kind::GLOVES;
+		this->name = "Gauntlets of the Desecrated";
+		this->strength = Element::CURSE;
+		this->weakness = Element::HOLY;
 	}
 };
 

@@ -15,7 +15,6 @@ public:
 		this->attackAmount = 2;
 		this->name = "Wraith";
 	}
-	~Wraith();
 
 	Attack Enemy::attackDecision()
 	{

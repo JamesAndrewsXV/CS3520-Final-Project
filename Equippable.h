@@ -21,7 +21,6 @@ class Equippable : public Item {
 public:
 	//Constructor
 	Equippable();
-	Equippable(Stats *bonus, std::string name, Kind kind, Range range, Element strength, Element weakness);
 
 	//Destructor
 	virtual ~Equippable();

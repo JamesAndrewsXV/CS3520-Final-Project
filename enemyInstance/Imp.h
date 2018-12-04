@@ -14,7 +14,6 @@ public:
 		this->weaknesses = { Element::HOLY };
 		this->name = "Imp";
 	}
-	~Imp(){}
 
 	Attack Enemy::attackDecision()
 	{

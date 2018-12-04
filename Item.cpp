@@ -14,11 +14,7 @@ Item::Item()
 {
 }
 
-Item::Item(Stats * bonus, std::string name)
-{
-	this->bonus = bonus;
-	this->name = name;
-}
+
 Item::~Item()
 {
 	delete this->bonus;

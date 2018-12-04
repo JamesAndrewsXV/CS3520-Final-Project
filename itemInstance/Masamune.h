@@ -9,9 +9,11 @@ public:
 
 	Masamune()
 	{
-		Equippable(new Stats(0, 60, 0, 45, 0),
-			"Masamune", 
-			Kind::WEAPON, Range::CLOSE, Element::CURSE, Element::NONE);
+		this->bonus = new Stats(0, 60, 0, 45, 0);
+		this->range = Range::CLOSE;
+		this->kind = Kind::WEAPON;
+		this->strength = Element::CURSE;
+		this->name = "Masamune";
 	}
 protected:
 private:

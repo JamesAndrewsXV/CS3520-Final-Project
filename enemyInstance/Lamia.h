@@ -14,7 +14,6 @@ public:
 		this->weaknesses = { Element::WAVE };
 		this->name = "Lamia";
 	}
-	~Lamia() {}
 
 	Attack Enemy::attackDecision()
 	{

@@ -12,6 +12,8 @@
 #include <cxxtest/TestMain.h>
 #include <cxxtest/ErrorPrinter.h>
 #include "Four_Right_Turns.h"
+#include <cxxtest/Root.cpp>
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -20,11 +22,11 @@ int main(int argc, char *argv[])
     CxxTest::RealWorldDescription::_worldName = "cxxtest";
     status = CxxTest::Main<CxxTest::ErrorPrinter>(tmp, argc, argv);
 
-    srand(time(NULL));
+    //srand(time(NULL));
     FourRightTurns game;
     game.play();
 
     return status;
 }
-#include <cxxtest/Root.cpp>
+
 const char *CxxTest::RealWorldDescription::_worldName = "cxxtest";

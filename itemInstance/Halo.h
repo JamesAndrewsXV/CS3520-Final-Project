@@ -8,9 +8,9 @@ class Halo :public Equippable
 public:
 	Halo()
 	{
-		Equippable(new Stats(15, 0, 2, 0, 10), 
-			"Halo", 
-			Kind::HELM, Range::NO, Element::HOLY, Element::NONE);
+		this->bonus = new Stats(15, 0, 2, 0, 10);
+		this->kind = Kind::HELM;
+		this->name = "Halo";
 	}
 };
 

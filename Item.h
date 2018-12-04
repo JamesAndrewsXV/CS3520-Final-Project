@@ -7,8 +7,6 @@
 //#include <cstdlib>
 #include <utility>
 #include "Attack.h"
-#include "itemInstance/AllArmor.h"
-#include "itemInstance/AllWeapons.h"
 
 using namespace std;
 
@@ -20,7 +18,6 @@ class Item
 public:
 	//Constructor
 	Item();
-	Item(Stats *bonus, std::string name);
 
 	//Destructor
 	virtual ~Item();

@@ -8,9 +8,9 @@ class CombatBoots :public Equippable
 public:
 	CombatBoots()
 	{
-		Equippable(new Stats(0, 3, 8, 0, 5),
-			"Combat Boots", 
-			Kind::SHOES, Range::NO, Element::NONE, Element::NONE);
+		this->bonus = new Stats(0, 3, 8, 0, 5);
+		this->kind = Kind::SHOES;
+		this->name = "Combat Boots";
 	}
 };
 

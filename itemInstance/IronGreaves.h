@@ -8,9 +8,11 @@ class IronGreaves :public Equippable
 public:
 	IronGreaves()
 	{
-		Equippable(new Stats(0, 9, 20, 0, 8), 
-			"Iron Greaves", 
-			Kind::SHOES, Range::NO, Element::NEUTRAL, Element::FLAME);
+		this->bonus = new Stats(0, 9, 20, 0, 8);
+		this->kind = Kind::SHOES;
+		this->name = "Iron Greaves";
+		this->strength = Element::NEUTRAL;
+		this->weakness = Element::FLAME;
 	}
 };
 

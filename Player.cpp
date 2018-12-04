@@ -79,7 +79,7 @@ void Player::equipItem(Equippable *item)
 		else { throw 11; }
 
 		//Apply buffs
-		if (item->getStrength() != NULL && item->getKind != Kind::WEAPON) //It must be in the list of strengths if non null, only on armor
+		if (item->getStrength() != NULL && item->getKind() != Kind::WEAPON) //It must be in the list of strengths if non null, only on armor
 		{
 			this->strengths.push_back(item->getStrength()); //add an instance of the strength
 		}

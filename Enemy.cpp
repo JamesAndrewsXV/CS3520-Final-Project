@@ -5,15 +5,6 @@ Enemy::Enemy()
 	
 }
 
-Enemy::Enemy(Stats *stats, std::vector<Element> strengths, std::vector<Element> weaknesses, string name)
-{
-	this->stats = stats;
-	this->currHP = this->stats->HP;
-	this->strengths = strengths;
-	this->weaknesses = weaknesses;
-	this->name = name;
-}
-
 Enemy::~Enemy()
 {
 	//Construct Loot Object from derived class (controls rarity perhaps?)
@@ -54,6 +45,8 @@ Attack Enemy::attackDecision()
 	case 0:
 		return this->enAttack();
 	}
+
+	return this->enAttack();
 }
 
 std::string Enemy::getName()
