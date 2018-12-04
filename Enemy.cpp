@@ -44,7 +44,7 @@ void Enemy::takeDamage(Attack a)
 
 Attack Enemy::attackDecision()
 {
-	switch (std::rand() % this->attackAmount)
+	switch (rand() % this->attackAmount)
 	{
 	case 0:
 		return this->enAttack();

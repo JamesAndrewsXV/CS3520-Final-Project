@@ -6,6 +6,7 @@
 #include <vector>
 #include <memory>
 #include "enemyInstance/AllCommon.h"
+#include <cstdlib>
 
 //Enemy class
 class Enemy
@@ -20,9 +21,9 @@ public:
 	//Decides an action that the enemy takes during their turn
 	virtual Attack attackDecision() = 0;
 
-	std::string getName();
+	string getName();
 
-	std::string getLog();
+	string getLog();
 
 protected:
 	//Creates an attack against the player
@@ -42,13 +43,10 @@ protected:
 	std::vector<Element> weaknesses;
 
 	//Name of the enemy
-	std::string name;
+	string name;
 
 	//Log of the enemy's actions
-	std::string log = "";
-
-	//Amount of instantiated enemies
-	static int enemyAmount = 6;
+	string log = "";
 };
 
 

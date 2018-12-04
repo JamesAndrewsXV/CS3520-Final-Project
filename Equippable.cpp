@@ -2,7 +2,7 @@
 
 Equippable::Equippable() {}
 
-Equippable::Equippable(Stats * bonus, std::string name, Kind kind, Range range, Element strength, Element weakness)
+Equippable::Equippable(Stats * bonus, string name, Kind kind, Range range, Element strength, Element weakness)
 {
 	Item(bonus, name);
 	this->kind = kind;
