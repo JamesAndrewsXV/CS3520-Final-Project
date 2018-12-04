@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Equippable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Four_Right_Turns.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stats.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\globbing\src\requirement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\globbing_edmundo\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\globbing_edmundo\hello.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\libpath\src\foo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\libpath_multitarget\src1\foo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\libpath_multitarget\src2\bar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\multifile_tests\src\requirement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\recursive_sources\src\requirement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\Descriptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\DummyDescriptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\GlobalFixture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\LinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\RealDescriptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\Root.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\TestSuite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\TestTracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\cxxtest\ValueTraits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\doc\examples\rand_example.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\doc\examples\time_mock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\doc\examples\time_real.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\sample\yes_no_runner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\sample\mock\Dice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\sample\mock\mock_stdlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\sample\mock\real_stdlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\sample\mock\roll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\sample\scons\src\stack.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\test\anything.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\test\int64.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\test\longlong.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\test\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\test\stpltpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\test\tpltpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cxxtest-4.4\test\wchar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Attack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Equippable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Four_Right_Turns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.cxxtest.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\empty_source_list\test_bar.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\empty_source_list\test_foo.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\empty_source_list\requirement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing\src\requirement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing\src\test_bar.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing\src\test_foo.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing_edmundo\hellotest.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing_edmundo\hello.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\include_ccflags\src\not-with-pedantic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\include_ccflags\src\only_with_ansi.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\include_cxxflags\src\not-with-pedantic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\libpath\test\test.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\libpath_multitarget\test\test1.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\libpath_multitarget\test\test2.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\multifile_tests\src\requirement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\multifile_tests\src\test_bar.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\multifile_tests\src\test_foo.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\need_cpppath\src\cpppath.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\need_cpppath\src\cpppathdir\include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\printer_propagation\cxxtest\CrazyRunner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\printer_propagation\src\failtest.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\recursive_sources\src\requirement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\recursive_sources\src\test_bar.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\recursive_sources\src\test_foo.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\string_cpppath\src\cpppath.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\string_cpppath\src\cpppathdir\include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\target_syntax\src\cpppath.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\target_syntax\src\cpppathdir\include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\Descriptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\DummyDescriptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\ErrorFormatter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\ErrorPrinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\Flags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\GlobalFixture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\Gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\LinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\Mock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\MSVCErrorPrinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\ParenPrinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\QtGui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\RealDescriptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\SelfTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdHeaders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdioFilePrinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdioPrinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdTestSuite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdValueTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\TeeListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestMain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestRunner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestSuite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestTracker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\unix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\ValueTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\Win32Gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\X11Gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\XmlFormatter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\XmlPrinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\XUnitPrinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\cxxtest\YesNoRunner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\Assertions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\BadTestSuite1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MockTestSuite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite10.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite12.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\Namespace1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\Namespace2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\time_mock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\doc\examples\TMyClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\CreatedTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\DeltaTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\EnumTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\ExceptionTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\FixtureTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\MessageTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\SimpleTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\TraitsTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\gui\GreenYellowRed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\mock\Dice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\mock\MockStdlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\mock\TestDice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\mock\t\stdlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\scons\include\stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\sample\scons\tests\stack_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\AborterNoThrow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\BadTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Comments.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Comments2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\CppTemplateTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\DeepAbort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\DefaultAbort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\DefaultTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\DoubleCall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\DynamicAbort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\DynamicMax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\EmptySuite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Exceptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Factor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\ForceNoEh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\GfSetUpFails.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\GfSetUpThrows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\GfTearDownFails.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\GfTearDownThrows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\GlobalFixtures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\GoodSuite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\GuiWait.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\HaveStd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\IncludeTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\InheritedTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Int64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\LessThanEquals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\LongLong.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\LongTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\MaxDump.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\MockTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Namespace1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Namespace2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\NoEh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Part1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Part2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Relation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SameData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SameFiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SameFilesLonger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SameZero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SetUpWorldError.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SetUpWorldFails.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SetUpWorldThrows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SimpleInheritedTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\SimpleInheritedTest2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Something.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\StlTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\TearDownWorldFails.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\TearDownWorldThrows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\TestNonFinite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\ThrowNoStd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\ThrowsAssert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\TraitsTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\Tsm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\UserTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\VoidTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\WideCharTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\WorldFixtures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\cxxtest\DummyGui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\commctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qapplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qglobal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qlabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qlayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qmessagebox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qpixmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qprogressbar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qstatusbar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qstring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\qwidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\windows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\x11\Xlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\fake\x11\Xutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxtest-4.4\test\unit\LinkedList_test.t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyinstance\Bahamut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyinstance\Imp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyinstance\Wraith.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\AllArmor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\AllWeapons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\AncientGarb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\Breastplate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\BurningWhip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\BusterShield.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\CombatBoots.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\DeceasedGauntlet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\Fantasia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\FocusB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\Halo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\IronGreaves.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\KnightHelm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\LeviathanBoots.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\Masamune.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\ShadKunai.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\Shepherds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\SpiritArrow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\Staff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\StarSeeker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\ThorHammer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\Tunic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iteminstance\WoodSword.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cxxtest-4.4\sample\winddk\Makefile.inc">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -13,6 +13,9 @@
 #include "Map.h"
 #include "Room.h"
 #include "Loader.h"
+#include "BattleScene.h"
+#include "Player.h"
+#include "Builder.h"
 
 // class representing graphical display and front end logic of game
 class FourRightTurns
@@ -36,7 +39,8 @@ class FourRightTurns
 		Battle,
 		Explore,
 		Loot,
-		Inventory
+		Inventory,
+		Reading // add later to stop the player from being able to explore
 	};
 
   private:
@@ -61,6 +65,8 @@ class FourRightTurns
 	Loader loader;
 
 	GameMode gameState;
+
+	Player * player;
 };
 
 #endif

@@ -99,21 +99,23 @@ void FourRightTurns::changeText()
 
 	if (gameState == Battle)
 	{
-		message.str("Player Stats and stuff here!");
-		int randDrop = rand() % 2;
-		game_map->findPlayer()->setLoot(randDrop);
+		BattleScene battle = BattleScene(game_map->findPlayer(), player);
+		queuedMessages.push_back(battle.displayBattleLog());
+
+		//int randDrop = rand() % 2;
+		//game_map->findPlayer()->setLoot(randDrop);
 		gameState = Explore;
 	}
 
 	if (gameState == Loot)
 	{
-		if (!(game_map->findPlayer()->getLoot()))
+		if (!(game_map->findPlayer()->thereIsLoot()))
 		{
 			message.str("You searched for loot, but didn't find any.");
 		}
 		else
 		{
-			message.str("You found: ...");
+			message.str("You found: " + game_map->findPlayer()->getLootName());
 			game_map->findPlayer()->setLoot(false);
 		}
 		gameState = Explore;
@@ -122,7 +124,7 @@ void FourRightTurns::changeText()
 	if (game_map->findPlayer()->getEncounter())
 	{
 		gameState = Battle;
-		message.str("YOU'RE BEING ATTACKED!!");
+		message.str("YOU'RE BEING ATTACKED!!"); // delete
 		game_map->findPlayer()->setEncounter(false);
 	}
 
@@ -209,7 +211,12 @@ int FourRightTurns::play()
 					}
 				}
 
-				loader.renderScreen();
+				if (gameState = GameMode::Explore) {
+					loader.renderExploreScreen();
+				}
+				if (gameState = GameMode::Battle) {
+					loader.renderBattleScreen();
+				}
 			}
 		}
 	}

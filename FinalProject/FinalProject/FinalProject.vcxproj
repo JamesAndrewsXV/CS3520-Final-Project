@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{7CB0F583-26A7-4CA7-870F-893872CF0CBD}</ProjectGuid>
+    <ProjectGuid>{0DF872BE-AA9A-4EB8-BD45-2522BB953FC9}</ProjectGuid>
     <RootNamespace>FinalProject</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -76,13 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Jasmine\Documents\GitHub\CS3520-Final-Project\cxxtest-4.4;C:\Users\Jasmine\Documents\SDL2-devel-2.0.9-VC\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
-      <AdditionalLibraryDirectories>C:\Users\Jasmine\Documents\SDL2-devel-2.0.9-VC\SDL2-2.0.9\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_mixer.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
-    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -91,10 +85,6 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
-    <Link>
-      <AdditionalLibraryDirectories>C:\Users\Jasmine\Documents\SDL2-devel-2.0.9-VC\SDL2-2.0.9\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2main.lib;SDL2test.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -125,69 +115,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Attack.h" />
-    <ClInclude Include="..\BattleScene.h" />
-    <ClInclude Include="..\Boss.h" />
-    <ClInclude Include="..\Builder.h" />
-    <ClInclude Include="..\Enemy.h" />
-    <ClInclude Include="..\enemyInstance\AllBoss.h" />
-    <ClInclude Include="..\enemyInstance\AllCommon.h" />
-    <ClInclude Include="..\enemyInstance\Anubis.h" />
-    <ClInclude Include="..\enemyInstance\Bahamut.h" />
-    <ClInclude Include="..\enemyInstance\Dracula.h" />
-    <ClInclude Include="..\enemyInstance\Goblin.h" />
-    <ClInclude Include="..\enemyInstance\Imp.h" />
-    <ClInclude Include="..\enemyInstance\Lamia.h" />
-    <ClInclude Include="..\enemyInstance\Reaper.h" />
-    <ClInclude Include="..\enemyInstance\Wraith.h" />
-    <ClInclude Include="..\Equippable.h" />
-    <ClInclude Include="..\Four_Right_Turns.h" />
-    <ClInclude Include="..\Item.h" />
-    <ClInclude Include="..\itemInstance\AllArmor.h" />
-    <ClInclude Include="..\itemInstance\AllWeapons.h" />
-    <ClInclude Include="..\itemInstance\AncientGarb.h" />
-    <ClInclude Include="..\itemInstance\Breastplate.h" />
-    <ClInclude Include="..\itemInstance\BurningWhip.h" />
-    <ClInclude Include="..\itemInstance\BusterShield.h" />
-    <ClInclude Include="..\itemInstance\CombatBoots.h" />
-    <ClInclude Include="..\itemInstance\DeceasedGauntlet.h" />
-    <ClInclude Include="..\itemInstance\Fantasia.h" />
-    <ClInclude Include="..\itemInstance\FocusB.h" />
-    <ClInclude Include="..\itemInstance\Halo.h" />
-    <ClInclude Include="..\itemInstance\IronGreaves.h" />
-    <ClInclude Include="..\itemInstance\KnightHelm.h" />
-    <ClInclude Include="..\itemInstance\LeviathanBoots.h" />
-    <ClInclude Include="..\itemInstance\Masamune.h" />
-    <ClInclude Include="..\itemInstance\ShadKunai.h" />
-    <ClInclude Include="..\itemInstance\Shepherds.h" />
-    <ClInclude Include="..\itemInstance\SpiritArrow.h" />
-    <ClInclude Include="..\itemInstance\Staff.h" />
-    <ClInclude Include="..\itemInstance\StarSeeker.h" />
-    <ClInclude Include="..\itemInstance\ThorHammer.h" />
-    <ClInclude Include="..\itemInstance\Tunic.h" />
-    <ClInclude Include="..\itemInstance\WoodSword.h" />
-    <ClInclude Include="..\Loader.h" />
-    <ClInclude Include="..\LTexture.h" />
-    <ClInclude Include="..\Map.cxxtest.hpp" />
-    <ClInclude Include="..\Map.h" />
-    <ClInclude Include="..\Player.h" />
-    <ClInclude Include="..\Room.h" />
-    <ClInclude Include="..\Stats.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\BattleScene.cpp" />
-    <ClCompile Include="..\Boss.cpp" />
-    <ClCompile Include="..\Enemy.cpp" />
-    <ClCompile Include="..\Equippable.cpp" />
-    <ClCompile Include="..\Four_Right_Turns.cpp" />
-    <ClCompile Include="..\Item.cpp" />
-    <ClCompile Include="..\Loader.cpp" />
-    <ClCompile Include="..\LTexture.cpp" />
-    <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\Map.cpp" />
-    <ClCompile Include="..\Player.cpp" />
-    <ClCompile Include="..\Room.cpp" />
-    <ClCompile Include="..\Stats.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

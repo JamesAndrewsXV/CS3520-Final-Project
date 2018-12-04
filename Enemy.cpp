@@ -8,6 +8,11 @@ Enemy::Enemy()
 Enemy::~Enemy()
 {
 	//Construct Loot Object from derived class (controls rarity perhaps?)
+	int itemDrop = rand() % 5;
+	if (itemDrop > 2) {
+		buildItem();
+	}
+
 	delete this->stats;
 }
 
@@ -69,4 +74,8 @@ Attack Enemy::enAttack()
 std::string Enemy::getLog()
 {
 	return this->log;
+}
+
+int Enemy::getHealth() {
+	return this->currHP;
 }

@@ -7,6 +7,7 @@
 #include <memory>
 #include <cstdlib>
 #include <string>
+#include "Builder.h"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ public:
 
 	string getLog();
 
+	int getHealth();
 protected:
 	//Creates an attack against the player
 	Attack enAttack(); // all enemies must have at least one basic attack.

@@ -56,7 +56,7 @@ void Map::connectRooms(Room * nextRoom) //BREADTH FIRST??
 	}
 }
 
-void Map::copyfrom(Map other)
+/*void Map::copyfrom(Map other)
 {
 	rooms = other.getRooms();
 	firstRoom = other.getRooms().front();
@@ -66,7 +66,7 @@ void Map::copyfrom(Map other)
 Map::Map(const Map &other)
 {
 	copyfrom(other);
-}
+}*/
 
 Map &Map::operator=(const Map &other)
 {

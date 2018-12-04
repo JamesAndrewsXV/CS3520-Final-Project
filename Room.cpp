@@ -9,6 +9,7 @@ Room::Room()
 	this->setLoot(containLoot);
 	this->adjRoomList = new vector<Room*>();
 	this->firstRoom = false;
+	this->loot = buildItem().get();
 }
 
 Room::~Room()
@@ -17,7 +18,7 @@ Room::~Room()
 	delete adjRoomList;
 }
 
-void Room::copyfrom(Room other) {
+/*void Room::copyfrom(Room other) {
 	adjacentRooms = other.adjacentRooms;
 	encounter = other.encounter;
 	containLoot = other.containLoot;
@@ -26,7 +27,7 @@ void Room::copyfrom(Room other) {
 
 Room::Room(const Room & other) {
 	copyfrom(other);
-}
+}*/
 
 Room & Room::operator= (const Room & other) {
 	if (this != &other) {
@@ -85,15 +86,9 @@ void Room::setEncounter(bool enc) {
 	encounter = enc;
 }
 
-const bool Room::getLoot() {
+const bool Room::thereIsLoot() {
 	return containLoot;
 }
-
-//void Room::setAdjacentRooms() {
-//	for (map<int, Room*>::iterator it = adjacentRooms->begin(); it != adjacentRooms->end(); it++) {
-//		adjRoomList->push_back(it->second);
-//	}
-//}
 
 vector<Room*> * Room::getAdjacentRooms() {
 	return adjRoomList;
@@ -109,4 +104,8 @@ void Room::setFirstRoom() {
 
 void Room::setBossRoom() {
 	bossRoom = true;
+}
+
+const string Room::getLootName() {
+	return loot->getName();
 }

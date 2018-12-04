@@ -32,7 +32,9 @@ class Loader
 
 	SDL_Texture *loadTexture(std::string path);
 
-	void renderScreen();
+	void renderExploreScreen();
+
+	void renderBattleScreen();
 
   private:
 	friend class FourRightTurns;

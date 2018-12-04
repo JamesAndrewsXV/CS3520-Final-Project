@@ -155,7 +155,7 @@ SDL_Texture *Loader::loadTexture(std::string path)
 	return newTexture;
 }
 
-void Loader::renderScreen()
+void Loader::renderExploreScreen()
 {
 	//Clear screen
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -177,6 +177,45 @@ void Loader::renderScreen()
 	bottomViewport.x = 0;
 	bottomViewport.y = (3 * SCREEN_HEIGHT) / 4;
 	bottomViewport.w = SCREEN_WIDTH;
+	bottomViewport.h = SCREEN_HEIGHT / 4;
+	SDL_RenderSetViewport(gRenderer, &bottomViewport);
+
+	//Render texture to screen
+	SDL_RenderCopy(gRenderer, displayed_text.getTexture(), NULL, NULL);
+
+	//Update screen
+	SDL_RenderPresent(gRenderer);
+}
+
+void Loader::renderBattleScreen()
+{
+	//Clear screen
+	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_RenderClear(gRenderer);
+
+	//Top viewport
+	SDL_Rect topViewport;
+	topViewport.x = 0;
+	topViewport.y = 0;
+	topViewport.w = SCREEN_WIDTH;
+	topViewport.h = (3 * SCREEN_HEIGHT) / 4;
+	SDL_RenderSetViewport(gRenderer, &topViewport);
+
+	//Render texture to screen
+	SDL_RenderCopy(gRenderer, gTexture, NULL, NULL);
+
+	//Battle Log viewport
+	SDL_Rect bottomViewport;
+	bottomViewport.x = 0;
+	bottomViewport.y = (3 * SCREEN_HEIGHT) / 4;
+	bottomViewport.w = (2 * SCREEN_WIDTH / 3);
+	bottomViewport.h = SCREEN_HEIGHT / 4;
+	SDL_RenderSetViewport(gRenderer, &bottomViewport);
+
+	//Stats Log viewport
+	bottomViewport.x = 1/3;
+	bottomViewport.y = (3 * SCREEN_HEIGHT) / 4;
+	bottomViewport.w = (SCREEN_WIDTH / 3);
 	bottomViewport.h = SCREEN_HEIGHT / 4;
 	SDL_RenderSetViewport(gRenderer, &bottomViewport);
 

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{B1AE778A-7597-4B23-B30E-60F3263F9966}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\globbing\src\requirement.cpp" />
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\globbing_edmundo\hello.cc" />
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\globbing_edmundo\main.cpp" />
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\libpath\src\foo.cpp" />
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\libpath_multitarget\src1\foo.cpp" />
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\libpath_multitarget\src2\bar.cpp" />
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\multifile_tests\src\requirement.cpp" />
+    <ClCompile Include="cxxtest-4.4\build_tools\scons\test\recursive_sources\src\requirement.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\Descriptions.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\DummyDescriptions.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\GlobalFixture.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\LinkedList.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\RealDescriptions.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\Root.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\TestSuite.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\TestTracker.cpp" />
+    <ClCompile Include="cxxtest-4.4\cxxtest\ValueTraits.cpp" />
+    <ClCompile Include="cxxtest-4.4\doc\examples\rand_example.cpp" />
+    <ClCompile Include="cxxtest-4.4\doc\examples\time_mock.cpp" />
+    <ClCompile Include="cxxtest-4.4\doc\examples\time_real.cpp" />
+    <ClCompile Include="cxxtest-4.4\sample\mock\Dice.cpp" />
+    <ClCompile Include="cxxtest-4.4\sample\mock\mock_stdlib.cpp" />
+    <ClCompile Include="cxxtest-4.4\sample\mock\real_stdlib.cpp" />
+    <ClCompile Include="cxxtest-4.4\sample\mock\roll.cpp" />
+    <ClCompile Include="cxxtest-4.4\sample\scons\src\stack.c" />
+    <ClCompile Include="cxxtest-4.4\sample\yes_no_runner.cpp" />
+    <ClCompile Include="cxxtest-4.4\test\anything.cpp" />
+    <ClCompile Include="cxxtest-4.4\test\int64.cpp" />
+    <ClCompile Include="cxxtest-4.4\test\longlong.cpp" />
+    <ClCompile Include="cxxtest-4.4\test\main.cpp" />
+    <ClCompile Include="cxxtest-4.4\test\stpltpl.cpp" />
+    <ClCompile Include="cxxtest-4.4\test\tpltpl.cpp" />
+    <ClCompile Include="cxxtest-4.4\test\wchar.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Equippable.cpp" />
+    <ClCompile Include="Four_Right_Turns.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Loader.cpp" />
+    <ClCompile Include="LTexture.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Stats.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Attack.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\empty_source_list\requirement.hpp" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\empty_source_list\test_bar.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\empty_source_list\test_foo.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing\src\requirement.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing\src\test_bar.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing\src\test_foo.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing_edmundo\hello.hh" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\globbing_edmundo\hellotest.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\include_ccflags\src\not-with-pedantic.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\include_ccflags\src\only_with_ansi.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\include_cxxflags\src\not-with-pedantic.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\libpath\test\test.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\libpath_multitarget\test\test1.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\libpath_multitarget\test\test2.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\multifile_tests\src\requirement.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\multifile_tests\src\test_bar.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\multifile_tests\src\test_foo.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\need_cpppath\src\cpppath.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\need_cpppath\src\cpppathdir\include.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\printer_propagation\cxxtest\CrazyRunner.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\printer_propagation\src\failtest.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\recursive_sources\src\requirement.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\recursive_sources\src\test_bar.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\recursive_sources\src\test_foo.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\string_cpppath\src\cpppath.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\string_cpppath\src\cpppathdir\include.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\target_syntax\src\cpppath.t.h" />
+    <ClInclude Include="cxxtest-4.4\build_tools\scons\test\target_syntax\src\cpppathdir\include.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\Descriptions.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\DummyDescriptions.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\ErrorFormatter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\ErrorPrinter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\Flags.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\GlobalFixture.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\Gui.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\LinkedList.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\Mock.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\MSVCErrorPrinter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\ParenPrinter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\QtGui.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\RealDescriptions.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\SelfTest.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdHeaders.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdioFilePrinter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdioPrinter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdTestSuite.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\StdValueTraits.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\TeeListener.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestListener.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestMain.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestRunner.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestSuite.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\TestTracker.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\unix.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\ValueTraits.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\Win32Gui.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\X11Gui.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\XmlFormatter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\XmlPrinter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\XUnitPrinter.h" />
+    <ClInclude Include="cxxtest-4.4\cxxtest\YesNoRunner.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\Assertions.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\BadTestSuite1.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MockTestSuite.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyClass.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite1.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite10.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite11.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite12.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite2.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite3.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite4.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite5.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite6.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite7.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite8.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\MyTestSuite9.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\Namespace1.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\Namespace2.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\time_mock.h" />
+    <ClInclude Include="cxxtest-4.4\doc\examples\TMyClass.h" />
+    <ClInclude Include="cxxtest-4.4\sample\CreatedTest.h" />
+    <ClInclude Include="cxxtest-4.4\sample\DeltaTest.h" />
+    <ClInclude Include="cxxtest-4.4\sample\EnumTraits.h" />
+    <ClInclude Include="cxxtest-4.4\sample\ExceptionTest.h" />
+    <ClInclude Include="cxxtest-4.4\sample\FixtureTest.h" />
+    <ClInclude Include="cxxtest-4.4\sample\gui\GreenYellowRed.h" />
+    <ClInclude Include="cxxtest-4.4\sample\MessageTest.h" />
+    <ClInclude Include="cxxtest-4.4\sample\mock\Dice.h" />
+    <ClInclude Include="cxxtest-4.4\sample\mock\MockStdlib.h" />
+    <ClInclude Include="cxxtest-4.4\sample\mock\TestDice.h" />
+    <ClInclude Include="cxxtest-4.4\sample\mock\t\stdlib.h" />
+    <ClInclude Include="cxxtest-4.4\sample\scons\include\stack.h" />
+    <ClInclude Include="cxxtest-4.4\sample\scons\tests\stack_test.h" />
+    <ClInclude Include="cxxtest-4.4\sample\SimpleTest.h" />
+    <ClInclude Include="cxxtest-4.4\sample\TraitsTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\AborterNoThrow.h" />
+    <ClInclude Include="cxxtest-4.4\test\BadTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\Comments.h" />
+    <ClInclude Include="cxxtest-4.4\test\Comments2.h" />
+    <ClInclude Include="cxxtest-4.4\test\CppTemplateTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\cxxtest\DummyGui.h" />
+    <ClInclude Include="cxxtest-4.4\test\DeepAbort.h" />
+    <ClInclude Include="cxxtest-4.4\test\DefaultAbort.h" />
+    <ClInclude Include="cxxtest-4.4\test\DefaultTraits.h" />
+    <ClInclude Include="cxxtest-4.4\test\DoubleCall.h" />
+    <ClInclude Include="cxxtest-4.4\test\DynamicAbort.h" />
+    <ClInclude Include="cxxtest-4.4\test\DynamicMax.h" />
+    <ClInclude Include="cxxtest-4.4\test\EmptySuite.h" />
+    <ClInclude Include="cxxtest-4.4\test\Exceptions.h" />
+    <ClInclude Include="cxxtest-4.4\test\Factor.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\commctrl.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qapplication.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qglobal.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qlabel.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qlayout.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qmessagebox.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qpixmap.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qprogressbar.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qstatusbar.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qstring.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\qwidget.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\windows.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\x11\Xlib.h" />
+    <ClInclude Include="cxxtest-4.4\test\fake\x11\Xutil.h" />
+    <ClInclude Include="cxxtest-4.4\test\ForceNoEh.h" />
+    <ClInclude Include="cxxtest-4.4\test\GfSetUpFails.h" />
+    <ClInclude Include="cxxtest-4.4\test\GfSetUpThrows.h" />
+    <ClInclude Include="cxxtest-4.4\test\GfTearDownFails.h" />
+    <ClInclude Include="cxxtest-4.4\test\GfTearDownThrows.h" />
+    <ClInclude Include="cxxtest-4.4\test\GlobalFixtures.h" />
+    <ClInclude Include="cxxtest-4.4\test\GoodSuite.h" />
+    <ClInclude Include="cxxtest-4.4\test\GuiWait.h" />
+    <ClInclude Include="cxxtest-4.4\test\HaveStd.h" />
+    <ClInclude Include="cxxtest-4.4\test\IncludeTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\InheritedTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\Int64.h" />
+    <ClInclude Include="cxxtest-4.4\test\LessThanEquals.h" />
+    <ClInclude Include="cxxtest-4.4\test\LongLong.h" />
+    <ClInclude Include="cxxtest-4.4\test\LongTraits.h" />
+    <ClInclude Include="cxxtest-4.4\test\MaxDump.h" />
+    <ClInclude Include="cxxtest-4.4\test\MockTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\Namespace1.h" />
+    <ClInclude Include="cxxtest-4.4\test\Namespace2.h" />
+    <ClInclude Include="cxxtest-4.4\test\NoEh.h" />
+    <ClInclude Include="cxxtest-4.4\test\Part1.h" />
+    <ClInclude Include="cxxtest-4.4\test\Part2.h" />
+    <ClInclude Include="cxxtest-4.4\test\Relation.h" />
+    <ClInclude Include="cxxtest-4.4\test\SameData.h" />
+    <ClInclude Include="cxxtest-4.4\test\SameFiles.h" />
+    <ClInclude Include="cxxtest-4.4\test\SameFilesLonger.h" />
+    <ClInclude Include="cxxtest-4.4\test\SameZero.h" />
+    <ClInclude Include="cxxtest-4.4\test\SetUpWorldError.h" />
+    <ClInclude Include="cxxtest-4.4\test\SetUpWorldFails.h" />
+    <ClInclude Include="cxxtest-4.4\test\SetUpWorldThrows.h" />
+    <ClInclude Include="cxxtest-4.4\test\SimpleInheritedTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\SimpleInheritedTest2.h" />
+    <ClInclude Include="cxxtest-4.4\test\Something.h" />
+    <ClInclude Include="cxxtest-4.4\test\StlTraits.h" />
+    <ClInclude Include="cxxtest-4.4\test\TearDownWorldFails.h" />
+    <ClInclude Include="cxxtest-4.4\test\TearDownWorldThrows.h" />
+    <ClInclude Include="cxxtest-4.4\test\TestNonFinite.h" />
+    <ClInclude Include="cxxtest-4.4\test\ThrowNoStd.h" />
+    <ClInclude Include="cxxtest-4.4\test\ThrowsAssert.h" />
+    <ClInclude Include="cxxtest-4.4\test\TraitsTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\Tsm.h" />
+    <ClInclude Include="cxxtest-4.4\test\unit\LinkedList_test.t.h" />
+    <ClInclude Include="cxxtest-4.4\test\UserTraits.h" />
+    <ClInclude Include="cxxtest-4.4\test\VoidTraits.h" />
+    <ClInclude Include="cxxtest-4.4\test\WideCharTest.h" />
+    <ClInclude Include="cxxtest-4.4\test\WorldFixtures.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="enemyinstance\Bahamut.h" />
+    <ClInclude Include="enemyinstance\Imp.h" />
+    <ClInclude Include="enemyinstance\Wraith.h" />
+    <ClInclude Include="Equippable.h" />
+    <ClInclude Include="Four_Right_Turns.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="iteminstance\AllArmor.h" />
+    <ClInclude Include="iteminstance\AllWeapons.h" />
+    <ClInclude Include="iteminstance\AncientGarb.h" />
+    <ClInclude Include="iteminstance\Breastplate.h" />
+    <ClInclude Include="iteminstance\BurningWhip.h" />
+    <ClInclude Include="iteminstance\BusterShield.h" />
+    <ClInclude Include="iteminstance\CombatBoots.h" />
+    <ClInclude Include="iteminstance\DeceasedGauntlet.h" />
+    <ClInclude Include="iteminstance\Fantasia.h" />
+    <ClInclude Include="iteminstance\FocusB.h" />
+    <ClInclude Include="iteminstance\Halo.h" />
+    <ClInclude Include="iteminstance\IronGreaves.h" />
+    <ClInclude Include="iteminstance\KnightHelm.h" />
+    <ClInclude Include="iteminstance\LeviathanBoots.h" />
+    <ClInclude Include="iteminstance\Masamune.h" />
+    <ClInclude Include="iteminstance\ShadKunai.h" />
+    <ClInclude Include="iteminstance\Shepherds.h" />
+    <ClInclude Include="iteminstance\SpiritArrow.h" />
+    <ClInclude Include="iteminstance\Staff.h" />
+    <ClInclude Include="iteminstance\StarSeeker.h" />
+    <ClInclude Include="iteminstance\ThorHammer.h" />
+    <ClInclude Include="iteminstance\Tunic.h" />
+    <ClInclude Include="iteminstance\WoodSword.h" />
+    <ClInclude Include="Loader.h" />
+    <ClInclude Include="LTexture.h" />
+    <ClInclude Include="Map.cxxtest.hpp" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="Stats.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cxxtest-4.4\sample\winddk\Makefile.inc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

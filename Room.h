@@ -7,6 +7,8 @@
 #include <string>
 #include <cstdlib>
 #include <algorithm>
+#include "Item.h"
+#include "Builder.h"
 using namespace std;
 
 // class representing the list of rooms the player traverses through
@@ -22,7 +24,7 @@ public:
 	Room & operator= (const Room & other);
 
 	// room copy constructor
-	Room(const Room & other);
+	//Room(const Room & other);
 
 	// adds up to four rooms to this room. returns false if this room has no space
 	bool connectRoom(Room * room);
@@ -43,13 +45,13 @@ public:
 	void setEncounter(bool enc);
 
 	//return true if there is loot
-	const bool getLoot();
+	const bool thereIsLoot();
+
+	//returns the name of the loot in the room
+	const string getLootName();
 
 	//return the adjacent rooms
 	vector<Room*> * getAdjacentRooms();
-
-	//sets the adjacent rooms
-	void setAdjacentRooms();
 
 	//return the map of adjacent rooms
 	map<int, Room*> * getAdjacentRoomsMap();
@@ -72,11 +74,11 @@ private:
 	// is there loot in this room
 	bool containLoot;
 
-	// the loot contained in the room -> placeholder
-	string loot;
+	// the loot contained in the room
+	Item * loot;
 
 	// copies member variables of rooms
-	void copyfrom(Room other);
+	//void copyfrom(Room other);
 
 	// is this the first room in a map?
 	bool firstRoom;
