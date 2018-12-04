@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Item">
+      <UniqueIdentifier>{e8b9bf4e-d715-4cd6-b72f-fb6d18552c57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemy">
+      <UniqueIdentifier>{d5c3a732-f2c4-4814-bf60-e3b581c028fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Item">
+      <UniqueIdentifier>{13e98d99-8148-4a75-8d42-536f088942d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enemy">
+      <UniqueIdentifier>{f19db2c4-dd56-4daf-95fc-39cf49016251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enemy\Boss">
+      <UniqueIdentifier>{0dfa24af-e85c-4c8e-9ba4-fc3b5bd9a881}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enemy\Common">
+      <UniqueIdentifier>{09f663ef-f3bd-4c2c-846e-8005903b8862}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Map.cxxtest.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Stats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Attack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Four_Right_Turns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Item.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\AllArmor.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\AllWeapons.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\AncientGarb.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\Breastplate.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\BurningWhip.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\BusterShield.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\CombatBoots.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\DeceasedGauntlet.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\Fantasia.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\FocusB.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\Halo.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\IronGreaves.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\KnightHelm.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\LeviathanBoots.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\Masamune.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\ShadKunai.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\Shepherds.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\SpiritArrow.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\Staff.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\StarSeeker.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\ThorHammer.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\Tunic.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\itemInstance\WoodSword.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Boss.h">
+      <Filter>Header Files\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\AllBoss.h">
+      <Filter>Header Files\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\Dracula.h">
+      <Filter>Header Files\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\Bahamut.h">
+      <Filter>Header Files\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\AllCommon.h">
+      <Filter>Header Files\Enemy\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\Anubis.h">
+      <Filter>Header Files\Enemy\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\Wraith.h">
+      <Filter>Header Files\Enemy\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\Reaper.h">
+      <Filter>Header Files\Enemy\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\Lamia.h">
+      <Filter>Header Files\Enemy\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\Imp.h">
+      <Filter>Header Files\Enemy\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\enemyInstance\Goblin.h">
+      <Filter>Header Files\Enemy\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Builder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Equippable.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Enemy.h">
+      <Filter>Header Files\Enemy</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\LTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Stats.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Equippable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Four_Right_Turns.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Boss.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Enemy.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Item.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
