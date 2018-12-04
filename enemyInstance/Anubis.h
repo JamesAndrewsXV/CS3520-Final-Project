@@ -32,7 +32,24 @@ public:
 
 	Attack anAttack()
 	{
+		this->log = "Anubis !\n";
+		Attack a;
+		a.attack = this->stats->att;
+		a.elem = Element::CURSE;
+		a.range = Range::CLOSE;
 
+		return a;
+	}
+
+	Attack anAttack2()
+	{
+		this->log = "Reaper strikes with a cursed scythe!\n";
+		Attack a;
+		a.attack = this->stats->att;
+		a.elem = Element::CURSE;
+		a.range = Range::CLOSE;
+
+		return a;
 	}
 };
 
