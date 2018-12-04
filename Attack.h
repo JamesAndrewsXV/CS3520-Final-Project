@@ -1,8 +1,6 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
-using namespace std;
-
 enum Element {
 	FLAME,
 	WAVE,

@@ -18,19 +18,19 @@ void Enemy::takeDamage(Attack a)
 	this->log = "";
 	for (Element e : this->weaknesses)
 	{
-		if (e == a.elem && e != Element::NONE) { 
+		if (e == a.elem && e != NONE) {
 			damage = damage * 3 / 2; 
 			log += "That's gotta hurt. \n";
 		}
 	}
 	for (Element e : this->strengths)
 	{
-		if (e == a.elem && e != Element::NONE) { 
+		if (e == a.elem && e != NONE) {
 			damage /= 2; 
 			log += "But it didn't hurt too much... \n";
 		}
 	}
-	if (a.range == Range::MAGIC) {
+	if (a.range == MAGIC) {
 		this->currHP -= ((damage - this->stats->intel) < 1) ? 1 : (damage - this->stats->intel);
 	}
 	else {
@@ -59,8 +59,8 @@ Attack Enemy::enAttack()
 	this->log = this->name + " does a physical attack!\n";
 	Attack a;
 	a.attack = this->stats->att;
-	a.elem = Element::NEUTRAL;
-	a.range = Range::CLOSE;
+	a.elem = NEUTRAL;
+	a.range = CLOSE;
 
 	return a;
 	
