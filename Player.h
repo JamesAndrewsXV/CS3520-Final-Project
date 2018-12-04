@@ -31,6 +31,7 @@ public:
 	void equipItem(Equippable *item);
 	void unequipItem(Equippable *item);
 	void useItem(Item *item);
+	string getLog();
 	Attack physAttack();
 	Attack magAttack();
 
@@ -44,6 +45,7 @@ private:
 	vector<Equippable*> _equipped;
 	vector<Element> strengths;
 	vector<Element> weaknesses;
+	string log;
 };
 
 

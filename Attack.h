@@ -1,6 +1,25 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
+using namespace std;
+
+enum Element {
+	FLAME,
+	WAVE,
+	ELECTRICITY,
+	TERRA,
+	HOLY,
+	CURSE,
+	NEUTRAL, 
+	NONE
+};
+
+enum Range {
+	CLOSE,
+	FAR,
+	MAGIC,
+	NONE
+};
 struct Attack {
 	//Attack power
 	int attack;
@@ -12,20 +31,6 @@ struct Attack {
 	Range range;
 };
 
-enum Element {
-	FLAME,
-	WAVE,
-	ELECTRICITY,
-	TERRA,
-	HOLY,
-	CURSE,
-	NEUTRAL
-};
 
-enum Range {
-	CLOSE,
-	FAR,
-	MAGIC
-};
 
 #endif // ATTACK_H

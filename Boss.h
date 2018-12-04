@@ -2,6 +2,7 @@
 #define BOSS_H
 
 #include "Enemy.h"
+#include "enemyInstance/AllBoss.h"
 
 class Boss : public Enemy
 {
@@ -9,7 +10,8 @@ public:
 	Boss();
 	virtual ~Boss();
 	void exploitWeakness();
-	Attack enAttack();
+	void recoverWeakness();
+
 
 protected:
 	Element weakenElement;
@@ -17,6 +19,7 @@ protected:
 	BossState state = BossState::NORMAL;
 	std::vector<Element> staticWeaknesses;
 	int recoveryTurns = 0;
+	static int bossAmount = 2;
 };
 
 enum BossState

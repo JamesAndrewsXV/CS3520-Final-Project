@@ -9,11 +9,7 @@ public:
 
 	BurningWhip()
 	{
-		this->bonus = new Stats(0, 30, 0, 2, 0);
-		this->range = Range::CLOSE;
-		this->kind = Kind::WEAPON;
-		this->strength = Element::FLAME;
-		this->name = "Burning Whip";
+		Equippable(new Stats(0, 30, 0, 2, 0), "Burning Whip", Kind::WEAPON, Range::CLOSE, Element::FLAME, Element::NONE);
 	}
 protected:
 private:

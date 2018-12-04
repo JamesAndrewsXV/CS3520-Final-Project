@@ -5,7 +5,7 @@
 class Bahamut : public Boss
 {
 public:
-	Bahamut::Bahamut()
+	Bahamut()
 	{
 		this->stats = new Stats(400, 120, 70, 100, 70);
 		this->currHP = this->stats->HP;
@@ -20,6 +20,7 @@ public:
 
 	Attack Enemy::attackDecision()
 	{
+		this->recoverWeakness();
 		switch (rand() % this->attackAmount)
 		{
 		case 0:
@@ -33,21 +34,35 @@ public:
 		}
 	}
 
-	Bahamut::~Bahamut() {}
 private:
-	Attack Bahamut::baAttack()
+	Attack baAttack()
 	{
-		return Attack{ this->stats->wis * 1.3, Element::FLAME, Range::MAGIC };
+		this->log = "Bahamut charges a flaming inferno!\n";
+		Attack a;
+		a.attack = this->stats->wis * 1.3;
+		a.elem = Element::FLAME;
+		a.range = Range::MAGIC;
+		return a;
 	}
 
-	Attack Bahamut::baAttack2()
+	Attack baAttack2()
 	{
-		return Attack{ this->stats->att * 1.1, Element::ELECTRICITY, Range::CLOSE };
+		this->log = "Bahamut hits with a charged claw!\n";
+		Attack a;
+		a.attack = this->stats->att * 1.1;
+		a.elem = Element::ELECTRICITY;
+		a.range = Range::CLOSE;
+		return a;
 	}
 
-	Attack Bahamut::baAttack3()
+	Attack baAttack3()
 	{
-		return Attack{ this->stats->wis, Element::ELECTRICITY, Range::MAGIC };
+		this->log = "Bahamut blasts with shocking breath!\n";
+		Attack a;
+		a.attack = this->stats->wis;
+		a.elem = Element::ELECTRICITY;
+		a.range = Range::MAGIC;
+		return a;
 	}
 
 };

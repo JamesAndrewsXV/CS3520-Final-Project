@@ -32,7 +32,12 @@ private:
 	//Attack exclusive to wraiths (magic type)
 	Attack wrAttack()
 	{
-		return Attack{ this->stats->wis, Element::CURSE, Range::MAGIC };
+		this->log = "Wraith shrieks!\n";
+		Attack a;
+		a.attack = this->stats->wis;
+		a.elem = Element::CURSE;
+		a.range = Range::MAGIC;
+		return a;
 	}
 private:
 };

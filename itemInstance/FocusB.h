@@ -8,9 +8,7 @@ class FocusBand :public Equippable
 public:
 	FocusBand()
 	{
-		this->bonus = new Stats(10, 5, 14, 0, 4);
-		this->kind = Kind::HELM;
-		this->name = "Focus Sash";
+		Equippable(new Stats(10, 5, 14, 0, 4), "Focus Sash", Kind::HELM, Range::NONE, Element::NONE, Element::NONE);
 	}
 };
 

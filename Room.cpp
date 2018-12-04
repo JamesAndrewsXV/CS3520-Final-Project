@@ -2,13 +2,13 @@
 
 Room::Room()
 {
-	adjacentRooms = new map<int, Room*>();
-	adjRoomList = new vector<Room*>();
-	encounter = rand() % 2;
-	containLoot = rand() % 2;
-	setLoot(containLoot);
-	adjRoomList = new vector<Room*>();
-	firstRoom = false;
+	this->adjacentRooms = new map<int, Room*>();
+	this->adjRoomList = new vector<Room*>();
+	this->encounter = rand() % 2;
+	this->containLoot = rand() % 2;
+	this->setLoot(containLoot);
+	this->adjRoomList = new vector<Room*>();
+	this->firstRoom = false;
 }
 
 Room::~Room()
@@ -47,7 +47,7 @@ void Room::printLoot() {
 bool Room::connectRoom(Room * room) {
 	int roomKey = -1;
 	int maxAdjacentRooms = 3;
-	int randRoomPosn = rand() % 3 + 1;
+	int randRoomPosn = std::rand() % 3 + 1;
 	map<int, Room*>::iterator it = adjacentRooms->find(randRoomPosn);
 
 	if (adjacentRooms->size() == 0 && !firstRoom) {
@@ -55,7 +55,7 @@ bool Room::connectRoom(Room * room) {
 	} else {
 		for (int i = 1; i < maxAdjacentRooms; i++) {
 			while (it != adjacentRooms->end()) {
-				randRoomPosn = rand() % 3 + 1;
+				randRoomPosn = std::rand() % 3 + 1;
 				it = adjacentRooms->find(randRoomPosn);
 			}
 			roomKey = randRoomPosn;

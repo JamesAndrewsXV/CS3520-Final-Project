@@ -14,6 +14,7 @@ class Equippable : public Item {
 public:
 	//Constructor
 	Equippable();
+	Equippable(Stats *bonus, std::string name, Kind kind, Range range, Element strength, Element weakness);
 
 	//Destructor
 	virtual ~Equippable();
@@ -31,11 +32,9 @@ public:
 	Range getRange();
 
 protected:
-	Stats *bonus;
 	Kind kind;
 	Range range;
 	Element strength; // does the multiplier cover this?
 	Element weakness; // does the multiplier cover this?
-	vector<Ability> abilities;
 	//Includes some sort of indication as to which sprite to use
 };

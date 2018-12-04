@@ -41,17 +41,18 @@ vector<Equippable> Player::getEquipped()
 	}
 	return equipped;
 }
-
 void Player::takeDamage(Attack a)
 {
 	int damage = a.attack;
 	for (Element e : this->weaknesses)
 	{
-		if (e == a.elem) { damage = (double)damage * 1.5; }
+		if (e == a.elem && e != Element::NONE) { 
+			damage = damage * 3 / 2; 
+		}
 	}
 	for (Element e : this->strengths)
 	{
-		if (e == a.elem) { damage = (double)damage * 0.5; }
+		if (e == a.elem && e != Element::NONE) { damage /= 2; }
 	}
 	if (a.range == Range::MAGIC) {
 		this->currHP -= ((damage - this->stats->intel) < 0) ? 0 : (damage - this->stats->intel); // 0 HP, otherwise whatever damage is done.
@@ -61,7 +62,6 @@ void Player::takeDamage(Attack a)
 	}
 }
 //stat functions?  
-
 void Player::addItemToBag(Item *item) { this->_items.push_back(item); }
 void Player::equipItem(Equippable *item)
 {
@@ -138,14 +138,29 @@ void Player::unequipItem(Equippable *item)
 }
 
 
+string Player::getLog()
+{
+	return this->log;
+}
+
 Attack Player::physAttack()
 {
-	return Attack{ this->stats->att, this->elem, this->range };
+	this->log = "You attacked!\n";
+	Attack a;
+	a.attack = this->stats->att;
+	a.elem = this->elem;
+	a.range = this->range;
+	return a;
 }
 
 Attack Player::magAttack()
 {
-	return Attack{ this->stats->wis, this->elem, Range::MAGIC };
+	this->log = "You cast a spell!\n";
+	Attack a;
+	a.attack = this->stats->wis;
+	a.elem = this->elem;
+	a.range = Range::MAGIC;
+	return a;
 }
 
 

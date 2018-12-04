@@ -5,8 +5,7 @@
 #include "Attack.h"
 #include <vector>
 #include <memory>
-#include <cstdlib>
-//#include loot table
+#include "enemyInstance/AllCommon.h"
 
 //Enemy class
 class Enemy
@@ -21,18 +20,9 @@ public:
 	//Decides an action that the enemy takes during their turn
 	virtual Attack attackDecision() = 0;
 
-	static std::unique_ptr<Enemy> build_enemy() {
-		// get random number in choice
-		Enemy * enemy;
-		int choice = 0;
-		switch (choice) {
-		case 0: enemy = new Wraith(); break;
-		default: enemy = new Imp(); break;
-		}
-		return std::unique_ptr(enemy);
-	}
-
 	std::string getName();
+
+	std::string getLog();
 
 protected:
 	//Creates an attack against the player
@@ -54,10 +44,12 @@ protected:
 	//Name of the enemy
 	std::string name;
 
+	//Log of the enemy's actions
+	std::string log = "";
+
+	//Amount of instantiated enemies
+	static int enemyAmount = 6;
 };
-
-
-
 
 
 #endif // ENEMY_H

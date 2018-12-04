@@ -10,7 +10,8 @@ class Stats
 public:
 
 	Stats(int hp, int att, int def, int wis, int intel);
-	Stats& Stats::operator+= (const Stats & other);
+
+	Stats& operator+= (const Stats & other);
 
 	Stats & operator-=(const Stats & other);
 

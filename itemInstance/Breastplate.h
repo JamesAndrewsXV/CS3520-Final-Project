@@ -8,9 +8,7 @@ class Breastplate :public Equippable
 public:
 	Breastplate()
 	{
-		this->bonus = new Stats(20, 0, 10, 0, 2);
-		this->kind = Kind::CHEST;
-		this->name = "Breastplate";
+		Equippable(new Stats(20, 0, 10, 0, 2), "Breastplate", Kind::CHEST, Range::NONE, Element::NONE, Element::NONE);
 	}
 };
 

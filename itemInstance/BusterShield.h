@@ -3,17 +3,13 @@
 
 #include "../Equippable.h"
 
-class Fantasia : public Equippable
+class BusterShield : public Equippable
 {
 public:
 
-	Fantasia()
+	BusterShield()
 	{
-		this->bonus = new Stats(0, 15, 27, 30, 0);
-		this->range = Range::CLOSE;
-		this->kind = Kind::WEAPON;
-		this->strength = Element::HOLY;
-		this->name = "Buster Shield";
+		Equippable(new Stats(0, 15, 27, 30, 0), "Buster Shield", Kind::WEAPON, Range::CLOSE, Element::NEUTRAL, Element::NONE);
 	}
 protected:
 private:
